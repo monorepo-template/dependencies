@@ -1,0 +1,43 @@
+name: Test push
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+
+  npm:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Publish
+        working-directory: packages/test
+        run: >
+          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
+          yarn npm publish --tolerate-republish;
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/test-push.yml'
+      - 'packages/test/**/*'

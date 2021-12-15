@@ -1,10 +1,21 @@
 {
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
 
   "env": {
     "node": true
   },
+
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "error",
+        "no-unused-vars": "off"
+      }
+    }
+  ],
 
   "parserOptions": {
     "extraFileExtensions": [".cjs", ".json", ".mjs"],

@@ -24,19 +24,6 @@ export default async function getCoverageMap({
     skipFull: false,
   });
 
-  const filterByShouldInstrument = filename => {
-    const shouldInstrument = nyc.exclude.shouldInstrument(filename);
-    if (!shouldInstrument) {
-      return false;
-    }
-    if (enableLogging) {
-      console.log(
-        `Excluding coverage file after remap: ${join(path, filename)}`,
-      );
-    }
-    return true;
-  };
-
   for (const path of paths) {
     const handlePMap = async file => {
       if (enableLogging) {
@@ -50,7 +37,20 @@ export default async function getCoverageMap({
     const files = await nyc.coverageFiles(path);
     await pMap(files, handlePMap, P_MAP_OPTIONS);
     map.data = await nyc.sourceMaps.remapCoverage(map.data);
+
     if (nyc.config.excludeAfterRemap) {
+      const filterByShouldInstrument = filename => {
+        const shouldInstrument = nyc.exclude.shouldInstrument(filename);
+        if (!shouldInstrument) {
+          return false;
+        }
+        if (enableLogging) {
+          console.log(
+            `Excluding coverage file after remap: ${join(path, filename)}`,
+          );
+        }
+        return true;
+      };
       map.filter(filterByShouldInstrument);
     }
   }

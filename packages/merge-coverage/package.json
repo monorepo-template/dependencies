@@ -10,7 +10,7 @@
   "bin": "./bin/merge-coverage.mjs",
   "bugs": {
     "email": "monorepo-template-merge-coverage@charlesstover.com",
-    "url": "https://github.com/CharlesStover/monorepo-template/issues"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
     "bin",
@@ -26,12 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CharlesStover/monorepo-template.git"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
   "scripts": {
-    "eslint": "eslint bin",
-    "jest": "jest",
-    "jest:watch": "jest --coverage=false --watch"
+    "eslint": "eslint '**/*'"
   },
   "dependencies": {
     "istanbul-lib-coverage": "^3.2.0",

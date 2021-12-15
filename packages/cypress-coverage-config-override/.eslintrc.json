@@ -1,0 +1,8 @@
+{
+  "root": false,
+
+  "env": {
+    "jest": true,
+    "node": true
+  }
+}

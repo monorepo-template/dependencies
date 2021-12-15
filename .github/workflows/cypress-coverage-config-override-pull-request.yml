@@ -1,0 +1,62 @@
+name: Cypress coverage config-override pull request
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+
+  eslint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn cypress-coverage-config-override:eslint
+
+  jest:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Unit test
+        run: yarn cypress-coverage-config-override:jest
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage-config-override--jest-coverage
+          path: packages/cypress-coverage-config-override/jest/coverage
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/cypress-coverage-config-override-pull-request.yml'
+      - 'packages/cypress-coverage-config-override/**/*'

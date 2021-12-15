@@ -1,5 +1,5 @@
 {
-  "exclude": [".git", ".vscode", ".yarn"],
+  "exclude": [".git", ".vscode", ".yarn", "**/*.md"],
   "extends": "./tsconfig.json",
 
   "compilerOptions": {
@@ -8,6 +8,8 @@
   },
 
   "include": [
+    "**/.eslintrc.cjs",
+    "**/.eslintrc.json",
     "**/*.cjs",
     "**/*.d.ts",
     "**/*.js",

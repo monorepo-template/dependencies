@@ -1,20 +1,24 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/coverage",
   "license": "MIT",
+  "main": "./index.mjs",
+  "module": "./index.mjs",
   "type": "module",
   "bin": {
     "monorepo-template-coverage": "./bin/coverage.mjs"
   },
   "bugs": {
     "email": "monorepo-template-coverage@charlesstover.com",
-    "url": "https://github.com/CharlesStover/monorepo-template/issues"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
-    "bin"
+    "bin",
+    "src",
+    "index.mjs"
   ],
   "funding": {
     "type": "individual",
@@ -25,15 +29,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CharlesStover/monorepo-template.git"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
   "scripts": {
-    "eslint": "eslint bin",
-    "jest": "jest",
-    "jest:watch": "jest --coverage=false --watch"
+    "eslint": "eslint '**/*'"
   },
   "dependencies": {
     "@monorepo-template/merge-coverage": "workspace:^",
     "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.0",
+    "eslint": "^8.4.1"
   }
 }
