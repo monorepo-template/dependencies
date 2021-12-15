@@ -1,0 +1,45 @@
+{
+  "name": "@charlesstover/monorepo-template",
+  "version": "1.0.0",
+  "license": "MIT",
+  "packageManager": "yarn@3.1.0",
+  "private": true,
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/CharlesStover"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "application:build": "yarn workspace @monorepo-template/application run build",
+    "application:coverage": "yarn workspace @monorepo-template/application run coverage",
+    "application:cypress": "yarn workspace @monorepo-template/application run cypress",
+    "application:cypress:start": "yarn workspace @monorepo-template/application run cypress:start",
+    "application:eslint": "yarn workspace @monorepo-template/application run eslint",
+    "application:jest": "yarn workspace @monorepo-template/application run jest",
+    "application:jest:watch": "yarn workspace @monorepo-template/application run jest:watch",
+    "application:start": "yarn workspace @monorepo-template/application run start",
+    "module:change-scope": "yarn workspace @monorepo-template/module run change-scope",
+    "module:eslint": "yarn workspace @monorepo-template/module run eslint",
+    "module:jest": "yarn workspace @monorepo-template/module run jest",
+    "module:jest:watch": "yarn workspace @monorepo-template/module run jest:watch",
+    "module:rollup": "yarn workspace @monorepo-template/module run rollup",
+    "module:rollup:watch": "yarn workspace @monorepo-template/module run rollup:watch",
+    "module:start": "yarn workspace @monorepo-template/module run start",
+    "test": "monorepo-template-test"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@monorepo-template/test": "workspace:^",
+    "@types/node": "^16.11.10",
+    "@yarnpkg/sdks": "^2.5.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  }
+}

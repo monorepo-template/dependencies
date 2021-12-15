@@ -1,0 +1,25 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+
+  "env": {
+    "node": true
+  },
+
+  "parserOptions": {
+    "extraFileExtensions": [".cjs", ".json", ".mjs"],
+    "project": "./tsconfig.eslint.json",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+
+  "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ]
+  }
+}

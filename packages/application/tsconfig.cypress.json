@@ -1,0 +1,11 @@
+{
+  "compileOnSave": false,
+  "exclude": ["build", "node_modules"],
+  "extends": "./tsconfig.json",
+
+  "compilerOptions": {
+    "importHelpers": true,
+    "inlineSourceMap": true,
+    "sourceMap": true
+  }
+}
