@@ -10,13 +10,13 @@
   "types": "./index.d.ts",
   "bugs": {
     "email": "monorepo-template-coverage-config-override@charlesstover.com",
-    "url": "https://github.com/CharlesStover/monorepo-template/issues"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "directories": {
     "lib": "src"
   },
   "files": [
-    "dist",
+    "src",
     "index.cjs",
     "index.d.ts"
   ],
@@ -30,10 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CharlesStover/monorepo-template.git"
+    "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
   "scripts": {
-    "eslint": "eslint .",
+    "eslint": "eslint '**/*'",
     "jest": "jest",
     "jest:watch": "jest --coverage=false --watch"
   },
@@ -43,7 +43,9 @@
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
-    "eslint": "^8.1.0",
-    "jest": "^27.3.1"
+    "eslint": "^8.4.1",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.1.1",
+    "typescript": "^4.5.4"
   }
 }

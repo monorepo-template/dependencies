@@ -2,7 +2,6 @@ module.exports = {
   root: false,
 
   env: {
-    jest: true,
     node: true,
   },
 

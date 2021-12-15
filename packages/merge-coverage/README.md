@@ -27,22 +27,22 @@ Execute the script using your favorite package manager:
 - `npm run merge-coverage` or
 - `yarn merge-coverage`
 
-### Programmatically
+### Module
 
 Import the `mergeCoverage` function:
 
 ```javascript
-import mergeCoverage from '@monorepo-template';
+import mergeCoverage from '@monorepo-template/merge-coverage';
 
 await mergeCoverage(['./cypress/coverage', './jest/coverage']);
 ```
 
 The `mergeCoverage` function accepts a second [options](#options) parameter.
 
-## Options
+#### Options
 
-When merging coverage [programmatically](#programmatically), you may pass the
-`mergeCoverage` function an options object.
+When merging coverage [programmatically](#module), you may pass an options
+object to the `mergeCoverage` function.
 
 - `enableLogging` (type: `boolean`; default: `true`) - enables console logs
 - `outputDir` (type: `string`; default: `'.nyc_output'`) - the directory to

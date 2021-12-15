@@ -1,7 +1,25 @@
-# Cypress coverage config-overrides
+# Cypress coverage config-override
 
-Cypress coverage config-overrides is a `react-app-rewired` config override that
+Cypress coverage config-override is a `react-app-rewired` config override that
 enables coverage for Cypress tests.
+
+## Use
+
+Bootstrap your React application with Cypress coverage by using
+`react-app-rewired`'s `config-overrides.js` file.
+
+```js
+const cypressConfigOverride = require('@monorepo-template/cypress-coverage-config-override');
+
+module.exports = function override(config, env) {
+  // For non-development environments, do not monitor code coverage.
+  if (env !== 'development') {
+    return config;
+  }
+
+  return cypressConfigOverride(config);
+};
+```
 
 ## Credit
 

@@ -1,2 +1,6 @@
-declare const cypressCoverageConfigOverride: <T>(config: T, env: string) => T;
+declare function cypressCoverageConfigOverride<T>(
+  config: T,
+  env?: string | undefined,
+): T;
+
 export = cypressCoverageConfigOverride;

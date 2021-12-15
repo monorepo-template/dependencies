@@ -1,1 +1,1 @@
-module.exports = require('./cypress-coverage-config-override.cjs');
+module.exports = require('./src/cypress-coverage-config-override.cjs');

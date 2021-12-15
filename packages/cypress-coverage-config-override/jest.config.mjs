@@ -1,13 +1,22 @@
 export default {
   cacheDirectory: './jest/cache',
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/**/*.cjs', '!<rootDir>/**/*.test.cjs'],
   coverageDirectory: './jest/coverage',
-  coverageReporters: ['json', 'lcov', ['text', { skipFull: true }], 'clover'],
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  moduleFileExtensions: ['cjs', 'js', 'ts'],
+  preset: 'ts-jest',
   resetMocks: true,
   resetModules: true,
   restoreMocks: true,
   roots: ['<rootDir>'],
+
+  collectCoverageFrom: [
+    '<rootDir>/**/*',
+    '!<rootDir>/.eslintrc.cjs',
+    '!<rootDir>/jest/**/*',
+    '!<rootDir>/**/*.d.ts',
+  ],
+
   coverageThreshold: {
     global: {
       branches: 100,

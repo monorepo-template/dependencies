@@ -1,7 +1,5 @@
-/jest/
-/.env
+/.eslintignore
 /.eslintrc.json
-/.gitignore
 /.npmignore
-/jest.config.mjs
+/tsconfig.eslint.json
 .DS_Store

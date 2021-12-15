@@ -1,0 +1,82 @@
+name: Coverage push
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+
+  eslint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn coverage:eslint
+
+  jest:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Unit test
+        run: yarn cypress-coverage-config-override:jest
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage-config-override--jest-coverage
+          path: packages/cypress-coverage-config-override/jest/coverage
+
+  npm:
+    needs: [eslint, jest]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Publish
+        working-directory: packages/cypress-coverage-config-override
+        run: >
+          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
+          yarn npm publish --tolerate-republish;
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cypress-coverage-config-override-push.yml'
+      - 'packages/cypress-coverage-config-override/**/*'
