@@ -1,4 +1,4 @@
-name: Coverage push
+name: Cypress coverage config-override push
 
 jobs:
   install:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn coverage:eslint
+        run: yarn cypress-coverage-config-override:eslint
 
   jest:
     needs: install
