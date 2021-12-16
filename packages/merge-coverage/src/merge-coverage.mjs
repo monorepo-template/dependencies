@@ -10,6 +10,7 @@ Consider `bin/merge-coverage` being a monorepo-template coverage merging module,
 */
 
 const DEFAULT_OPTIONS = Object.create(null);
+const SPACES_COUNT = 2;
 
 export default async function mergeCoverage(
   paths,
@@ -37,6 +38,6 @@ export default async function mergeCoverage(
     console.log(`Writing coverage file: ${OUTPUT_FILE}`);
   }
 
-  const mapStr = JSON.stringify(map, null, 2);
+  const mapStr = JSON.stringify(map, null, SPACES_COUNT);
   writeFileSync(OUTPUT_FILE, mapStr, 'utf8');
 }

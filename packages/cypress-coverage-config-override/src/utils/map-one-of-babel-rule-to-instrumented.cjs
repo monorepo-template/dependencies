@@ -2,9 +2,13 @@ const MISSING_BABEL_LOADER_ERROR = require('../constants/missing-babel-loader-er
 const findBabelRule = require('../utils/find-babel-rule.cjs');
 const mapBabelRuleToInstrumented = require('../utils/map-babel-rule-to-instrumented.cjs');
 
+const NEXT_INDEX = 1;
+const NOT_FOUND = -1;
+const START = 0;
+
 module.exports = function mapOneOfBabelRuleToInstrumented(rule) {
   const babelRuleIndex = rule.oneOf.findIndex(findBabelRule);
-  if (babelRuleIndex === -1) {
+  if (babelRuleIndex === NOT_FOUND) {
     throw MISSING_BABEL_LOADER_ERROR;
   }
 
@@ -12,9 +16,9 @@ module.exports = function mapOneOfBabelRuleToInstrumented(rule) {
   return {
     ...rule,
     oneOf: [
-      ...rule.oneOf.slice(0, babelRuleIndex),
+      ...rule.oneOf.slice(START, babelRuleIndex),
       mapBabelRuleToInstrumented(babelRule),
-      ...rule.oneOf.slice(babelRuleIndex + 1),
+      ...rule.oneOf.slice(babelRuleIndex + NEXT_INDEX),
     ],
   };
 };

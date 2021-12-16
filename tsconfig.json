@@ -4,6 +4,11 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "lib": ["DOM", "ESNext"]
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
   }
 }

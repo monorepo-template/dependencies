@@ -2,16 +2,20 @@ const MISSING_ONE_OF_BABEL_RULE_ERROR = require('../constants/missing-one-of-bab
 const findOneOfBabelRule = require('../utils/find-one-of-babel-rule.cjs');
 const mapOneOfBabelRuleToInstrumented = require('../utils/map-one-of-babel-rule-to-instrumented.cjs');
 
+const NEXT_INDEX = 1;
+const NOT_FOUND = -1;
+const START = 0;
+
 module.exports = function mapRulesToInstrumented(rules) {
   const oneOfRuleBabelRuleIndex = rules.findIndex(findOneOfBabelRule);
-  if (oneOfRuleBabelRuleIndex === -1) {
+  if (oneOfRuleBabelRuleIndex === NOT_FOUND) {
     throw MISSING_ONE_OF_BABEL_RULE_ERROR;
   }
 
   const oneOfBabelRule = rules[oneOfRuleBabelRuleIndex];
   return [
-    ...rules.slice(0, oneOfRuleBabelRuleIndex),
+    ...rules.slice(START, oneOfRuleBabelRuleIndex),
     mapOneOfBabelRuleToInstrumented(oneOfBabelRule),
-    ...rules.slice(oneOfRuleBabelRuleIndex + 1),
+    ...rules.slice(oneOfRuleBabelRuleIndex + NEXT_INDEX),
   ];
 };

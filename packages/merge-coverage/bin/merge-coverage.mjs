@@ -1,8 +1,11 @@
-import { resolve } from 'path';
+import mapRelativePathToAbsolutePath from './utils/map-relative-path-to-absolute-path.mjs';
 import mergeCoverage from '..';
 
-const PATHS = process.argv.slice(2).map(path => resolve(path));
+const COMMAND_PREFIX_LENGTH = 2;
 
-await mergeCoverage(PATHS, {
+const relativePaths = process.argv.slice(COMMAND_PREFIX_LENGTH);
+const absolutePaths = relativePaths.map(mapRelativePathToAbsolutePath);
+
+await mergeCoverage(absolutePaths, {
   workingDirectory: process.cwd(),
 });
