@@ -1,4 +1,4 @@
-name: Test push
+name: Test pull request
 
 jobs:
   install:
@@ -36,26 +36,6 @@ jobs:
   #       with:
   #         name: test--jest-coverage
   #         path: packages/test/jest/coverage
-
-  npm:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
-      - name: Publish
-        working-directory: packages/test
-        run: >
-          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
-          yarn npm publish --tolerate-republish;
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
   push:

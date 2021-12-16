@@ -4,8 +4,6 @@ import mapGitHubWorkflowFileNameToJson from '../utils/map-github-workflow-file-n
 import mapPathToPackageJson from '../utils/map-path-to-package-json.mjs';
 import mapPathToWorkspace from '../utils/map-path-to-workspace.mjs';
 
-const WORKSPACE_PACKAGE_VERSION = /^workspace:/;
-
 const DEPENDENCY_PROPERTIES = [
   'dependencies',
   'devDependencies',
@@ -41,13 +39,10 @@ export default function testGitHubWorkflows() {
     // GitHub workflow event triggers
     LOGGER.indent();
     for (const [event, sources] of Object.entries(gitHubWorkflowJson.on)) {
-      if (typeof sources !== 'object') {
-        throw new Error(
-          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}\` to be an object.`,
-        );
-      }
-
-      if (!Object.prototype.hasOwnProperty.call(sources, 'paths')) {
+      if (
+        typeof sources !== 'object' ||
+        !Object.prototype.hasOwnProperty.call(sources, 'paths')
+      ) {
         LOGGER.addItem(`${event} (skipped; does not target any paths)`);
         continue;
       }
@@ -111,7 +106,7 @@ export default function testGitHubWorkflows() {
           for (const [packageName, packageVersion] of Object.entries(
             packageJson[property],
           )) {
-            if (!WORKSPACE_PACKAGE_VERSION.test(packageVersion)) {
+            if (!packageVersion.startsWith('workspace:')) {
               continue;
             }
 

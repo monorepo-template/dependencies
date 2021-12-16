@@ -1,6 +1,6 @@
 {
   "exclude": ["jest", "node_modules"],
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.eslint.json",
   "compilerOptions": {
     "types": ["jest"]
   }

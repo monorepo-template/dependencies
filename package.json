@@ -4,6 +4,7 @@
   "license": "MIT",
   "packageManager": "yarn@3.1.1",
   "private": true,
+  "type": "module",
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -17,7 +18,8 @@
     "cypress-coverage-config-override:jest": "yarn workspace @monorepo-template/cypress-coverage-config-override run jest",
     "merge-coverage:eslint": "yarn workspace @monorepo-template/merge-coverage run eslint",
     "test": "monorepo-template-test",
-    "test:eslint": "yarn workspace @monorepo-template/test run eslint"
+    "test:eslint": "yarn workspace @monorepo-template/test run eslint",
+    "test:jest": "yarn workspace @monorepo-template/test run jest"
   },
   "workspaces": [
     "packages/*"

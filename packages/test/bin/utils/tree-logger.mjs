@@ -1,8 +1,13 @@
 // This should either be a third-party module from NPM that does this better, or
 //   it should be moved to a separate package in this monorepo.
 
+const ERROR_CODE = 1;
+const INDEX_OFFSET = 1;
+const NONE = 0;
+
 export default class TreeLogger {
-  _indent = 0;
+  _indent = NONE;
+
   _logged = false;
 
   constructor(value) {
@@ -14,21 +19,22 @@ export default class TreeLogger {
     process.on('uncaughtException', this.handleUncaughtException);
   }
 
+  get currentItem() {
+    let currentItem = this._tree;
+    for (let i = 0; i < this._indent; i++) {
+      const currentItemChildrenLastIndex =
+        currentItem.children.length - INDEX_OFFSET;
+      currentItem = currentItem.children[currentItemChildrenLastIndex];
+    }
+    return currentItem;
+  }
+
   addItem = value => {
     this.currentItem.children.push({
       children: [],
       value,
     });
   };
-
-  get currentItem() {
-    let currentItem = this._tree;
-    for (let i = 0; i < this._indent; i++) {
-      const currentItemChildrenCount = currentItem.children.length;
-      currentItem = currentItem.children[currentItemChildrenCount - 1];
-    }
-    return currentItem;
-  }
 
   handleUncaughtException = err => {
     if (this._logged) {
@@ -39,7 +45,7 @@ export default class TreeLogger {
     console.error(err);
     console.log('');
     console.log('Failure');
-    process.exit(1);
+    process.exit(ERROR_CODE);
   };
 
   indent = () => {
@@ -58,17 +64,18 @@ export default class TreeLogger {
     let item = this._tree;
     let prefix = '';
     const indicesCount = indices.length;
+    const lastIndicesIndex = indicesCount - INDEX_OFFSET;
     for (let i = 0; i < indicesCount; i++) {
       const index = indices[i];
-      const lastIndex = item.children.length - 1;
+      const lastIndex = item.children.length - INDEX_OFFSET;
       if (index === lastIndex) {
-        if (i === indicesCount - 1) {
+        if (i === lastIndicesIndex) {
           prefix += '   └─';
         } else {
           prefix += '     ';
         }
       } else {
-        if (i === indicesCount - 1) {
+        if (i === lastIndicesIndex) {
           prefix += '   ├─';
         } else {
           prefix += '   │ ';
@@ -80,7 +87,7 @@ export default class TreeLogger {
     console.log(`${prefix} ${item.value}`);
 
     const childrenCount = item.children.length;
-    if (childrenCount > 0) {
+    if (childrenCount > NONE) {
       for (let i = 0; i < childrenCount; i++) {
         this.logItem(...indices, i);
       }
