@@ -768,6 +768,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/merge-coverage@workspace:packages/merge-coverage"
   dependencies:
+    eslint: ^8.4.1
     istanbul-lib-coverage: ^3.2.0
     make-dir: ^3.1.0
     nyc: ^15.1.0
