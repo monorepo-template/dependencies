@@ -1,9 +1,11 @@
 {
-  "exclude": [".git", ".vscode", ".yarn"],
+  "exclude": [".git", ".vscode", ".yarn", "node_modules"],
   "extends": "./tsconfig.json",
   "include": [
     "**/.eslintrc.cjs",
     "**/.eslintrc.json",
+    "**/.prettierrc.json",
+    "**/.yarnrc.yml",
     "**/*.cjs",
     "**/*.d.ts",
     "**/*.js",
