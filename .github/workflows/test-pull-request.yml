@@ -41,5 +41,5 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/test-push.yml'
+      - '.github/workflows/test-pull-request.yml'
       - 'packages/test/**/*'
