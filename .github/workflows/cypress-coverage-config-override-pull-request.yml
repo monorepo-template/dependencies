@@ -49,6 +49,7 @@ jobs:
       - name: Unit test
         run: yarn cypress-coverage-config-override:jest
       - name: Upload coverage
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: cypress-coverage-config-override--jest-coverage
