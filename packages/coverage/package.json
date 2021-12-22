@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/coverage",

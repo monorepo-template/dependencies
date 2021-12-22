@@ -2,6 +2,7 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import MISSING_CYPRESS_COVERAGE_DIRECTORY_ERROR from './constants/missing-cypress-coverage-directory-error.mjs';
 import MISSING_JEST_COVERAGE_DIRECTORY_ERROR from './constants/missing-jest-coverage-directory-error.mjs';
+import THRESHOLDS from './constants/thresholds.mjs';
 import mapCypressCoverageDirectoryToPaths from './utils/map-cypress-coverage-directory-to-paths.mjs';
 import coverage from '../index.mjs';
 
@@ -24,5 +25,6 @@ const COVERAGE_PATHS = [
 
 await coverage({
   paths: COVERAGE_PATHS,
+  thresholds: THRESHOLDS,
   workingDirectory: CWD,
 });
