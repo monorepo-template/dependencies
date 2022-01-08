@@ -1,1 +1,1 @@
-export { default } from './jest-preset.mjs';
+module.exports = require('./jest-preset.cjs');
