@@ -15,6 +15,7 @@
     "src",
     "index.js",
     "index.mjs",
+    "jest-preset.js",
     "jest-preset.mjs"
   ],
   "funding": {
