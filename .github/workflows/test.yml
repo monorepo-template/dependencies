@@ -1,4 +1,4 @@
-name: Pull request
+name: Test
 
 jobs:
   install:
@@ -15,7 +15,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  test:
+  npm:
+    if: ${{ github.event_name == 'push' }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -27,11 +28,22 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Test
-        run: yarn test
+      - name: Publish
+        working-directory: packages/test
+        run: >
+          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
+          yarn npm publish --tolerate-republish;
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
-  pull_request:
+  # pull_request:
+  #   branches: [main]
+  #   paths:
+  #     - '.github/workflows/test.yml'
+  #     - 'packages/test/**/*'
+  push:
     branches: [main]
+    paths:
+      - '.github/workflows/test.yml'
+      - 'packages/test/**/*'

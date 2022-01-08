@@ -1,4 +1,4 @@
-name: Cypress coverage config-override push
+name: Merge coverage
 
 jobs:
   install:
@@ -30,33 +30,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn cypress-coverage-config-override:eslint
-
-  jest:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Unit test
-        run: yarn cypress-coverage-config-override:jest
-      - name: Upload coverage
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-coverage-config-override--jest-coverage
-          path: packages/cypress-coverage-config-override/jest/coverage
+        run: yarn merge-coverage:eslint
 
   npm:
-    needs: [eslint, jest]
+    if: ${{ github.event_name == 'push' }}
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -68,7 +46,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/cypress-coverage-config-override
+        working-directory: packages/merge-coverage
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
@@ -76,8 +54,13 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/merge-coverage.yml'
+      - 'packages/merge-coverage/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/cypress-coverage-config-override-push.yml'
-      - 'packages/cypress-coverage-config-override/**/*'
+      - '.github/workflows/merge-coverage.yml'
+      - 'packages/merge-coverage/**/*'

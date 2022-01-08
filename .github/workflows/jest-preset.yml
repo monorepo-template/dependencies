@@ -1,4 +1,4 @@
-name: Merge coverage pull request
+name: Jest preset
 
 jobs:
   install:
@@ -15,7 +15,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
+  npm:
+    if: ${{ github.event_name == 'push' }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -27,14 +28,24 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Lint
-        run: yarn merge-coverage:eslint
+      - name: Publish
+        working-directory: packages/jest-preset
+        run: >
+          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
+          yarn npm publish --tolerate-republish;
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
-  pull_request:
+  # pull_request:
+  #   branches: [main]
+  #   paths:
+  #     - '.github/workflows/jest-preset.yml'
+  #     - 'packages/jest-preset/**/*'
+  #     - 'packages/jest-transformer/**/*'
+  push:
     branches: [main]
     paths:
-      - '.github/workflows/merge-coverage-pull-request.yml'
-      - 'packages/merge-coverage/**/*'
+      - '.github/workflows/jest-preset.yml'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
