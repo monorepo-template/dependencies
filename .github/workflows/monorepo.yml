@@ -1,4 +1,4 @@
-name: Coverage pull request
+name: Monorepo
 
 jobs:
   install:
@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
+  test:
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -29,13 +29,11 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Lint
-        run: yarn coverage:eslint
+      - name: Test
+        run: yarn test
 
 on:
   pull_request:
     branches: [main]
-    paths:
-      - '.github/workflows/coverage-pull-request.yml'
-      - 'packages/coverage/**/*'
-      - 'packages/merge-coverage/**/*'
+  push:
+    branches: [main]

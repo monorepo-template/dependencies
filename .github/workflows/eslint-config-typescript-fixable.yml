@@ -1,4 +1,4 @@
-name: Merge coverage push
+name: Fixable TypeScript ESLint config
 
 jobs:
   install:
@@ -15,7 +15,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
+  npm:
+    if: ${{ github.event_name == 'push' }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -27,25 +28,8 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Lint
-        run: yarn merge-coverage:eslint
-
-  npm:
-    needs: eslint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/merge-coverage
+        working-directory: packages/eslint-config-typescript-fixable
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
@@ -53,8 +37,13 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
+  # pull_request:
+  #   branches: [main]
+  #   paths:
+  #     - '.github/workflows/eslint-config-typescript-fixable.yml'
+  #     - 'packages/eslint-config-typescript-fixable/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/merge-coverage-push.yml'
-      - 'packages/merge-coverage/**/*'
+      - '.github/workflows/eslint-config-typescript-fixable.yml'
+      - 'packages/eslint-config-typescript-fixable/**/*'
