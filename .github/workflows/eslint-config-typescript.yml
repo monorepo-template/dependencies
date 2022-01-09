@@ -1,4 +1,4 @@
-name: Fixable TypeScript ESLint config
+name: TypeScript ESLint config
 
 jobs:
   install:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn eslint-config-typescript-fixable:eslint
+        run: yarn eslint-config-typescript:eslint
 
   npm:
     if: ${{ github.event_name == 'push' }}
@@ -46,7 +46,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/eslint-config-typescript-fixable
+        working-directory: packages/eslint-config-typescript
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
@@ -57,10 +57,10 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - '.github/workflows/eslint-config-typescript-fixable.yml'
-      - 'packages/eslint-config-typescript-fixable/**/*'
+      - '.github/workflows/eslint-config-typescript.yml'
+      - 'packages/eslint-config-typescript/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/eslint-config-typescript-fixable.yml'
-      - 'packages/eslint-config-typescript-fixable/**/*'
+      - '.github/workflows/eslint-config-typescript.yml'
+      - 'packages/eslint-config-typescript/**/*'

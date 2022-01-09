@@ -16,6 +16,8 @@
     "coverage:eslint": "yarn workspace @monorepo-template/coverage run eslint",
     "cypress-coverage-config-override:eslint": "yarn workspace @monorepo-template/cypress-coverage-config-override run eslint",
     "cypress-coverage-config-override:jest": "yarn workspace @monorepo-template/cypress-coverage-config-override run jest",
+    "eslint-config-typescript:eslint": "yarn workspace @monorepo-template/eslint-config-typescript run eslint",
+    "eslint-config-typescript-fixable:eslint": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint",
     "merge-coverage:eslint": "yarn workspace @monorepo-template/merge-coverage run eslint",
     "test": "monorepo-template-test",
     "test:eslint": "yarn workspace @monorepo-template/test run eslint",

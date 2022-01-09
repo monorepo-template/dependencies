@@ -24,13 +24,6 @@
     }
   ],
 
-  "parserOptions": {
-    "extraFileExtensions": [".cjs", ".json", ".mjs"],
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
-  },
-
   "rules": {
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/ban-tslint-comment": "error",
