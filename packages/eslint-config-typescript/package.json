@@ -1,11 +1,11 @@
 {
   "name": "@monorepo-template/eslint-config-typescript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript@charlesstover.com>",
   "description": "TypeScript configuration for ESLint",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-typescript",
   "license": "MIT",
-  "main": "./src/eslint-config-typescript.cjs",
+  "main": "./index.js",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-typescript@charlesstover.com",
