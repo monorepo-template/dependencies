@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "@typescript-eslint/quotes": ["error", "double"],
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "never"
+      }
+    ]
+  }
+}

@@ -1,36 +1,4 @@
 {
-  "overrides": [
-    {
-      "files": ["*.cjs", "*.js", "*.jsx", "*.mjs"],
-      "rules": {
-        "@typescript-eslint/explicit-member-accessibility": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off"
-      }
-    },
-
-    {
-      "files": ["*.json"],
-      "rules": {
-        "@typescript-eslint/quotes": ["error", "double"],
-        "@typescript-eslint/semi": "off",
-        "@typescript-eslint/comma-dangle": [
-          "error",
-          {
-            "arrays": "never",
-            "objects": "never"
-          }
-        ]
-      }
-    }
-  ],
-
-  "parserOptions": {
-    "extraFileExtensions": [".cjs", ".json", ".mjs"],
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
-  },
-
   "rules": {
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/ban-tslint-comment": "error",
@@ -78,11 +46,11 @@
     "@typescript-eslint/prefer-reduce-type-parameter": "error",
     "@typescript-eslint/prefer-return-this-type": "error",
     "@typescript-eslint/prefer-regexp-exec": "error",
-    "@typescript-eslint/return-await": "error",
     "@typescript-eslint/prefer-string-starts-ends-with": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/promise-function-async": "error",
     "@typescript-eslint/quotes": "error",
+    "@typescript-eslint/return-await": "error",
     "@typescript-eslint/semi": "error",
     "@typescript-eslint/sort-type-union-intersection-members": "error",
     "@typescript-eslint/space-before-function-paren": "error",

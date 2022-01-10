@@ -1,4 +1,4 @@
-name: Jest transformer
+name: jest-transformer
 
 jobs:
   install:

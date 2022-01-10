@@ -1,5 +1,5 @@
 {
-  "exclude": [".git", ".vscode", ".yarn", "node_modules"],
+  "exclude": [".git", ".yarn", "node_modules", "**/*.md"],
   "extends": "./tsconfig.json",
   "include": [
     "**/.eslintrc.cjs",
