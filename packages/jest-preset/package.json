@@ -28,8 +28,14 @@
     "type": "git",
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
+  "scripts": {
+    "eslint": "eslint '**/*'"
+  },
   "dependencies": {
     "@monorepo-template/jest-transformer": "workspace:^",
     "identity-obj-proxy": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
   }
 }

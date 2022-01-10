@@ -1,11 +1,11 @@
 {
   "name": "@monorepo-template/jest-module-preset",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Charles Stover <monorepo-template-jest-module-preset@charlesstover.com>",
   "description": "Jest preset for monorepo template modules",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/jest-module-preset",
   "license": "MIT",
-  "module": "./src/jest-module-preset.cjs",
+  "main": "./src/jest-module-preset.cjs",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-jest-module-preset@charlesstover.com",
@@ -29,7 +29,13 @@
     "type": "git",
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
+  "scripts": {
+    "eslint": "eslint '**/*'"
+  },
   "dependencies": {
     "@monorepo-template/jest-preset": "workspace:^"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
   }
 }
