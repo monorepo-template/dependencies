@@ -8,7 +8,7 @@ manual effort is required to adhere to this configuration's rules.
 
 - `npm install --save-dev @monorepo-template/eslint-config-typescript-fixable`
   or
-- `yarn add --dev @monorepo-template/eslint-config-typescript`
+- `yarn add --dev @monorepo-template/eslint-config-typescript-fixable`
 
 ## Use
 
