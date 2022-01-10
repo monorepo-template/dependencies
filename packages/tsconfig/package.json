@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/tsconfig",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Charles Stover <monorepo-template-tsconfig@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/tsconfig",
