@@ -1,14 +1,9 @@
-const JEST_PRESET = require('../constants/jest-preset.cjs');
+const COVERAGE_THRESHOLD_PRESET = require('../constants/coverage-threshold-preset.cjs');
+const GLOBAL_COVERAGE_THRESHOLD = require('../constants/global-coverage-threshold.cjs');
 
 const COVERAGE_THRESHOLD = {
-  ...JEST_PRESET.coverageThreshold,
-  global: {
-    ...JEST_PRESET.coverageThreshold?.global,
-    branches: 0,
-    functions: 0,
-    lines: 0,
-    statements: 0,
-  },
+  ...COVERAGE_THRESHOLD_PRESET,
+  global: GLOBAL_COVERAGE_THRESHOLD,
 };
 
 module.exports = COVERAGE_THRESHOLD;
