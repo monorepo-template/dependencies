@@ -31,6 +31,11 @@ _Merge_ the following ESLint configuration into your `.eslintrc.json` file:
     {
       "files": ["*.json"],
       "extends": ["@monorepo-template/typescript/json"]
+    },
+
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["@monorepo-template/typescript/ts"]
     }
   ]
 }

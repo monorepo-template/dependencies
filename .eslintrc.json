@@ -39,6 +39,11 @@
         "@monorepo-template/typescript/json",
         "@monorepo-template/typescript-fixable/json"
       ]
+    },
+
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": "@monorepo-template/typescript/ts"
     }
   ],
 
