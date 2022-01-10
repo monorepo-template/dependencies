@@ -12,14 +12,21 @@
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
+    "rules",
     "src",
-    "index.cjs",
-    "index.js"
+    "cjs.js",
+    "index.js",
+    "js.js",
+    "json.js"
   ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
   },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
   "publishConfig": {
     "access": "public"
   },

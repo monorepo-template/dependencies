@@ -1,4 +1,4 @@
-name: TypeScript ESLint config
+name: eslint-config-typescript
 
 jobs:
   install:

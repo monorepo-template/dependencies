@@ -1,4 +1,4 @@
-name: Jest module preset
+name: jest-module-preset
 
 jobs:
   install:

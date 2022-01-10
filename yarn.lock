@@ -1653,12 +1653,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@charlesstover/monorepo-template-dependencies@workspace:."
   dependencies:
+    "@monorepo-template/eslint-config-typescript": "workspace:^"
+    "@monorepo-template/eslint-config-typescript-fixable": "workspace:^"
     "@monorepo-template/test": "workspace:^"
     "@types/node": ^16.11.10
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
     "@yarnpkg/sdks": ^2.5.1-rc.6
-    eslint: ^8.4.1
+    eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     prettier: ^2.4.1
@@ -2204,13 +2206,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monorepo-template/eslint-config-typescript-fixable@workspace:packages/eslint-config-typescript-fixable":
+"@monorepo-template/eslint-config-typescript-fixable@workspace:^, @monorepo-template/eslint-config-typescript-fixable@workspace:packages/eslint-config-typescript-fixable":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-typescript-fixable@workspace:packages/eslint-config-typescript-fixable"
+  dependencies:
+    eslint: ^8.6.0
   languageName: unknown
   linkType: soft
 
-"@monorepo-template/eslint-config-typescript@workspace:packages/eslint-config-typescript":
+"@monorepo-template/eslint-config-typescript@workspace:^, @monorepo-template/eslint-config-typescript@workspace:packages/eslint-config-typescript":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-typescript@workspace:packages/eslint-config-typescript"
   dependencies:

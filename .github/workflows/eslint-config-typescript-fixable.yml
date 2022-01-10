@@ -1,4 +1,4 @@
-name: Fixable TypeScript ESLint config
+name: eslint-config-typescript-fixable
 
 jobs:
   install:

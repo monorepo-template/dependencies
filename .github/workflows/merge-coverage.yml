@@ -1,4 +1,4 @@
-name: Merge coverage
+name: merge-coverage
 
 jobs:
   install:

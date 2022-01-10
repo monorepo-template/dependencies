@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config-typescript-fixable",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript-fixable@charlesstover.com>",
   "description": "fixable TypeScript configuration for ESLint",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-typescript-fixable",
@@ -12,19 +12,31 @@
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
+    "rules",
     "src",
-    "index.cjs",
-    "index.js"
+    "index.js",
+    "js.js",
+    "json.js"
   ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
   },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
+  },
+  "scripts": {
+    "eslint": "eslint '**/*'"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
   }
 }

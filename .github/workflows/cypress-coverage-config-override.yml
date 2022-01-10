@@ -1,4 +1,4 @@
-name: Cypress coverage config-override
+name: cypress-coverage-config-override
 
 jobs:
   install:
