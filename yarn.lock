@@ -2228,6 +2228,7 @@ __metadata:
   resolution: "@monorepo-template/jest-application-preset@workspace:packages/jest-application-preset"
   dependencies:
     "@monorepo-template/jest-preset": "workspace:^"
+    eslint: ^8.6.0
   languageName: unknown
   linkType: soft
 
@@ -2236,6 +2237,7 @@ __metadata:
   resolution: "@monorepo-template/jest-module-preset@workspace:packages/jest-module-preset"
   dependencies:
     "@monorepo-template/jest-preset": "workspace:^"
+    eslint: ^8.6.0
   languageName: unknown
   linkType: soft
 
@@ -2244,6 +2246,7 @@ __metadata:
   resolution: "@monorepo-template/jest-preset@workspace:packages/jest-preset"
   dependencies:
     "@monorepo-template/jest-transformer": "workspace:^"
+    eslint: ^8.6.0
     identity-obj-proxy: ^3.0.0
   languageName: unknown
   linkType: soft
@@ -2257,6 +2260,7 @@ __metadata:
     "@babel/preset-react": ^7.0.0
     "@babel/preset-typescript": ^7.0.0
     babel-jest: ^27.0.0
+    eslint: ^8.6.0
   languageName: unknown
   linkType: soft
 
