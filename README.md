@@ -1,6 +1,6 @@
 # Monorepo template dependencies
 
-[![CI](https://github.com/CharlesStover/monorepo-template-dependencies/actions/workflows/monorepo.yml/badge.svg?branch=main&event=push)](https://github.com/CharlesStover/monorepo-template-dependencies/actions/workflows/monorepo.yml)
+[![CI](https://github.com/CharlesStover/monorepo-template-dependencies/actions/workflows/index.yml/badge.svg?branch=main&event=push)](https://github.com/CharlesStover/monorepo-template-dependencies/actions/workflows/index.yml)
 
 The `monorepo-template-dependencies` repository contains the dependencies for
 the
