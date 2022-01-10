@@ -30,8 +30,8 @@
   "devDependencies": {
     "@monorepo-template/eslint-config-typescript": "workspace:^",
     "@monorepo-template/eslint-config-typescript-fixable": "workspace:^",
-    "@monorepo-template/tsconfig": "workspace:^",
     "@monorepo-template/test": "workspace:^",
+    "@monorepo-template/tsconfig": "workspace:^",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
