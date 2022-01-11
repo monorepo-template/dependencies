@@ -7,9 +7,10 @@ established code style without weighing preference to one or more individual
 members.
 
 This configuration does _not_ include `@monorepo-template/react-fixable`,
-`plugin:jsx-a11y/strict`, `plugin:react-hooks/recommended`, or
-`plugin:react/recommended`. It is recommended that you use these four in
-addition to this configuration.
+`@monorepo-template/react-typescript`, `plugin:jsx-a11y/strict`,
+`plugin:react-hooks/recommended`, or `plugin:react/recommended`. It is
+recommended that you use these aforementioned configurations in addition to this
+configuration.
 
 ## Install
 

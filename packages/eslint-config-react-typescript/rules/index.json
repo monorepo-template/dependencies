@@ -1,0 +1,41 @@
+{
+  "rules": {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "format": ["PascalCase", "camelCase"],
+        "leadingUnderscore": "allow",
+        "selector": "default",
+        "trailingUnderscore": "allow"
+      },
+
+      {
+        "format": ["PascalCase"],
+        "leadingUnderscore": "forbid",
+        "selector": ["enumMember", "typeLike"],
+        "trailingUnderscore": "forbid"
+      },
+
+      {
+        "format": ["PascalCase", "camelCase"],
+        "leadingUnderscore": "forbid",
+        "selector": "function",
+        "trailingUnderscore": "forbid"
+      },
+
+      {
+        "format": ["UPPER_CASE", "camelCase"],
+        "leadingUnderscore": "allow",
+        "selector": "variable",
+        "trailingUnderscore": "allow"
+      }
+    ],
+
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ]
+  }
+}

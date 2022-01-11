@@ -1,8 +1,12 @@
 # Fixable React ESLint config
 
 `@monorepo-template/eslint-config-react-fixable` is an ESLint configuration
-comprised solely of _fixable_ React rules. As a result, no manual effort is
-required to adhere to this configuration's rules.
+comprised solely of _fixable_ React rules, minus any rules that conflict with
+`eslint-plugin-prettier`. As a result, no manual effort is required to adhere to
+this configuration's rules.
+
+It is recommended that you use this rule in tandem with
+`plugin:prettier/recommended`.
 
 ## Install
 

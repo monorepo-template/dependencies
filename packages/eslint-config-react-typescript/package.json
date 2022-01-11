@@ -1,20 +1,21 @@
 {
-  "name": "@monorepo-template/eslint-config-react-fixable",
-  "version": "0.1.1",
-  "author": "Charles Stover <monorepo-template-eslint-config-react-fixable@charlesstover.com>",
-  "description": "React configuration for ESLint",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-fixable",
+  "name": "@monorepo-template/eslint-config-react-typescript",
+  "version": "0.1.0",
+  "author": "Charles Stover <monorepo-template-eslint-config-react-typescript@charlesstover.com>",
+  "description": "React TypeScript configuration for ESLint",
+  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-typescript",
   "license": "MIT",
   "main": "./index.js",
   "type": "commonjs",
   "bugs": {
-    "email": "monorepo-template-eslint-config-react-fixable@charlesstover.com",
+    "email": "monorepo-template-eslint-config-react-typescript@charlesstover.com",
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
     "rules",
     "src",
-    "index.js"
+    "index.js",
+    "json.js"
   ],
   "funding": {
     "type": "individual",
