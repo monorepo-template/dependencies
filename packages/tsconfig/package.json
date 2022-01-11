@@ -29,6 +29,9 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix"
   },
+  "dependencies": {
+    "@types/node": "^16.11.10"
+  },
   "devDependencies": {
     "eslint": "^8.4.1"
   }
