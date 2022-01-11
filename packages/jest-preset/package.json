@@ -29,7 +29,8 @@
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
   "scripts": {
-    "eslint": "eslint '**/*'"
+    "eslint": "eslint '**/*'",
+    "eslint:fix": "eslint '**/*' --fix"
   },
   "dependencies": {
     "@monorepo-template/jest-transformer": "workspace:^",

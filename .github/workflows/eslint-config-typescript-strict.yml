@@ -1,4 +1,4 @@
-name: TSConfig
+name: eslint-config-typescript-strict
 
 jobs:
   install:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn tsconfig:eslint
+        run: yarn eslint-config-typescript-strict:eslint
 
   npm:
     if: ${{ github.event_name == 'push' }}
@@ -46,7 +46,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/tsconfig
+        working-directory: packages/eslint-config-typescript-strict
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
@@ -54,13 +54,13 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
-  # pull_request:
-  #   branches: [main]
-  #   paths:
-  #     - '.github/workflows/tsconfig.yml'
-  #     - 'packages/tsconfig/**/*'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/eslint-config-typescript-strict.yml'
+      - 'packages/eslint-config-typescript-strict/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/tsconfig.yml'
-      - 'packages/tsconfig/**/*'
+      - '.github/workflows/eslint-config-typescript-strict.yml'
+      - 'packages/eslint-config-typescript-strict/**/*'

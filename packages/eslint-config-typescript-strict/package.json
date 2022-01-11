@@ -1,27 +1,29 @@
 {
-  "name": "@monorepo-template/jest-module-preset",
-  "version": "0.1.4",
-  "author": "Charles Stover <monorepo-template-jest-module-preset@charlesstover.com>",
-  "description": "Jest preset for monorepo template modules",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/jest-module-preset",
+  "name": "@monorepo-template/eslint-config-typescript-strict",
+  "version": "0.1.0",
+  "author": "Charles Stover <monorepo-template-eslint-config-typescript-strict@charlesstover.com>",
+  "description": "strict TypeScript configuration for ESLint",
+  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-typescript-strict",
   "license": "MIT",
-  "main": "./src/jest-module-preset.cjs",
+  "main": "./index.js",
   "type": "commonjs",
   "bugs": {
-    "email": "monorepo-template-jest-module-preset@charlesstover.com",
+    "email": "monorepo-template-eslint-config-typescript-strict@charlesstover.com",
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies/issues"
   },
   "files": [
+    "rules",
     "src",
-    "index.cjs",
-    "index.js",
-    "jest-preset.cjs",
-    "jest-preset.js"
+    "index.js"
   ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
   },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -32,9 +34,6 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix"
-  },
-  "dependencies": {
-    "@monorepo-template/jest-preset": "workspace:^"
   },
   "devDependencies": {
     "eslint": "^8.6.0"
