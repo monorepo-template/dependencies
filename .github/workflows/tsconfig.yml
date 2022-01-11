@@ -15,9 +15,26 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+  eslint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn tsconfig:eslint
+
   npm:
     if: ${{ github.event_name == 'push' }}
-    needs: install
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
