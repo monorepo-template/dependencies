@@ -1,4 +1,4 @@
-name: TSConfig
+name: tsconfig
 
 jobs:
   install:
