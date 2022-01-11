@@ -25,6 +25,8 @@
     "eslint-config-typescript:eslint:fix": "yarn workspace @monorepo-template/eslint-config-typescript run eslint:fix",
     "eslint-config-typescript-fixable:eslint": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint",
     "eslint-config-typescript-fixable:eslint:fix": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint:fix",
+    "eslint-config-typescript-strict:eslint": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint",
+    "eslint-config-typescript-strict:eslint:fix": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint:fix",
     "jest-application-preset:eslint": "yarn workspace @monorepo-template/jest-application-preset run eslint",
     "jest-application-preset:eslint:fix": "yarn workspace @monorepo-template/jest-application-preset run eslint:fix",
     "jest-module-preset:eslint": "yarn workspace @monorepo-template/jest-module-preset run eslint",
