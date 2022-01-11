@@ -30,6 +30,7 @@
   },
   "scripts": {
     "eslint": "eslint '**/*'",
+    "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest",
     "jest:watch": "jest --coverage=false --watch"
   },

@@ -34,7 +34,8 @@
     "url": "https://github.com/CharlesStover/monorepo-template-dependencies.git"
   },
   "scripts": {
-    "eslint": "eslint '**/*'"
+    "eslint": "eslint '**/*'",
+    "eslint:fix": "eslint '**/*' --fix"
   },
   "devDependencies": {
     "eslint": "^8.6.0"
