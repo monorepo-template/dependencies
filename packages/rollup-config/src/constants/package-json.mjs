@@ -1,4 +1,4 @@
-import getPackageJson from '../utils/package.json';
+import getPackageJson from '../utils/get-package-json.mjs';
 
 const PACKAGE_JSON = getPackageJson();
 
