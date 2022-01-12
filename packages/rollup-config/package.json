@@ -1,10 +1,11 @@
 {
   "name": "@monorepo-template/rollup-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Charles Stover <monorepo-template-rollup-config@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/rollup-config",
   "license": "MIT",
+  "main": "./index.cjs",
   "module": "./index.mjs",
   "type": "module",
   "bugs": {
@@ -13,6 +14,7 @@
   },
   "files": [
     "src",
+    "index.cjs",
     "index.mjs",
     "index.js"
   ],
