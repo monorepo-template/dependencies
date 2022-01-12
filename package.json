@@ -25,6 +25,8 @@
     "eslint-config-react-fixable:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-fixable run eslint:fix",
     "eslint-config-react-strict:eslint": "yarn workspace @monorepo-template/eslint-config-react-strict run eslint",
     "eslint-config-react-strict:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-strict run eslint:fix",
+    "eslint-config-react-typescript:eslint": "yarn workspace @monorepo-template/eslint-config-react-typescript run eslint",
+    "eslint-config-react-typescript:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-typescript run eslint:fix",
     "eslint-config-typescript:eslint": "yarn workspace @monorepo-template/eslint-config-typescript run eslint",
     "eslint-config-typescript:eslint:fix": "yarn workspace @monorepo-template/eslint-config-typescript run eslint:fix",
     "eslint-config-typescript-fixable:eslint": "yarn workspace @monorepo-template/eslint-config-typescript-fixable run eslint",

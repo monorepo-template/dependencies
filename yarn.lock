@@ -2225,6 +2225,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monorepo-template/eslint-config-react-typescript@workspace:packages/eslint-config-react-typescript":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/eslint-config-react-typescript@workspace:packages/eslint-config-react-typescript"
+  dependencies:
+    eslint: ^8.6.0
+  languageName: unknown
+  linkType: soft
+
 "@monorepo-template/eslint-config-typescript-fixable@workspace:^, @monorepo-template/eslint-config-typescript-fixable@workspace:packages/eslint-config-typescript-fixable":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-typescript-fixable@workspace:packages/eslint-config-typescript-fixable"
