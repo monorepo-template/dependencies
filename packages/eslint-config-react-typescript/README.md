@@ -30,3 +30,21 @@ _Merge_ the following ESLint configuration into your `.eslintrc.json` file:
 
 If you are using other configurations outside of the `@monorepo-template` scope,
 this should come _after_ those configurations in the `extends` array.
+
+### `react-scripts@^4`
+
+If you are using `react-scripts` v4, also _merge_ the following ESLint
+configuration into your `.eslintrc.json` file:
+
+```json
+{
+  "extends": ["@monorepo-template/react-typescript/react-scripts-4"]
+}
+```
+
+If you are using `@monorepo-template/typescript-strict`, then
+`@monorepo-template/react-typescript/react-scripts-4` should come after it in
+the `extends` array.
+
+This is because `react-scripts@^4` is not compatible with an ESLint rule in the
+latest version of the `@typescript-eslint` plugin.
