@@ -43,6 +43,8 @@
     "jest-transformer:eslint:fix": "yarn workspace @monorepo-template/jest-transformer run eslint:fix",
     "merge-coverage:eslint": "yarn workspace @monorepo-template/merge-coverage run eslint",
     "merge-coverage:eslint:fix": "yarn workspace @monorepo-template/merge-coverage run eslint:fix",
+    "rollup-config:eslint": "yarn workspace @monorepo-template/rollup-config run eslint",
+    "rollup-config:eslint:fix": "yarn workspace @monorepo-template/rollup-config run eslint:fix",
     "test": "monorepo-template-test",
     "test:eslint": "yarn workspace @monorepo-template/test run eslint",
     "test:eslint:fix": "yarn workspace @monorepo-template/test run eslint:fix",
