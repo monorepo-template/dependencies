@@ -1,7 +1,8 @@
 # Strict React ESLint config
 
 `@monorepo-template/eslint-config-react-strict` is an ESLint configuration
-comprised of React rules all set to `error`. The intention of this rule is to
+comprised of React rules all set to `error`, minus any rules that are
+incompatible with `eslint-plugin-prettier`. The intention of this rule is to
 abstract all decision-making and opinion from lint rules, unifying teams with an
 established code style without weighing preference to one or more individual
 members.
@@ -26,3 +27,6 @@ _Merge_ the following ESLint configuration into your `.eslintrc.json` file:
   "extends": ["@monorepo-template/react-strict"]
 }
 ```
+
+If you are using other configurations outside of the `@monorepo-template` scope,
+this should come _after_ those configurations in the `extends` array.

@@ -31,3 +31,6 @@ _Merge_ the following ESLint configuration into your `.eslintrc.json` file:
   ]
 }
 ```
+
+If you are using other configurations outside of the `@monorepo-template` scope,
+this should come _after_ those configurations in the `extends` array.
