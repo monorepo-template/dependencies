@@ -2296,7 +2296,11 @@ __metadata:
     babel-jest: ^27.0.0
     eslint: ^8.6.0
   peerDependencies:
-    babel-jest: ^27.0.0
+    "@babel/core": "*"
+    "@babel/preset-env": "*"
+    "@babel/preset-react": "*"
+    "@babel/preset-typescript": "*"
+    babel-jest: "*"
   languageName: unknown
   linkType: soft
 
