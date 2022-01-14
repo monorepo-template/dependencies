@@ -2293,14 +2293,8 @@ __metadata:
     "@babel/preset-env": ^7.0.0
     "@babel/preset-react": ^7.0.0
     "@babel/preset-typescript": ^7.0.0
-    babel-jest: ^27.0.0
-    eslint: ^8.6.0
-  peerDependencies:
-    "@babel/core": "*"
-    "@babel/preset-env": "*"
-    "@babel/preset-react": "*"
-    "@babel/preset-typescript": "*"
     babel-jest: "*"
+    eslint: ^8.6.0
   languageName: unknown
   linkType: soft
 
@@ -3294,7 +3288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^27.0.0":
+"babel-jest@npm:*":
   version: 27.4.6
   resolution: "babel-jest@npm:27.4.6"
   dependencies:

@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/jest-transformer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Charles Stover <monorepo-template-jest-transformer@charlesstover.com>",
   "description": "Jest transformer for monorepo templates",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/jest-transformer",
@@ -29,19 +29,14 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
-    "babel-jest": "^27.0.0",
-    "eslint": "^8.6.0"
-  },
-  "peerDependencies": {
-    "@babel/core": "*",
-    "@babel/preset-env": "*",
-    "@babel/preset-react": "*",
-    "@babel/preset-typescript": "*",
     "babel-jest": "*"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
   }
 }
