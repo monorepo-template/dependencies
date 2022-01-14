@@ -2,15 +2,6 @@
 
 Jest transformer for monorepo templates
 
-## Install
-
-The monorepo template Jest transformer relies on Babel as a peer dependency. To
-install it and its required peer dependencies, use the following command:
-
-```
-yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript @monorepo-template/jest-transformer babel-jest
-```
-
 ## Common issues
 
 ### `TypeError: Cannot read properties of undefined (reading 'cwd')`
@@ -21,5 +12,7 @@ TypeError: Cannot read properties of undefined (reading 'cwd')
 ```
 
 This error occurs when `babel-jest` and `jest` are two different versions. You
-can resolve this by upgrading both to latest, using `yarn up babel-jest jest`.
-This module was written with `babel-jest` and `jest` version `^27.0.0`.
+can resolve this by upgrading both to latest, using `yarn up -R babel-jest` to
+upgrade `babel-jest` and `yarn up jest` to upgrade `jest`. This module was
+written with the intention of supporting `babel-jest` and `jest` versions
+`^27.0.0`.
