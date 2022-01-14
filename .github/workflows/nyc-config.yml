@@ -1,4 +1,4 @@
-name: jest-preset
+name: nyc-config
 
 jobs:
   install:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn jest-preset:eslint
+        run: yarn nyc-config:eslint
 
   npm:
     if: ${{ github.event_name == 'push' }}
@@ -46,7 +46,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/jest-preset
+        working-directory: packages/nyc-config
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
@@ -57,12 +57,10 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - '.github/workflows/jest-preset.yml'
-      - 'packages/jest-preset/**/*'
-      - 'packages/jest-transformer/**/*'
+      - '.github/workflows/nyc-config.yml'
+      - 'packages/nyc-config/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/jest-preset.yml'
-      - 'packages/jest-preset/**/*'
-      - 'packages/jest-transformer/**/*'
+      - '.github/workflows/nyc-config.yml'
+      - 'packages/nyc-config/**/*'

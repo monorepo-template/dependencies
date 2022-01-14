@@ -2312,6 +2312,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monorepo-template/nyc-config@workspace:packages/nyc-config":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/nyc-config@workspace:packages/nyc-config"
+  dependencies:
+    eslint: ^8.6.0
+  languageName: unknown
+  linkType: soft
+
 "@monorepo-template/rollup-config@workspace:packages/rollup-config":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/rollup-config@workspace:packages/rollup-config"
