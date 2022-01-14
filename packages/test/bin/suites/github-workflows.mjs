@@ -41,6 +41,7 @@ export default function testGitHubWorkflows() {
     for (const [event, sources] of Object.entries(gitHubWorkflowJson.on)) {
       if (
         typeof sources !== 'object' ||
+        sources === null ||
         !Object.prototype.hasOwnProperty.call(sources, 'paths')
       ) {
         LOGGER.addItem(`${event} (skipped; does not target any paths)`);
