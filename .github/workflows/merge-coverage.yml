@@ -55,7 +55,6 @@ jobs:
 
 on:
   pull_request:
-    branches: [main]
     paths:
       - '.github/workflows/merge-coverage.yml'
       - 'packages/merge-coverage/**/*'

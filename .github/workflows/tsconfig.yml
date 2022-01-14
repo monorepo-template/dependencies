@@ -54,11 +54,10 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
-  # pull_request:
-  #   branches: [main]
-  #   paths:
-  #     - '.github/workflows/tsconfig.yml'
-  #     - 'packages/tsconfig/**/*'
+  pull_request:
+    paths:
+      - '.github/workflows/tsconfig.yml'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:

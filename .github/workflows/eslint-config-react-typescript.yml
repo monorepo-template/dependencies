@@ -55,7 +55,6 @@ jobs:
 
 on:
   pull_request:
-    branches: [main]
     paths:
       - '.github/workflows/eslint-config-react-typescript.yml'
       - 'packages/eslint-config-react-typescript/**/*'

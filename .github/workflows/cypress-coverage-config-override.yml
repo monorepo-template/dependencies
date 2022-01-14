@@ -78,7 +78,6 @@ jobs:
 
 on:
   pull_request:
-    branches: [main]
     paths:
       - '.github/workflows/cypress-coverage-config-override.yml'
       - 'packages/cypress-coverage-config-override/**/*'
