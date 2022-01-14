@@ -55,7 +55,6 @@ jobs:
 
 on:
   pull_request:
-    branches: [main]
     paths:
       - '.github/workflows/jest-application-preset.yml'
       - 'packages/jest-application-preset/**/*'
