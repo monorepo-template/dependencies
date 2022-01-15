@@ -1,8 +1,11 @@
-import GITHUB_WORKFLOW_FILE_NAMES from '../constants/github-workflow-file-names.mjs';
-import LOGGER from '../constants/logger.mjs';
-import mapGitHubWorkflowFileNameToJson from '../utils/map-github-workflow-file-name-to-json.mjs';
-import mapPathToPackageJson from '../utils/map-path-to-package-json.mjs';
-import mapPathToWorkspace from '../utils/map-path-to-workspace.mjs';
+import LOGGER from '../../constants/logger.mjs';
+import mapPathToPackageJson from '../../utils/map-path-to-package-json.mjs';
+import EXPECTED_ON_TYPE_ERROR from './constants/expected-on-type-error.mjs';
+import GITHUB_WORKFLOW_FILE_NAMES from './constants/github-workflow-file-names.mjs';
+import mapGitHubWorkflowFileNameToJson from './utils/map-github-workflow-file-name-to-json.mjs';
+import mapPathToWorkspace from './utils/map-path-to-workspace.mjs';
+
+const YAML_FILE_EXTENSION = /\.yml$/;
 
 const DEPENDENCY_PROPERTIES = [
   'dependencies',
@@ -16,50 +19,57 @@ export default function testGitHubWorkflows() {
   // GitHub workflow relative paths
   LOGGER.indent();
   for (const gitHubWorkflowFileName of GITHUB_WORKFLOW_FILE_NAMES) {
+    const gitHubWorkflowName = gitHubWorkflowFileName.replace(
+      YAML_FILE_EXTENSION,
+      '',
+    );
     const gitHubWorkflowRelativePath = `.github/workflows/${gitHubWorkflowFileName}`;
     const gitHubWorkflowJson = mapGitHubWorkflowFileNameToJson(
       gitHubWorkflowFileName,
     );
 
+    // skip; does not target any events
     if (!Object.prototype.hasOwnProperty.call(gitHubWorkflowJson, 'on')) {
-      LOGGER.addItem(
-        `${gitHubWorkflowRelativePath} (skipped; does not target any events)`,
-      );
+      // LOGGER.addItem(gitHubWorkflowFileName);
       continue;
     }
 
-    LOGGER.addItem(gitHubWorkflowRelativePath);
+    LOGGER.addItem(gitHubWorkflowName);
 
     if (typeof gitHubWorkflowJson.on !== 'object') {
-      throw new Error(
-        `Expected \`${gitHubWorkflowRelativePath}\`'s \`on\` property to be an object.`,
-      );
+      LOGGER.addError(EXPECTED_ON_TYPE_ERROR);
+      continue;
     }
 
     // GitHub workflow event triggers
     LOGGER.indent();
     for (const [event, sources] of Object.entries(gitHubWorkflowJson.on)) {
+      // skip; does not target any paths
       if (
         typeof sources !== 'object' ||
         sources === null ||
         !Object.prototype.hasOwnProperty.call(sources, 'paths')
       ) {
-        LOGGER.addItem(`${event} (skipped; does not target any paths)`);
+        // LOGGER.addItem(event);
         continue;
       }
 
       LOGGER.addItem(event);
 
       if (!Array.isArray(sources.paths)) {
-        throw new Error(
-          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to be an array.`,
+        LOGGER.addError(
+          new Error(`Expected \`on.${event}.paths\` to be an array.`),
         );
+        continue;
       }
 
       if (!sources.paths.includes(gitHubWorkflowRelativePath)) {
-        throw new Error(
-          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include itself ('${gitHubWorkflowRelativePath}').`,
+        LOGGER.addError(
+          new Error(
+            `Expected \`on.${event}.paths\` to include itself ('${gitHubWorkflowRelativePath}').`,
+          ),
         );
+        continue;
       }
 
       // GitHub workflow event trigger paths
@@ -67,13 +77,16 @@ export default function testGitHubWorkflows() {
       const workspacePackageJsons = new Map();
       for (const path of sources.paths) {
         const workspacePath = mapPathToWorkspace(path);
+
+        // skip; not a workspace
         if (typeof workspacePath === 'undefined') {
-          LOGGER.addItem(`${path} (skipped; not a workspace)`);
+          // LOGGER.addItem(path);
           continue;
         }
 
+        // skip; already tested
         if (workspacePackageJsons.has(workspacePath)) {
-          LOGGER.addItem(`${path} (skipped; already tested)`);
+          // LOGGER.addItem(path);
           continue;
         }
 
@@ -115,9 +128,12 @@ export default function testGitHubWorkflows() {
               continue;
             }
 
-            throw new Error(
-              `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include \`${packageName}\`'s workspace path, because it is a dependency of \`${workspacePath}\`.`,
+            LOGGER.addError(
+              new Error(
+                `Expected \`on.${event}.paths\` to include \`${packageName}\`'s workspace path, because it is a dependency of \`${workspacePath}\`.`,
+              ),
             );
+            continue;
           }
         }
       }
