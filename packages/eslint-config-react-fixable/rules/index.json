@@ -15,7 +15,6 @@
     "react/jsx-max-props-per-line": "off",
     "react/jsx-newline": "off",
     "react/jsx-no-target-blank": "error",
-    "react/jsx-no-useless-fragment": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-multi-spaces": "error",
     "react/jsx-sort-props": "error",
@@ -26,6 +25,13 @@
     "react/no-invalid-html-attribute": "error",
     "react/no-unknown-property": "error",
     "react/prefer-read-only-props": "error",
-    "react/self-closing-comp": "error"
+    "react/self-closing-comp": "error",
+
+    "react/jsx-no-useless-fragment": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ]
   }
 }

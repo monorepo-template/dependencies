@@ -26,7 +26,7 @@
       },
 
       {
-        "format": ["UPPER_CASE", "camelCase"],
+        "format": ["PascalCase", "UPPER_CASE", "camelCase"],
         "leadingUnderscore": "allow",
         "selector": "variable",
         "trailingUnderscore": "allow"
