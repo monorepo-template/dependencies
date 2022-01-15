@@ -56,12 +56,10 @@ jobs:
 on:
   pull_request:
     paths:
-      - '.github/workflows/coverage.yml'
       - 'packages/coverage/**/*'
       - 'packages/merge-coverage/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/coverage.yml'
-      - 'packages/coverage/**/*'
       - 'packages/merge-coverage/**/*'

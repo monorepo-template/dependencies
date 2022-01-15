@@ -66,4 +66,3 @@ on:
       - '.github/workflows/jest-application-preset.yml'
       - 'packages/jest-application-preset/**/*'
       - 'packages/jest-preset/**/*'
-      - 'packages/jest-transformer/**/*'
