@@ -1,10 +1,18 @@
+import styles from 'ansi-styles';
+
 // This should either be a third-party module from NPM that does this better, or
 //   it should be moved to a separate package in this monorepo.
 
 const ERROR_CODE = 1;
 const INDEX_OFFSET = 1;
+const LAST_TWO = -2;
 const NONE = 0;
+const SINGLE = 1;
 const SPACING = '   ';
+const START = 0;
+
+const mapStrToLast2Chars = str => str.slice(LAST_TWO);
+const mapStrToShorten2Chars = str => str.slice(START, str.length + LAST_TWO);
 
 export default class TreeLogger {
   _indent = NONE;
@@ -59,7 +67,11 @@ export default class TreeLogger {
     const errorsCount = this.logItem();
     console.log('');
     if (errorsCount > NONE) {
-      console.log(`Failed with ${errorsCount} errors`);
+      if (errorsCount === SINGLE) {
+        console.log(`Failed with 1 error`);
+      } else {
+        console.log(`Failed with ${errorsCount} errors`);
+      }
       process.exit(ERROR_CODE);
     } else {
       console.log('Success');
@@ -96,17 +108,37 @@ export default class TreeLogger {
     const errorsCount = item.errors.length;
     if (errorsCount > NONE) {
       const lastErrorIndex = errorsCount - INDEX_OFFSET;
-      const mapErrorIndexToPip = errorIndex => {
-        if (errorIndex === lastErrorIndex) {
-          return '└─';
+
+      // Technical debt: This logic is hot garbage because items were originally
+      //   written in a vacuum with no concept of attached metadata like errors.
+      //   Refactor this and item prefixes to make more sense.
+      const getErrorPrefix = () => {
+        const newPrefix = mapStrToShorten2Chars(prefix);
+        const pip = mapStrToLast2Chars(prefix);
+
+        // If the item's prefix was not terminal, use a pipe.
+        if (pip === '├─' || pip === '│ ') {
+          return `${newPrefix}│ `;
         }
-        return '├─';
+
+        // If the item's prefix was terminal, don't use a pipe.
+        return `${newPrefix}  `;
+      };
+      const errorPrefix = getErrorPrefix();
+
+      const mapErrorIndexToPip = errorIndex => {
+        if (item.children.length > NONE || errorIndex < lastErrorIndex) {
+          return '├─';
+        }
+        return '└─';
       };
 
       for (let i = 0; i < errorsCount; i++) {
         const error = item.errors[i];
         const pip = mapErrorIndexToPip(i);
-        console.error(`${prefix}${SPACING}${pip} ${error.message}`);
+        console.error(
+          `${errorPrefix}${SPACING}${pip} ${styles.red.open}⚠ ${error.message} ⚠${styles.red.close}`,
+        );
       }
     }
 

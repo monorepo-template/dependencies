@@ -63,4 +63,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/jest-module-preset.yml'
       - 'packages/jest-module-preset/**/*'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
