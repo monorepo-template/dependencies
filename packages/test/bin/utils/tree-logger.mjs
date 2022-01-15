@@ -4,6 +4,7 @@
 const ERROR_CODE = 1;
 const INDEX_OFFSET = 1;
 const NONE = 0;
+const SPACING = '   ';
 
 export default class TreeLogger {
   _indent = NONE;
@@ -13,6 +14,7 @@ export default class TreeLogger {
   constructor(value) {
     this._tree = {
       children: [],
+      errors: [],
       value,
     };
 
@@ -29,23 +31,20 @@ export default class TreeLogger {
     return currentItem;
   }
 
+  addError = err => {
+    this.currentItem.errors.push(err);
+  };
+
   addItem = value => {
     this.currentItem.children.push({
       children: [],
+      errors: [],
       value,
     });
   };
 
   handleUncaughtException = err => {
-    if (this._logged) {
-      return;
-    }
-    this.log();
-    console.log('');
-    console.error(err);
-    console.log('');
-    console.log('Failure');
-    process.exit(ERROR_CODE);
+    this.addError(err);
   };
 
   indent = () => {
@@ -57,7 +56,14 @@ export default class TreeLogger {
   log = () => {
     this._logged = true;
     console.log('');
-    this.logItem();
+    const errorsCount = this.logItem();
+    console.log('');
+    if (errorsCount > NONE) {
+      console.log(`Failed with ${errorsCount} errors`);
+      process.exit(ERROR_CODE);
+    } else {
+      console.log('Success');
+    }
   };
 
   logItem = (...indices) => {
@@ -70,28 +76,49 @@ export default class TreeLogger {
       const lastIndex = item.children.length - INDEX_OFFSET;
       if (index === lastIndex) {
         if (i === lastIndicesIndex) {
-          prefix += '   └─';
+          prefix += `${SPACING}└─`;
         } else {
-          prefix += '     ';
+          prefix += `${SPACING}  `;
         }
       } else {
         if (i === lastIndicesIndex) {
-          prefix += '   ├─';
+          prefix += `${SPACING}├─`;
         } else {
-          prefix += '   │ ';
+          prefix += `${SPACING}│ `;
         }
       }
 
       item = item.children[index];
     }
+
     console.log(`${prefix} ${item.value}`);
 
-    const childrenCount = item.children.length;
-    if (childrenCount > NONE) {
-      for (let i = 0; i < childrenCount; i++) {
-        this.logItem(...indices, i);
+    const errorsCount = item.errors.length;
+    if (errorsCount > NONE) {
+      const lastErrorIndex = errorsCount - INDEX_OFFSET;
+      const mapErrorIndexToPip = errorIndex => {
+        if (errorIndex === lastErrorIndex) {
+          return '└─';
+        }
+        return '├─';
+      };
+
+      for (let i = 0; i < errorsCount; i++) {
+        const error = item.errors[i];
+        const pip = mapErrorIndexToPip(i);
+        console.error(`${prefix}${SPACING}${pip} ${error.message}`);
       }
     }
+
+    const childrenCount = item.children.length;
+    let childrenErrorsCount = 0;
+    if (childrenCount > NONE) {
+      for (let i = 0; i < childrenCount; i++) {
+        childrenErrorsCount += this.logItem(...indices, i);
+      }
+    }
+
+    return errorsCount + childrenErrorsCount;
   };
 
   unindent = () => {

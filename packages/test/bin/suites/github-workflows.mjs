@@ -31,9 +31,12 @@ export default function testGitHubWorkflows() {
     LOGGER.addItem(gitHubWorkflowRelativePath);
 
     if (typeof gitHubWorkflowJson.on !== 'object') {
-      throw new Error(
-        `Expected \`${gitHubWorkflowRelativePath}\`'s \`on\` property to be an object.`,
+      LOGGER.addError(
+        new Error(
+          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on\` property to be an object.`,
+        ),
       );
+      continue;
     }
 
     // GitHub workflow event triggers
@@ -51,15 +54,21 @@ export default function testGitHubWorkflows() {
       LOGGER.addItem(event);
 
       if (!Array.isArray(sources.paths)) {
-        throw new Error(
-          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to be an array.`,
+        LOGGER.addError(
+          new Error(
+            `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to be an array.`,
+          ),
         );
+        continue;
       }
 
       if (!sources.paths.includes(gitHubWorkflowRelativePath)) {
-        throw new Error(
-          `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include itself ('${gitHubWorkflowRelativePath}').`,
+        LOGGER.addError(
+          new Error(
+            `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include itself ('${gitHubWorkflowRelativePath}').`,
+          ),
         );
+        continue;
       }
 
       // GitHub workflow event trigger paths
@@ -115,9 +124,12 @@ export default function testGitHubWorkflows() {
               continue;
             }
 
-            throw new Error(
-              `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include \`${packageName}\`'s workspace path, because it is a dependency of \`${workspacePath}\`.`,
+            LOGGER.addError(
+              new Error(
+                `Expected \`${gitHubWorkflowRelativePath}\`'s \`on.${event}.paths\` to include \`${packageName}\`'s workspace path, because it is a dependency of \`${workspacePath}\`.`,
+              ),
             );
+            continue;
           }
         }
       }
