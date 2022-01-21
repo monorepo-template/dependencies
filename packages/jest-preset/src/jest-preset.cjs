@@ -26,6 +26,8 @@ module.exports = {
 
   moduleNameMapper: {
     '^.+\\.module\\.(?:css|sass|scss)$': require.resolve('identity-obj-proxy'),
+    '(?<!\\.module)\\.(?:css|sass|scss)$':
+      '@monorepo-template/jest-preset/src/constants/null.ts',
     '\\.(?:gif|jpg|png)$':
       '@monorepo-template/jest-preset/src/constants/empty-string.ts',
   },
