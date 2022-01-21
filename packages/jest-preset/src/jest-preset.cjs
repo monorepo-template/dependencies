@@ -12,6 +12,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{cjs,jsx,jsx,mjs,ts,tsx}',
     '!<rootDir>/src/**/*.d.ts',
+    '!<rootDir>/src/**/*.e2e.ts',
   ],
 
   coverageThreshold: {
