@@ -1,3 +1,10 @@
+const EMPTY_STRING_PATH = require('./constants/empty-string-path.cjs');
+const NULL_PATH = require('./constants/null-path.cjs');
+
+const CSS_FILE = '(?<!\\.module)\\.(?:css|sass|scss)$';
+const CSS_MODULE = '^.+\\.module\\.(?:css|sass|scss)$';
+const IMAGE_FILE = '\\.(?:gif|jpg|png)$';
+
 module.exports = {
   cacheDirectory: './jest/cache',
   collectCoverage: true,
@@ -25,11 +32,9 @@ module.exports = {
   },
 
   moduleNameMapper: {
-    '^.+\\.module\\.(?:css|sass|scss)$': require.resolve('identity-obj-proxy'),
-    '(?<!\\.module)\\.(?:css|sass|scss)$':
-      '@monorepo-template/jest-preset/src/constants/null.ts',
-    '\\.(?:gif|jpg|png)$':
-      '@monorepo-template/jest-preset/src/constants/empty-string.ts',
+    [CSS_FILE]: NULL_PATH,
+    [CSS_MODULE]: require.resolve('identity-obj-proxy'),
+    [IMAGE_FILE]: EMPTY_STRING_PATH,
   },
 
   transform: {
