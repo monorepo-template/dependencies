@@ -55,6 +55,32 @@ jobs:
           name: cypress-coverage-config-override--jest-coverage
           path: packages/cypress-coverage-config-override/jest/coverage
 
+  github:
+    if: ${{ github.event_name == 'push' }}
+    needs: [eslint, jest]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: '@${{ github.repository_owner }}'
+      - name: Publish
+        working-directory: packages/cypress-coverarge-config-override
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          yarn config set npmAuthToken $NPM_AUTH_TOKEN;
+          yarn npm publish --tolerate-republish;
+
   npm:
     if: ${{ github.event_name == 'push' }}
     needs: [eslint, jest]
@@ -70,11 +96,11 @@ jobs:
           node-version: 'lts/*'
       - name: Publish
         working-directory: packages/cypress-coverage-config-override
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
           yarn npm publish --tolerate-republish;
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 on:
   pull_request:
