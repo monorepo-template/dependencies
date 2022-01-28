@@ -1649,27 +1649,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@charlesstover/monorepo-template-dependencies@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@charlesstover/monorepo-template-dependencies@workspace:."
-  dependencies:
-    "@monorepo-template/eslint-config-typescript": "workspace:^"
-    "@monorepo-template/eslint-config-typescript-fixable": "workspace:^"
-    "@monorepo-template/eslint-config-typescript-strict": "workspace:^"
-    "@monorepo-template/test": "workspace:^"
-    "@monorepo-template/tsconfig": "workspace:^"
-    "@types/node": ^16.11.10
-    "@typescript-eslint/eslint-plugin": ^5.7.0
-    "@typescript-eslint/parser": ^5.7.0
-    "@yarnpkg/sdks": ^2.5.1-rc.6
-    eslint: ^8.6.0
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-prettier: ^4.0.0
-    prettier: ^2.4.1
-    typescript: ^4.4.4
-  languageName: unknown
-  linkType: soft
-
 "@chevrotain/types@npm:^9.1.0":
   version: 9.1.0
   resolution: "@chevrotain/types@npm:9.1.0"
@@ -2206,6 +2185,27 @@ __metadata:
     jest: ^27.3.1
     ts-jest: ^27.1.1
     typescript: ^4.5.4
+  languageName: unknown
+  linkType: soft
+
+"@monorepo-template/dependencies@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/dependencies@workspace:."
+  dependencies:
+    "@monorepo-template/eslint-config-typescript": "workspace:^"
+    "@monorepo-template/eslint-config-typescript-fixable": "workspace:^"
+    "@monorepo-template/eslint-config-typescript-strict": "workspace:^"
+    "@monorepo-template/test": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^16.11.10
+    "@typescript-eslint/eslint-plugin": ^5.7.0
+    "@typescript-eslint/parser": ^5.7.0
+    "@yarnpkg/sdks": ^2.5.1-rc.6
+    eslint: ^8.6.0
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-prettier: ^4.0.0
+    prettier: ^2.4.1
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
