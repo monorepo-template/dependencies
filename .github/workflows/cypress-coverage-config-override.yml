@@ -74,7 +74,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@${{ github.repository_owner }}'
       - name: Publish
-        working-directory: packages/cypress-coverarge-config-override
+        working-directory: packages/cypress-coverage-config-override
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
