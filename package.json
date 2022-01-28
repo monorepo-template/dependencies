@@ -1,5 +1,5 @@
 {
-  "name": "@charlesstover/monorepo-template-dependencies",
+  "name": "@monorepo-template/dependencies",
   "version": "1.0.0",
   "license": "MIT",
   "packageManager": "yarn@3.1.1",

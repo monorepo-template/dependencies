@@ -3,7 +3,7 @@
 The `@monorepo-template/change-scope` package lets you change the scope of a
 package.
 
-For example:
+For example, under the organization `CharlesStover`:
 
 - `change-scope` would become `@CharlesStover/change-scope`.
 - `@monorepo-template/change-scope` would become
