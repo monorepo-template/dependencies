@@ -1,5 +1,5 @@
-const { join } = require('path');
+const path = require('path');
 
-const TSCONFIG_DEV_PATH = join(process.cwd(), 'tsconfig.development.json');
+const TSCONFIG_DEV_PATH = path.join(process.cwd(), 'tsconfig.development.json');
 
 module.exports = TSCONFIG_DEV_PATH;
