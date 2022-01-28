@@ -1,7 +1,7 @@
-const { resolve } = require('path');
+const path = require('path');
 
 module.exports = function resolveRelative(...paths) {
-  return resolve(
+  return path.resolve(
     require.resolve('@monorepo-template/jest-preset'),
     '..',
     ...paths,
