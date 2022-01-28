@@ -45,6 +45,8 @@
     "merge-coverage:eslint:fix": "yarn workspace @monorepo-template/merge-coverage run eslint:fix",
     "nyc-config:eslint": "yarn workspace @monorepo-template/nyc-config run eslint",
     "nyc-config:eslint:fix": "yarn workspace @monorepo-template/nyc-config run eslint:fix",
+    "react-module-tsconfig:eslint": "yarn workspace @monorepo-template/react-module-tsconfig run eslint",
+    "react-module-tsconfig:eslint:fix": "yarn workspace @monorepo-template/react-module-tsconfig run eslint:fix",
     "rollup-config:eslint": "yarn workspace @monorepo-template/rollup-config run eslint",
     "rollup-config:eslint:fix": "yarn workspace @monorepo-template/rollup-config run eslint:fix",
     "test": "monorepo-template-test",
