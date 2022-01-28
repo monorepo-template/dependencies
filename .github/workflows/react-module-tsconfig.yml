@@ -1,4 +1,4 @@
-name: eslint-config-typescript-fixable
+name: react-module-tsconfig
 
 jobs:
   install:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn eslint-config-typescript-fixable:eslint
+        run: yarn react-module-tsconfig:eslint
 
   github:
     if: ${{ github.event_name == 'push' }}
@@ -51,7 +51,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@${{ github.repository_owner }}'
       - name: Publish
-        working-directory: packages/eslint-config-typescript-fixable
+        working-directory: packages/react-module-tsconfig
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
@@ -72,7 +72,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/eslint-config-typescript-fixable
+        working-directory: packages/react-module-tsconfig
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
@@ -82,10 +82,12 @@ jobs:
 on:
   pull_request:
     paths:
-      - '.github/workflows/eslint-config-typescript-fixable.yml'
-      - 'packages/eslint-config-typescript-fixable/**/*'
+      - '.github/workflows/react-module-tsconfig.yml'
+      - 'packages/react-module-tsconfig/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/eslint-config-typescript-fixable.yml'
-      - 'packages/eslint-config-typescript-fixable/**/*'
+      - '.github/workflows/react-module-tsconfig.yml'
+      - 'packages/react-module-tsconfig/**/*'
+      - 'packages/tsconfig/**/*'

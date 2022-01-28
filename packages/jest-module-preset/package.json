@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/jest-module-preset",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-jest-module-preset@charlesstover.com>",
   "description": "Jest preset for monorepo template modules",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/jest-module-preset",

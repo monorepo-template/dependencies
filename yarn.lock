@@ -2199,6 +2199,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monorepo-template/react-module-tsconfig@workspace:packages/react-module-tsconfig":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/react-module-tsconfig@workspace:packages/react-module-tsconfig"
+  dependencies:
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/jest": ^27.4.0
+    "@types/node": ^17.0.13
+    eslint: ^8.7.0
+  peerDependencies:
+    "@types/jest": ^27.4.0
+  languageName: unknown
+  linkType: soft
+
 "@monorepo-template/rollup-config@workspace:packages/rollup-config":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/rollup-config@workspace:packages/rollup-config"
@@ -2238,6 +2251,8 @@ __metadata:
   dependencies:
     "@types/node": ^17.0.13
     eslint: ^8.7.0
+  peerDependencies:
+    "@types/node": ^17.0.0
   languageName: unknown
   linkType: soft
 
