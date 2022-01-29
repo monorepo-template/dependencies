@@ -1,4 +1,4 @@
-name: CodeQL
+name: Cron (weekly)
 
 jobs:
   analyze:
@@ -9,7 +9,7 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - name: Checkout repository
+      - name: Checkout repository repository
         uses: actions/checkout@v2
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
@@ -25,9 +25,5 @@ jobs:
         language: ['javascript']
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   schedule:
     - cron: '15 20 * * 1'
