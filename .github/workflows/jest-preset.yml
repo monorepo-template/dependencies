@@ -2,9 +2,10 @@ name: jest-preset
 
 jobs:
   install:
+    name: Install
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -16,10 +17,11 @@ jobs:
         run: yarn install --immutable
 
   eslint:
+    name: ESLint
     needs: install
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -33,6 +35,7 @@ jobs:
         run: yarn jest-preset:eslint
 
   github:
+    name: Publish to GitHub
     if: ${{ github.event_name == 'push' }}
     needs: eslint
     runs-on: ubuntu-latest
@@ -40,7 +43,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -59,11 +62,12 @@ jobs:
           yarn npm publish --tolerate-republish;
 
   npm:
+    name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
     needs: eslint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
