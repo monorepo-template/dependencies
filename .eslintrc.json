@@ -4,14 +4,14 @@
   "root": true,
 
   "extends": [
-    "@monorepo-template/typescript",
-    "@monorepo-template/typescript-fixable",
-    "@monorepo-template/typescript-strict",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
+    "@monorepo-template/typescript",
+    "@monorepo-template/typescript-fixable",
+    "@monorepo-template/typescript-strict",
     "prettier"
   ],
 

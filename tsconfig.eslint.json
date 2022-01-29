@@ -1,6 +1,16 @@
 {
-  "exclude": [".git", ".yarn", "node_modules", "**/*.md"],
   "extends": "./tsconfig.json",
+
+  "exclude": [
+    ".git/",
+    ".idea/",
+    ".yarn/cache/",
+    ".yarn/sdks/",
+    ".yarn/unplugged/",
+    "node_modules/",
+    "packages/*/node_modules/"
+  ],
+
   "include": [
     "**/.eslintrc.cjs",
     "**/.eslintrc.json",
