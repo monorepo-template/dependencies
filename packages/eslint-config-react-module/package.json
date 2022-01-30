@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config-react-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <monorepo-template-eslint-config-react-module@charlesstover.com>",
   "description": "React configuration for ESLint",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-module",
@@ -40,15 +40,9 @@
     "@monorepo-template/eslint-config-typescript": "workspace:^",
     "@monorepo-template/eslint-config-typescript-fixable": "workspace:^",
     "@monorepo-template/eslint-config-typescript-strict": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.10.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-config-prettier": "^8.3.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^5.10.1",
     "eslint": "^8.7.0",
     "prettier": "^2.5.1"
   }
