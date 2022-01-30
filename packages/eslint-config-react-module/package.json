@@ -1,8 +1,8 @@
 {
   "name": "@monorepo-template/eslint-config-react-module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Charles Stover <monorepo-template-eslint-config-react-module@charlesstover.com>",
-  "description": "React configuration for ESLint",
+  "description": "ESLint configuration for monorepo React modules",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-module",
   "license": "MIT",
   "main": "./index.json",
@@ -36,14 +36,17 @@
   "dependencies": {
     "@monorepo-template/eslint-config-react-fixable": "workspace:^",
     "@monorepo-template/eslint-config-react-strict": "workspace:^",
-    "@monorepo-template/eslint-config-react-typescript": "workspace:^",
-    "@monorepo-template/eslint-config-typescript": "workspace:^",
-    "@monorepo-template/eslint-config-typescript-fixable": "workspace:^",
-    "@monorepo-template/eslint-config-typescript-strict": "workspace:^",
-    "eslint-config-prettier": "^8.3.0"
+    "@monorepo-template/eslint-config-react-typescript": "workspace:^"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
-    "prettier": "^2.5.1"
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
+  },
+  "peerDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.5.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
