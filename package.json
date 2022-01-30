@@ -23,6 +23,8 @@
     "eslint:fix": "eslint '**/*' --fix --ignore-pattern 'packages/**/*'",
     "eslint-config-react-fixable:eslint": "yarn workspace @monorepo-template/eslint-config-react-fixable run eslint",
     "eslint-config-react-fixable:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-fixable run eslint:fix",
+    "eslint-config-react-module:eslint": "yarn workspace @monorepo-template/eslint-config-react-module run eslint",
+    "eslint-config-react-module:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-module run eslint:fix",
     "eslint-config-react-strict:eslint": "yarn workspace @monorepo-template/eslint-config-react-strict run eslint",
     "eslint-config-react-strict:eslint:fix": "yarn workspace @monorepo-template/eslint-config-react-strict run eslint:fix",
     "eslint-config-react-typescript:eslint": "yarn workspace @monorepo-template/eslint-config-react-typescript run eslint",
