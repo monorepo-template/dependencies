@@ -2088,7 +2088,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monorepo-template/eslint-config-react-fixable@workspace:packages/eslint-config-react-fixable":
+"@monorepo-template/eslint-config-react-fixable@workspace:^, @monorepo-template/eslint-config-react-fixable@workspace:packages/eslint-config-react-fixable":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-react-fixable@workspace:packages/eslint-config-react-fixable"
   dependencies:
@@ -2096,7 +2096,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monorepo-template/eslint-config-react-strict@workspace:packages/eslint-config-react-strict":
+"@monorepo-template/eslint-config-react-module@workspace:packages/eslint-config-react-module":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/eslint-config-react-module@workspace:packages/eslint-config-react-module"
+  dependencies:
+    "@monorepo-template/eslint-config-react-fixable": "workspace:^"
+    "@monorepo-template/eslint-config-react-strict": "workspace:^"
+    "@monorepo-template/eslint-config-react-typescript": "workspace:^"
+    eslint: ^8.7.0
+  languageName: unknown
+  linkType: soft
+
+"@monorepo-template/eslint-config-react-strict@workspace:^, @monorepo-template/eslint-config-react-strict@workspace:packages/eslint-config-react-strict":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-react-strict@workspace:packages/eslint-config-react-strict"
   dependencies:
@@ -2104,7 +2115,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monorepo-template/eslint-config-react-typescript@workspace:packages/eslint-config-react-typescript":
+"@monorepo-template/eslint-config-react-typescript@workspace:^, @monorepo-template/eslint-config-react-typescript@workspace:packages/eslint-config-react-typescript":
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config-react-typescript@workspace:packages/eslint-config-react-typescript"
   dependencies:
@@ -2196,6 +2207,19 @@ __metadata:
   resolution: "@monorepo-template/nyc-config@workspace:packages/nyc-config"
   dependencies:
     eslint: ^8.7.0
+  languageName: unknown
+  linkType: soft
+
+"@monorepo-template/react-module-eslint-tsconfig@workspace:packages/react-module-eslint-tsconfig":
+  version: 0.0.0-use.local
+  resolution: "@monorepo-template/react-module-eslint-tsconfig@workspace:packages/react-module-eslint-tsconfig"
+  dependencies:
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/jest": ^27.4.0
+    "@types/node": ^17.0.13
+    eslint: ^8.7.0
+  peerDependencies:
+    "@types/jest": ^27.4.0
   languageName: unknown
   linkType: soft
 
