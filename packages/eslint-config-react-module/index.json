@@ -21,7 +21,8 @@
     "@monorepo-template/typescript",
     "@monorepo-template/typescript-fixable",
     "@monorepo-template/typescript-strict",
-    "@monorepo-template/react-typescript"
+    "@monorepo-template/react-typescript",
+    "prettier"
   ],
 
   "overrides": [

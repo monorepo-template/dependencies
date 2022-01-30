@@ -36,9 +36,29 @@
   "dependencies": {
     "@monorepo-template/eslint-config-react-fixable": "workspace:^",
     "@monorepo-template/eslint-config-react-strict": "workspace:^",
-    "@monorepo-template/eslint-config-react-typescript": "workspace:^"
+    "@monorepo-template/eslint-config-react-typescript": "workspace:^",
+    "@monorepo-template/eslint-config-typescript": "workspace:^",
+    "@monorepo-template/eslint-config-typescript-fixable": "workspace:^",
+    "@monorepo-template/eslint-config-typescript-strict": "workspace:^",
+    "eslint-config-prettier": "^8.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.7.0"
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.7.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-plugin-jsx-a11y": "^6.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "*"
   }
 }
