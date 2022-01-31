@@ -1,7 +1,7 @@
 # React module TypeScript configuration
 
-The `@monorepo-template/react-module-tsconfig` package is a production-ready
-TypeScript configuration for React modules. It extends the
+The `@monorepo-template/react-module-tsconfig` package contains production-ready
+TypeScript configurations for React modules. It extends the
 [monorepo template TypeScript configuration](https://www.npmjs.com/package/@monorepo-template/tsconfig)
 by adding React-specific compiler options, such as JSX support, type
 declarations, and more.
@@ -16,5 +16,21 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 ```json
 {
   "extends": "@monorepo-template/react-module-tsconfig"
+}
+```
+
+Change your `tsconfig.development.json` file to extend this preconfiguration:
+
+```json
+{
+  "extends": "@monorepo-template/react-module-tsconfig/development"
+}
+```
+
+Change your `tsconfig.eslint.json` file to extend this preconfiguration:
+
+```json
+{
+  "extends": "@monorepo-template/react-module-tsconfig/eslint"
 }
 ```
