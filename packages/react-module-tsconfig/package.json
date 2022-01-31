@@ -1,21 +1,21 @@
 {
   "name": "@monorepo-template/react-module-tsconfig",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <monorepo-template-react-module-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React modules",
   "homepage": "https://www.npmjs.com/package/@monorepo-template/react-module-tsconfig",
   "license": "MIT",
-  "main": "./src/tsconfig.json",
-  "module": "./src/tsconfig.json",
+  "main": "./tsconfig.json",
+  "module": "./tsconfig.json",
   "type": "module",
   "bugs": {
     "email": "monorepo-template-react-module-tsconfig@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
   "exports": {
-    ".": "./src/tsconfig.json",
-    "./development": "./src/tsconfig.development.json",
-    "./eslint": "./src/tsconfig.eslint.json"
+    ".": "./tsconfig.json",
+    "./development": "./development.json",
+    "./eslint": "./eslint.json"
   },
   "files": [
     "src"
