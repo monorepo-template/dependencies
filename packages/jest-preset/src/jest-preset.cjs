@@ -20,6 +20,7 @@ module.exports = {
     '<rootDir>/src/**/*.{cjs,jsx,jsx,mjs,ts,tsx}',
     '!<rootDir>/src/**/*.d.ts',
     '!<rootDir>/src/**/*.e2e.ts',
+    '!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}',
   ],
 
   coverageThreshold: {
