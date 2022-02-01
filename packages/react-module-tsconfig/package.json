@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/react-module-tsconfig",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Charles Stover <monorepo-template-react-module-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/react-module-tsconfig#readme",

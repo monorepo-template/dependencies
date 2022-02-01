@@ -4,6 +4,7 @@
     "declaration": true,
     "declarationDir": "./dist/types",
     "jsx": "react-jsx",
+    "target": "ES5",
     "types": ["jest"]
   }
 }
