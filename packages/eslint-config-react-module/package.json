@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "author": "Charles Stover <monorepo-template-eslint-config-react-module@charlesstover.com>",
   "description": "ESLint configuration for monorepo React modules",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-module",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-module#readme",
   "license": "MIT",
   "main": "./index.json",
   "type": "commonjs",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-eslint-config-react-typescript@charlesstover.com>",
   "description": "React TypeScript configuration for ESLint",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-react-typescript",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-typescript#readme",
   "license": "MIT",
   "main": "./index.js",
   "type": "commonjs",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-coverage-config-override@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/coverage-config-override",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage-config-override#readme",
   "license": "MIT",
   "main": "./index.cjs",
   "type": "commonjs",

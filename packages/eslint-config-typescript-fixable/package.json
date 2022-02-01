@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript-fixable@charlesstover.com>",
   "description": "fixable TypeScript configuration for ESLint",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/eslint-config-typescript-fixable",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-typescript-fixable#readme",
   "license": "MIT",
   "main": "./index.js",
   "type": "commonjs",

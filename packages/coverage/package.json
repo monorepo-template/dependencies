@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/coverage",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage#readme",
   "license": "MIT",
   "main": "./index.mjs",
   "module": "./index.mjs",

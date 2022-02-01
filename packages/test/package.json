@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "author": "Charles Stover <monorepo-template-test@charlesstover.com>",
   "description": "tests monorepos for best practices",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/test",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/test#readme",
   "license": "MIT",
   "module": "./index.mjs",
   "type": "module",

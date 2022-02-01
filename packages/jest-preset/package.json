@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-jest-preset@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/jest-preset",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-preset#readme",
   "license": "MIT",
   "main": "./jest-preset.cjs",
   "type": "commonjs",

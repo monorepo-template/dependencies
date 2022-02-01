@@ -1,3 +1,3 @@
-# Rolloup configuration
+# Rollup configuration
 
 Rollup configuration for monorepo template modules

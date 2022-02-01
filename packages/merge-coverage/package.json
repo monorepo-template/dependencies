@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-merge-coverage@charlesstover.com>",
   "description": "merges Cypress and Jest coverage",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/merge-coverage",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/merge-coverage#readme",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.js",

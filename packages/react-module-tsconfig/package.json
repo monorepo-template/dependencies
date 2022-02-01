@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "author": "Charles Stover <monorepo-template-react-module-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React modules",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/react-module-tsconfig",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/react-module-tsconfig#readme",
   "license": "MIT",
   "main": "./tsconfig.json",
   "module": "./tsconfig.json",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for the monorepo template",
-  "homepage": "https://www.npmjs.com/package/@monorepo-template/tsconfig",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/tsconfig#readme",
   "license": "MIT",
   "main": "./tsconfig.json",
   "module": "./tsconfig.json",
