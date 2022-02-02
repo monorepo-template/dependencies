@@ -34,8 +34,8 @@ jobs:
       - name: Lint
         run: yarn eslint-config-react-typescript:eslint
 
-  github:
-    name: Publish to GitHub
+  github-packages:
+    name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
     needs: eslint
     runs-on: ubuntu-latest

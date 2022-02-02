@@ -58,8 +58,8 @@ jobs:
           name: cypress-coverage-config-override--jest-coverage
           path: packages/cypress-coverage-config-override/jest/coverage
 
-  github:
-    name: Publish to GitHub
+  github-packages:
+    name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
     needs: [eslint, jest]
     runs-on: ubuntu-latest
