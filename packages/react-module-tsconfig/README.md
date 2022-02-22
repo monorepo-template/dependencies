@@ -19,6 +19,16 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 }
 ```
 
+If you do not want your module to use
+[the React 17 JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html),
+extend this preconfiguration instead:
+
+```json
+{
+  "extends": "@monorepo-template/react-module-tsconfig/no-jsx-runtime"
+}
+```
+
 Change your `tsconfig.development.json` file to extend this preconfiguration:
 
 ```json

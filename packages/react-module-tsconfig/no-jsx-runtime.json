@@ -1,0 +1,10 @@
+{
+  "extends": "@monorepo-template/tsconfig",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "jsx": "react",
+    "target": "ES5",
+    "types": ["jest"]
+  }
+}
