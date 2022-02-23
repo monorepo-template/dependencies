@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/rollup-config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-rollup-config@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/rollup-config#readme",
@@ -11,6 +11,16 @@
   "bugs": {
     "email": "monorepo-template-rollup-config@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./new": {
+      "import": "./src/utils/rollup-config.mjs",
+      "require": "./src/utils/rollup-config.cjs"
+    }
   },
   "files": [
     "src",
