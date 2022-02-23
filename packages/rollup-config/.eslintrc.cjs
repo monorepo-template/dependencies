@@ -2,21 +2,13 @@ module.exports = {
   root: false,
 
   env: {
+    jest: true,
     node: true,
   },
 
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
-
-  overrides: [
-    {
-      files: ['*.test.cjs', '*.test.mjs'],
-      rules: {
-        'no-undef': 'off',
-      },
-    },
-  ],
 
   rules: {
     '@typescript-eslint/naming-convention': 'off',
