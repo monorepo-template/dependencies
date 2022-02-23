@@ -25,6 +25,9 @@ import RollupConfig from '@monorepo-template/rollup-config/new';
 export default new RollupConfig()
   .disableDevelopmentMode()
   .disableJsxRuntime() // support React < 16.14.0
+  .setDevelopmentTSConfigPath('./tsconfig.development.json')
+  .setExternalDependency('react-router') // do not bundle `react-router`
+  .setTSConfigPath('./tsconfig.json')
   .setInput('button', 'src/components/button/index.ts')
   .setInput('table', 'src/components/table/index.ts')
   .toJSON();

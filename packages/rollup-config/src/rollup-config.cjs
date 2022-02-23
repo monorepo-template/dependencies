@@ -1,3 +1,3 @@
 const RollupConfig = require('./utils/rollup-config.cjs');
 
-export default new RollupConfig().toJSON();
+module.exports = new RollupConfig().toJSON();

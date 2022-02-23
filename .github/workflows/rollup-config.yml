@@ -34,10 +34,28 @@ jobs:
       - name: Lint
         run: yarn rollup-config:eslint
 
+  jest:
+    name: Jest
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Unit test
+        run: yarn rollup-config:jest
+
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, jest]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -64,7 +82,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, jest]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -87,9 +105,11 @@ on:
   pull_request:
     paths:
       - '.github/workflows/rollup-config.yml'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/rollup-config/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/rollup-config.yml'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/rollup-config/**/*'

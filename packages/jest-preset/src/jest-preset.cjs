@@ -16,6 +16,12 @@ module.exports = {
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
 
+  // Extends the default Jest configuration with `.cjs` and `.mjs` extensions.
+  testMatch: [
+    '**/__tests__/**/*.(cjs|js|jsx|mjs|ts|tsx)',
+    '**/?(*.)+(spec|test).(cjs|js|jsx|mjs|ts|tsx)',
+  ],
+
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{cjs,jsx,jsx,mjs,ts,tsx}',
     '!<rootDir>/src/**/*.d.ts',
@@ -31,6 +37,17 @@ module.exports = {
       statements: 100,
     },
   },
+
+  moduleFileExtensions: [
+    'cjs',
+    'js',
+    'json',
+    'jsx',
+    'mjs',
+    'node',
+    'ts',
+    'tsx',
+  ],
 
   moduleNameMapper: {
     [CSS_FILE]: NULL_PATH,

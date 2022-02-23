@@ -1,8 +1,6 @@
 const PACKAGE_JSON = require('../constants/package-json.cjs');
+const mapPackageJsonToDependenciesRecord = require('../utils/map-package-json-to-dependencies-record.cjs');
 
-const DEFAULT_DEPENDENCIES_RECORD = Object.create(null);
-
-const DEPENDENCIES_RECORD =
-  PACKAGE_JSON.dependencies ?? DEFAULT_DEPENDENCIES_RECORD;
+const DEPENDENCIES_RECORD = mapPackageJsonToDependenciesRecord(PACKAGE_JSON);
 
 module.exports = DEPENDENCIES_RECORD;
