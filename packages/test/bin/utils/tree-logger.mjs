@@ -136,7 +136,11 @@ export default class TreeLogger {
       for (let i = 0; i < errorsCount; i++) {
         const error = item.errors[i];
         const pip = mapErrorIndexToPip(i);
-        console.error(
+
+        // `console.error` is appropriate here, but GitHub Actions flushes the
+        //   log and error outputs asynchronously, causing a `console.error` to
+        //   appear on the wrong line.
+        console.log(
           `${errorPrefix}${SPACING}${pip} ${styles.red.open}⚠ ${error.message} ⚠${styles.red.close}`,
         );
       }
