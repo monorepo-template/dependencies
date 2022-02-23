@@ -1,4 +1,10 @@
+/jest/
+/src/**/*.test.cjs
+/src/**/*.test.mjs
 /.eslintignore
 /.eslintrc.cjs
 /.npmignore
+/index.ts
+/jest.config.mjs
 /tsconfig.eslint.json
+/tsconfig.json

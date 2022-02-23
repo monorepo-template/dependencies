@@ -1,8 +1,7 @@
 import PACKAGE_JSON from '../constants/package-json.mjs';
-
-const DEFAULT_PEER_DEPENDENCIES_RECORD = Object.create(null);
+import mapPackageJsonToPeerDependenciesRecord from '../utils/map-package-json-to-peer-dependencies-record.mjs';
 
 const PEER_DEPENDENCIES_RECORD =
-  PACKAGE_JSON.peerDependencies ?? DEFAULT_PEER_DEPENDENCIES_RECORD;
+  mapPackageJsonToPeerDependenciesRecord(PACKAGE_JSON);
 
 export default PEER_DEPENDENCIES_RECORD;
