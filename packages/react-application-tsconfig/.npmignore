@@ -1,0 +1,5 @@
+/.eslintignore
+/.eslintrc.cjs
+/.npmignore
+/index.ts
+/tsconfig.eslint.json
