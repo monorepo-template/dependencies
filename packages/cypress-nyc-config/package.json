@@ -1,23 +1,17 @@
 {
-  "name": "@monorepo-template/nyc-config",
-  "version": "1.0.2",
-  "author": "Charles Stover <monorepo-template-nyc-config@charlesstover.com>",
-  "description": "NYC configuration for monorepo templates",
-  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/nyc-config#readme",
+  "name": "@monorepo-template/cypress-nyc-config",
+  "version": "1.0.0",
+  "author": "Charles Stover <monorepo-template-cypress-nyc-config@charlesstover.com>",
+  "description": "Cypress NYC configuration for monorepo templates",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-nyc-config#readme",
   "license": "MIT",
   "main": "./index.cjs",
   "module": "./index.mjs",
   "type": "commonjs",
   "bugs": {
-    "email": "monorepo-template-nyc-config@charlesstover.com",
+    "email": "monorepo-template-cypress-nyc-config@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "src",
-    "index.cjs",
-    "index.mjs",
-    "index.js"
-  ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
