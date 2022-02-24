@@ -1,0 +1,7 @@
+/jest/
+/.eslintignore
+/.eslintrc.cjs
+/.gitignore
+/.npmignore
+/tsconfig.eslint.json
+/tsconfig.json

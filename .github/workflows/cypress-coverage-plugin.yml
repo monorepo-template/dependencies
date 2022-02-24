@@ -1,4 +1,4 @@
-name: nyc-config
+name: cypress-coverage-plugin
 
 jobs:
   install:
@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn nyc-config:eslint
+        run: yarn cypress-coverage-plugin:eslint
 
   github-packages:
     name: GitHub Packages
@@ -54,7 +54,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@${{ github.repository_owner }}'
       - name: Publish
-        working-directory: packages/nyc-config
+        working-directory: packages/cypress-coverage-plugin
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
@@ -76,7 +76,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/nyc-config
+        working-directory: packages/cypress-coverage-plugin
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
@@ -86,10 +86,12 @@ jobs:
 on:
   pull_request:
     paths:
-      - '.github/workflows/nyc-config.yml'
-      - 'packages/nyc-config/**/*'
+      - '.github/workflows/cypress-coverage-plugin.yml'
+      - 'packages/cypress-coverage-plugin/**/*'
+      - 'packages/cypress-nyc-config/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/nyc-config.yml'
-      - 'packages/nyc-config/**/*'
+      - '.github/workflows/cypress-coverage-plugin.yml'
+      - 'packages/cypress-coverage-plugin/**/*'
+      - 'packages/cypress-nyc-config/**/*'

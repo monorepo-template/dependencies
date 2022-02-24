@@ -1,5 +1,4 @@
 const EXCLUDE = require('./constants/exclude.cjs');
-const REPORT_DIR = require('./constants/report-dir.cjs');
 
 module.exports = {
   all: true,
@@ -8,7 +7,7 @@ module.exports = {
   exclude: EXCLUDE,
   extension: ['.js', '.jsx', '.ts', '.tsx'],
   include: 'src/**',
-  'report-dir': REPORT_DIR,
+  'report-dir': 'cypress/coverage',
   reporter: ['clover', 'json', 'lcov', 'text'],
   'skip-empty': false,
   'skip-full': false,

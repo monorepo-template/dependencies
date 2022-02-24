@@ -1,5 +1,4 @@
 import EXCLUDE from './constants/exclude.mjs';
-import REPORT_DIR from './constants/report-dir.mjs';
 
 export default {
   all: true,
@@ -8,7 +7,7 @@ export default {
   exclude: EXCLUDE,
   extension: ['.js', '.jsx', '.ts', '.tsx'],
   include: 'src/**',
-  'report-dir': REPORT_DIR,
+  'report-dir': 'cypress/coverage',
   reporter: ['clover', 'json', 'lcov', 'text'],
   'skip-empty': false,
   'skip-full': false,
