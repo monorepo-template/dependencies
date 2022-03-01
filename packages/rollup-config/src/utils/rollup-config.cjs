@@ -4,24 +4,41 @@ const EXTERNAL_DEPENDENCIES_SET = require('../constants/external-dependencies-se
 const IS_DEV = require('../constants/is-dev.cjs');
 const NO_JSX_RUNTIME_PLUGIN = require('../constants/no-jsx-runtime-plugin.cjs');
 const NODE_RESOLVE_PLUGIN = require('../constants/node-resolve-plugin.cjs');
-const OUTPUT = require('../constants/output.cjs');
 const WATCH = require('../constants/watch.cjs');
 const mapMapToRecord = require('../utils/map-map-to-record.cjs');
 
 const EMPTY = 0;
 
 module.exports = class RollupConfig {
+  _cjsDirectory = './dist/cjs';
+
+  _cjsExtension = 'cjs';
+
   _developmentMode = IS_DEV;
 
   _developmentTSConfigPath = './tsconfig.development.json';
 
+  _esmDirectory = './dist/esm';
+
+  _esmExtension = 'js';
+
   _externalDependencies = EXTERNAL_DEPENDENCIES_SET;
+
+  _fileName = '[name]';
 
   _input = new Map();
 
   _jsxRuntime = true;
 
   _tsconfigPath = './tsconfig.json';
+
+  get cjsDirectory() {
+    return this._cjsDirectory;
+  }
+
+  get cjsExtension() {
+    return this._cjsExtension;
+  }
 
   get developmentMode() {
     return this._developmentMode;
@@ -31,8 +48,20 @@ module.exports = class RollupConfig {
     return this._developmentTSConfigPath;
   }
 
+  get esmDirectory() {
+    return this._esmDirectory;
+  }
+
+  get esmExtension() {
+    return this._esmExtension;
+  }
+
   get externalDependencies() {
     return this._externalDependencies;
+  }
+
+  get fileName() {
+    return this._fileName;
   }
 
   get hasInput() {
@@ -49,6 +78,31 @@ module.exports = class RollupConfig {
 
   get jsxRuntime() {
     return this._jsxRuntime;
+  }
+
+  get output() {
+    return [this.outputCjs, this.outputEsm];
+  }
+
+  get outputCjs() {
+    return {
+      chunkFileNames: `${this.fileName}-[hash].${this.cjsExtension}`,
+      dir: this.cjsDirectory,
+      entryFileNames: `${this.fileName}.${this.cjsExtension}`,
+      exports: 'named',
+      format: 'cjs',
+      sourcemap: this.developmentMode,
+    };
+  }
+
+  get outputEsm() {
+    return {
+      chunkFileNames: `${this.fileName}-[hash].${this.esmExtension}`,
+      dir: this.esmDirectory,
+      entryFileNames: `${this.fileName}.${this.esmExtension}`,
+      format: 'es',
+      sourcemap: this.developmentMode,
+    };
   }
 
   get plugins() {
@@ -148,8 +202,23 @@ module.exports = class RollupConfig {
     return this;
   };
 
+  setCjsDirectory = cjsDirectory => {
+    this._cjsDirectory = cjsDirectory;
+    return this;
+  };
+
   setDevelopmentTSConfigPath = developmentTSConfigPath => {
     this._developmentTSConfigPath = developmentTSConfigPath;
+    return this;
+  };
+
+  setEsmDirectory = esmDirectory => {
+    this._esmDirectory = esmDirectory;
+    return this;
+  };
+
+  setFileName = fileName => {
+    this._fileName = fileName;
     return this;
   };
 
@@ -162,7 +231,7 @@ module.exports = class RollupConfig {
     cache: true,
     external: this.external,
     input: this.input,
-    output: OUTPUT,
+    output: this.output,
     plugins: this.plugins,
     treeshake: !this.developmentMode,
     watch: WATCH,
