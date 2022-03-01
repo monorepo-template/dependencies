@@ -102,12 +102,50 @@ describe('RollupConfig', () => {
     });
   });
 
+  describe('setCjsDirectory', () => {
+    it('should set the CJS directory', () => {
+      const { output } = new RollupConfig()
+        .setCjsDirectory('./dist/custom')
+        .toJSON();
+      for (const { dir, format } of output) {
+        if (format !== 'cjs') {
+          continue;
+        }
+        expect(dir).toBe('./dist/custom');
+      }
+    });
+  });
+
   describe('setDevelopmentTSConfigPath', () => {
     it('should set the development TSConfig path', () => {
       expect(
         new RollupConfig().setDevelopmentTSConfigPath('test.json')
           .developmentTSConfigPath,
       ).toBe('test.json');
+    });
+  });
+
+  describe('setEsmDirectory', () => {
+    it('should set the CJS directory', () => {
+      const { output } = new RollupConfig()
+        .setEsmDirectory('./dist/custom')
+        .toJSON();
+      for (const { dir, format } of output) {
+        if (format !== 'es') {
+          continue;
+        }
+        expect(dir).toBe('./dist/custom');
+      }
+    });
+  });
+
+  describe('setFileName', () => {
+    it('should set the file name', () => {
+      const { output } = new RollupConfig().setFileName('test').toJSON();
+      for (const { chunkFileNames, entryFileNames } of output) {
+        expect(chunkFileNames).toMatch(/^test-\[hash\]\./);
+        expect(entryFileNames).toMatch(/^test\./);
+      }
     });
   });
 

@@ -11,7 +11,7 @@ describe('@monorepo-template/rollup-config', () => {
       output: [
         {
           chunkFileNames: '[name]-[hash].cjs',
-          dir: '.',
+          dir: './dist/cjs',
           entryFileNames: '[name].cjs',
           exports: 'named',
           format: 'cjs',
@@ -19,7 +19,7 @@ describe('@monorepo-template/rollup-config', () => {
         },
         {
           chunkFileNames: '[name]-[hash].js',
-          dir: '.',
+          dir: './dist/esm',
           entryFileNames: '[name].js',
           format: 'es',
           sourcemap: false,
