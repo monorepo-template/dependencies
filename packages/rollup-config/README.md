@@ -23,6 +23,8 @@ To create a customized Rollup configuration, import from `/new`:
 import RollupConfig from '@monorepo-template/rollup-config/new';
 
 export default new RollupConfig()
+  .addInput('button', 'src/components/button/index.ts')
+  .addInput('table', 'src/components/table/index.ts')
   .disableDevelopmentMode()
   .disableJsxRuntime() // support React < 16.14.0
   .setCjsDirectory('./dist/my-cjs')
@@ -31,7 +33,5 @@ export default new RollupConfig()
   .setExternalDependency('react-router') // do not bundle `react-router`
   .setFileName('custom') // outputs `custom.js`
   .setTSConfigPath('./tsconfig.json')
-  .setInput('button', 'src/components/button/index.ts')
-  .setInput('table', 'src/components/table/index.ts')
   .toJSON();
 ```
