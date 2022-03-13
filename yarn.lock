@@ -2531,6 +2531,9 @@ __metadata:
     "@types/node": ^17.0.13
     cypress: ^9.5.0
     eslint: ^8.7.0
+  peerDependencies:
+    "@cypress/code-coverage": ^3.9.12
+    cypress: ^9.5.0
   languageName: unknown
   linkType: soft
 

@@ -5,6 +5,15 @@ The monorepo template's Cypress coverage plugin is a
 code coverage plugin, adding pre-configuration of NYC and support for
 `nyc.config.cjs`.
 
+## Install
+
+This package relies on both `@cypress/code-coverage` and `cypress` as peer
+dependencies for runtime behavior and type definitions, respectively.
+
+```
+yarn install --dev @cypress/code-coverage @monorepo-template/cypress-coverage-plugin cypress
+```
+
 ## Use
 
 In your Cypress plugin file (`cypress/plugin/index.ts`), import the plugin:
