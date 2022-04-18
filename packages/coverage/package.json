@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage#readme",
