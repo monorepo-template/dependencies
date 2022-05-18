@@ -6,7 +6,7 @@ import MISSING_CYPRESS_COVERAGE_DIRECTORY_ERROR from './constants/missing-cypres
 import MISSING_JEST_COVERAGE_DIRECTORY_ERROR from './constants/missing-jest-coverage-directory-error.mjs';
 import THRESHOLDS from './constants/thresholds.mjs';
 import mapCypressCoverageDirectoryToPaths from './utils/map-cypress-coverage-directory-to-paths.mjs';
-import coverage from '../index.mjs';
+import coverage from '../src/index.mjs';
 
 const CWD = process.cwd();
 const CYPRESS_COVERAGE_DIRECTORY = join(CWD, 'cypress', 'coverage');
