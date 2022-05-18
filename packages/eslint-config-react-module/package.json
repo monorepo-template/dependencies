@@ -5,15 +5,17 @@
   "description": "ESLint configuration for monorepo React modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-module#readme",
   "license": "MIT",
-  "main": "./index.json",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-react-module@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "index.json"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

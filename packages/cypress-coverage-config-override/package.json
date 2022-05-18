@@ -15,11 +15,6 @@
   "directories": {
     "lib": "src"
   },
-  "files": [
-    "src",
-    "index.cjs",
-    "index.d.ts"
-  ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -35,10 +30,11 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
-    "jest": "jest",
-    "jest:watch": "jest --coverage=false --watch"
+    "jest": "jest --runInBand",
+    "jest:watch": "jest --coverage=false --runInBand --watch"
   },
   "devDependencies": {
+    "@jest/globals": "^28.1.0",
     "@types/jest": "^27.5.1",
     "@types/node": "^17.0.34",
     "babel-plugin-istanbul": "^6.1.1",

@@ -11,9 +11,11 @@
     "email": "monorepo-template-tsconfig@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "tsconfig.json"
-  ],
+  "exports": {
+    ".": {
+      "default": "./tsconfig.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

@@ -5,17 +5,17 @@
   "description": "Strict React configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-strict#readme",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-react-strict@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "rules",
-    "src",
-    "index.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

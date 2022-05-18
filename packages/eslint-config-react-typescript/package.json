@@ -5,19 +5,23 @@
   "description": "React TypeScript configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-typescript#readme",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-react-typescript@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "rules",
-    "src",
-    "index.js",
-    "json.js",
-    "react-scripts-4.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    },
+    "./json": {
+      "default": "./rules/json.json"
+    },
+    "./react-scripts-4": {
+      "default": "./rules/react-scripts-4.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

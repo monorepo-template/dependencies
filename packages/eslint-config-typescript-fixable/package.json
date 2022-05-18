@@ -5,19 +5,23 @@
   "description": "fixable TypeScript configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-typescript-fixable#readme",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-typescript-fixable@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "rules",
-    "src",
-    "index.js",
-    "js.js",
-    "json.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    },
+    "./js": {
+      "default": "./rules/js.json"
+    },
+    "./json": {
+      "default": "./rules/json.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

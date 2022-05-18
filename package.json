@@ -60,8 +60,6 @@
     "test": "monorepo-template-test",
     "test:eslint": "yarn workspace @monorepo-template/test run eslint",
     "test:eslint:fix": "yarn workspace @monorepo-template/test run eslint:fix",
-    "test:jest": "yarn workspace @monorepo-template/test run jest",
-    "test:jest:watch": "yarn workspace @monorepo-template/test run jest:watch",
     "tsconfig:eslint": "yarn workspace @monorepo-template/tsconfig run eslint",
     "tsconfig:eslint:fix": "yarn workspace @monorepo-template/tsconfig run eslint:fix"
   },

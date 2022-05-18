@@ -1,9 +1,7 @@
 /jest/
-/tests/
 /.eslintignore
 /.eslintrc.cjs
 /.gitignore
 /.npmignore
-/jest.config.mjs
 /tsconfig.eslint.json
 /tsconfig.json

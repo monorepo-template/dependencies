@@ -5,12 +5,18 @@
   "description": "Cypress NYC configuration for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-nyc-config#readme",
   "license": "MIT",
-  "main": "./index.cjs",
-  "module": "./index.mjs",
+  "main": "./src/cypress-nyc-config.cjs",
+  "module": "./src/cypress-nyc-config.mjs",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-cypress-nyc-config@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/cypress-nyc-config.mjs",
+      "require": "./src/cypress-nyc-config.cjs"
+    }
   },
   "funding": {
     "type": "individual",

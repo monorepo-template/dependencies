@@ -11,9 +11,11 @@
     "email": "monorepo-template-jest-transformer@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "src"
-  ],
+  "exports": {
+    ".": {
+      "default": "./src/jest-transformer.cjs"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

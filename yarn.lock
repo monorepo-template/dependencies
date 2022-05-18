@@ -3053,6 +3053,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/cypress-coverage-config-override@workspace:packages/cypress-coverage-config-override"
   dependencies:
+    "@jest/globals": ^28.1.0
     "@types/jest": ^27.5.1
     "@types/node": ^17.0.34
     babel-plugin-istanbul: ^6.1.1

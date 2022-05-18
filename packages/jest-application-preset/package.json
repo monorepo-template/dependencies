@@ -11,13 +11,14 @@
     "email": "monorepo-template-jest-application-preset@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "src",
-    "index.cjs",
-    "index.js",
-    "jest-preset.cjs",
-    "jest-preset.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./src/jest-application-preset.cjs"
+    },
+    "./jest-preset": {
+      "default": "./src/jest-application-preset.cjs"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"

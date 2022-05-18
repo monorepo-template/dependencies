@@ -1,6 +1,9 @@
 import LOGGER from '../../constants/logger.mjs';
+import FILES_PROPERTY_ERROR from './constants/files-property-error.mjs';
 import PACKAGE_DIRECTORY_NAMES from './constants/package-directory-names.mjs';
 import mapPackageDirectoryNameToPackageJson from './utils/map-package-directory-name-to-package-json.mjs';
+import mapPackageJsonToDependenciesSet from './utils/map-package-json-to-dependencies-set.mjs';
+import mapPackageJsonToPeerDependenciesList from './utils/map-package-json-to-peer-dependencies-list.mjs';
 
 const WORKSPACE_VERSION = /^workspace:.*$/;
 
@@ -22,6 +25,14 @@ export default function testPackages() {
     LOGGER.indent();
 
     const packageJson = packageDirectoryToJsonMap.get(packageDirectoryName);
+
+    // Check for a `files` property.
+    if (Object.prototype.hasOwnProperty.call(packageJson, 'files')) {
+      LOGGER.addItem('files');
+      LOGGER.indent();
+      LOGGER.addError(FILES_PROPERTY_ERROR);
+      LOGGER.unindent();
+    }
 
     // Check for missing peer dependencies.
     for (const dependencyKey of ['dependencies', 'devDependencies']) {
@@ -51,26 +62,22 @@ export default function testPackages() {
         }
 
         // Validate that all peer dependencies are present.
-        const packageDependenciesRecord = {
-          ...packageJson.dependencies,
-          ...packageJson.devDependencies,
-          ...packageJson.peerDependencies,
-        };
-        const packageDependenciesSet = new Set(
-          Object.keys(packageDependenciesRecord),
-        );
+        const packageDependenciesSet =
+          mapPackageJsonToDependenciesSet(packageJson);
+        const filterByMissingDependency = dependency =>
+          !packageDependenciesSet.has(dependency);
+
         const dependencyPackageJson =
           packageDirectoryToJsonMap.get(dependencyDirectory);
-        const dependencyPeerDependencies = Object.keys(
-          dependencyPackageJson.peerDependencies || Object.create(null),
+        const dependencyPeerDependenciesList =
+          mapPackageJsonToPeerDependenciesList(dependencyPackageJson);
+        const missingDependencies = dependencyPeerDependenciesList.filter(
+          filterByMissingDependency,
         );
-        for (const dependencyPeerDependency of dependencyPeerDependencies) {
-          if (packageDependenciesSet.has(dependencyPeerDependency)) {
-            continue;
-          }
+        for (const missingDependency of missingDependencies) {
           LOGGER.addError(
             new Error(
-              `Expected dependency \`${dependencyPeerDependency}\` as required by \`${name}\`.`,
+              `Expected dependency \`${missingDependency}\` as required by \`${name}\`.`,
             ),
           );
         }

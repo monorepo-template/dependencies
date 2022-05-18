@@ -8,4 +8,13 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
+
+  overrides: [
+    {
+      files: ['src/constants/transform.cjs'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
+    },
+  ],
 };

@@ -13,17 +13,11 @@
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
   "exports": {
-    ".": "./tsconfig.json",
-    "./development": "./development.json",
-    "./eslint": "./eslint.json",
-    "./no-jsx-runtime": "./no-jsx-runtime.json"
+    ".": "./config/tsconfig.json",
+    "./development": "./config/development.json",
+    "./eslint": "./config/eslint.json",
+    "./no-jsx-runtime": "./config/no-jsx-runtime.json"
   },
-  "files": [
-    "development.json",
-    "eslint.json",
-    "no-jsx-runtime.json",
-    "tsconfig.json"
-  ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
