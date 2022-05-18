@@ -15,8 +15,9 @@ configuration.
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/eslint-config-react-strict` or
-- `yarn add --dev @monorepo-template/eslint-config-react-strict`
+```sh
+yarn add --dev "@monorepo-template/eslint-config-react-strict" eslint-plugin-react eslint-plugin-react-hooks
+```
 
 ## Use
 

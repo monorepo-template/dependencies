@@ -6,10 +6,13 @@ TypeScript configurations for React modules. It extends the
 by adding React-specific compiler options, such as JSX support, type
 declarations, and more.
 
-## Use
+## Install
 
-Add the TypeScript configuration to your project with
-`yarn add --dev @monorepo-template/react-module-tsconfig`.
+```sh
+yarn add --dev "@monorepo-template/react-module-tsconfig" "@types/jest"
+```
+
+## Use
 
 Change your `tsconfig.json` file to extend this preconfiguration:
 

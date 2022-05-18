@@ -7,11 +7,11 @@ code coverage plugin, adding pre-configuration of NYC and support for
 
 ## Install
 
-This package relies on both `@cypress/code-coverage` and `cypress` as peer
-dependencies for runtime behavior and type definitions, respectively.
+This package relies on both `@cypress/code-coverage` and `cypress` for runtime
+behavior and type definitions, respectively.
 
-```
-yarn install --dev @cypress/code-coverage @monorepo-template/cypress-coverage-plugin cypress
+```sh
+yarn add --dev "@cypress/code-coverage" "@monorepo-template/cypress-coverage-plugin" cypress
 ```
 
 ## Use

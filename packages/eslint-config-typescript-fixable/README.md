@@ -6,9 +6,9 @@ required to adhere to this configuration's rules.
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/eslint-config-typescript-fixable`
-  or
-- `yarn add --dev @monorepo-template/eslint-config-typescript-fixable`
+```sh
+yarn add --dev "@monorepo-template/eslint-config-typescript-fixable" "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
+```
 
 ## Use
 

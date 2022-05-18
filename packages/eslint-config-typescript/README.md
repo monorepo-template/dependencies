@@ -6,8 +6,9 @@ rules that would be impossible to enforce.
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/eslint-config-typescript` or
-- `yarn add --dev @monorepo-template/eslint-config-typescript`
+```sh
+yarn add --dev "@monorepo-template/eslint-config-typescript"
+```
 
 ## Use
 
@@ -26,6 +27,11 @@ _Merge_ the following ESLint configuration into your `.eslintrc.json` file:
     {
       "files": ["*.cjs", "*.js", "*.jsx", "*.mjs"],
       "extends": ["@monorepo-template/typescript/js"]
+    },
+
+    {
+      "files": ["*.eslintrc.cjs"],
+      "extends": "@monorepo-template/typescript/eslint"
     },
 
     {

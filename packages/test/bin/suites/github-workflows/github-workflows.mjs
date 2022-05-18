@@ -90,7 +90,7 @@ export default function testGitHubWorkflows() {
           continue;
         }
 
-        LOGGER.addItem(path);
+        LOGGER.addItem(path.replace(/(?:\/\*\*)?\/\*$/, ''));
 
         const packageJson = mapPathToPackageJson(workspacePath);
         workspacePackageJsons.set(workspacePath, packageJson);

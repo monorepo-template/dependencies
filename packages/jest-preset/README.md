@@ -2,6 +2,14 @@
 
 Jest preset for monorepo templates
 
+## Install
+
+This module depends on Babel as a peer dependency.
+
+```sh
+yarn add --dev "@babel/core" "@babel/preset-env" "@babel/preset-react" "@babel/preset-typescript" "@monorepo-template/jest-preset" babel-jest identity-obj-proxy
+```
+
 ## Common problems
 
 ```
