@@ -1,12 +1,12 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage#readme",
   "license": "MIT",
-  "main": "./index.mjs",
-  "module": "./index.mjs",
+  "main": "./src/index.mjs",
+  "module": "./src/index.mjs",
   "type": "module",
   "bin": {
     "monorepo-template-coverage": "./bin/coverage.mjs"
@@ -15,11 +15,11 @@
     "email": "monorepo-template-coverage@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "bin",
-    "src",
-    "index.mjs"
-  ],
+  "export": {
+    ".": {
+      "default": "./src/index.mjs"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -36,11 +36,20 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "dependencies": {
-    "@monorepo-template/merge-coverage": "workspace:^",
-    "nyc": "^15.1.0"
+    "@monorepo-template/merge-coverage": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "^17.0.13",
-    "eslint": "^8.7.0"
+    "@types/node": "^17.0.34",
+    "eslint": "^8.15.0",
+    "istanbul-lib-coverage": "^3.2.0",
+    "make-dir": "^3.1.0",
+    "nyc": "^15.1.0",
+    "p-map": "^5.4.0"
+  },
+  "peerDependencies": {
+    "istanbul-lib-coverage": "^3.0.0",
+    "make-dir": "^3.0.0",
+    "nyc": "^15.0.0",
+    "p-map": "^5.0.0"
   }
 }

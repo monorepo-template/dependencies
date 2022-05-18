@@ -2,6 +2,12 @@
 
 Rollup configuration for monorepo template modules
 
+## Install
+
+```sh
+yarn add --dev "@monorepo-template/rollup-config" "@rollup/plugin-commonjs" "@rollup/plugin-node-resolve" rollup-plugin-insert rollup-plugin-typescript2
+```
+
 ## Use
 
 The default configuration is optimized for most Node modules.

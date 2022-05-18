@@ -8,4 +8,8 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
+
+  rules: {
+    '@typescript-eslint/naming-convention': 'off',
+  },
 };

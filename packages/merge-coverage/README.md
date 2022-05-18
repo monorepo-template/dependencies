@@ -2,8 +2,11 @@
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/merge-coverage` or
-- `yarn add --dev @monorepo-template/merge-coverage`
+To install this module and its peer dependencies, run:
+
+```sh
+yarn add --dev "@monorepo-template/merge-coverage" istanbul-lib-coverage make-dir nyc p-map
+```
 
 ## Use
 

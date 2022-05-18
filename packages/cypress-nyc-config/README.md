@@ -1,3 +1,9 @@
-# NYC configuration
+# Cypress NYC configuration
 
-NYC configuration for monorepo template modules
+NYC configuration for Cypress
+
+## Install
+
+```sh
+yarn add --dev "@monorepo-template/cypress-nyc-config"
+```

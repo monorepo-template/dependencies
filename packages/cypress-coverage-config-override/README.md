@@ -3,6 +3,14 @@
 Cypress coverage config-override is a `react-app-rewired` config override that
 enables coverage for Cypress tests.
 
+## Install
+
+This package relies on `babel-plugin-istanbul` for generating coverage reports.
+
+```sh
+yarn add --dev "@monorepo-template/cypress-coverage-config-override" babel-plugin-istanbul
+```
+
 ## Use
 
 Bootstrap your React application with Cypress coverage by using

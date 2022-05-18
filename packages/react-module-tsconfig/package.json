@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/react-module-tsconfig",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Charles Stover <monorepo-template-react-module-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/react-module-tsconfig#readme",
@@ -13,17 +13,11 @@
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
   "exports": {
-    ".": "./tsconfig.json",
-    "./development": "./development.json",
-    "./eslint": "./eslint.json",
-    "./no-jsx-runtime": "./no-jsx-runtime.json"
+    ".": "./config/tsconfig.json",
+    "./development": "./config/development.json",
+    "./eslint": "./config/eslint.json",
+    "./no-jsx-runtime": "./config/no-jsx-runtime.json"
   },
-  "files": [
-    "development.json",
-    "eslint.json",
-    "no-jsx-runtime.json",
-    "tsconfig.json"
-  ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -40,12 +34,12 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "dependencies": {
-    "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^17.0.13"
+    "@monorepo-template/tsconfig": "workspace:^"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "eslint": "^8.7.0"
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.34",
+    "eslint": "^8.15.0"
   },
   "peerDependencies": {
     "@types/jest": "*"

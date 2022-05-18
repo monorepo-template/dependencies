@@ -3,10 +3,13 @@
 The `@monorepo-template/tsconfig` package is a production-ready TypeScript
 configuration for monorepo template packages.
 
-## Use
+## Install
 
-Add the TypeScript configuration to your project with
-`yarn add --dev @monorepo-template/tsconfig`.
+```sh
+yarn add --dev "@monorepo-template/tsconfig" "@types/node"
+```
+
+## Use
 
 Change your `tsconfig.json` file to extend this preconfiguration:
 

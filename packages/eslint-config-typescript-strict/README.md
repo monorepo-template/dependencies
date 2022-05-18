@@ -12,8 +12,9 @@ addition to this configuration.
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/eslint-config-typescript-strict` or
-- `yarn add --dev @monorepo-template/eslint-config-typescript-strict`
+```sh
+yarn add --dev "@monorepo-template/eslint-config-typescript-strict" "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
+```
 
 ## Use
 

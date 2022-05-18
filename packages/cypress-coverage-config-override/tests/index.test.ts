@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import cypressCoverageConfigOverride from '..';
 import BABEL_PLUGIN_ISTANBUL_PATH from './constants/babel-plugin-istanbul-path';
 import MISSING_ONE_OF_BABEL_RULE_ERROR from './constants/missing-one-of-babel-rule-error';

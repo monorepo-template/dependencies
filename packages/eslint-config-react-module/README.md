@@ -10,8 +10,10 @@ collection of ESLint configurations for React modules.
 
 ## Install
 
-```
-yarn add --dev @monorepo-template/eslint-config-react-module eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
+To install the React module ESLint config and its peer dependencies, run:
+
+```sh
+yarn add --dev "@monorepo-template/eslint-config-react-module" eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 ## Use

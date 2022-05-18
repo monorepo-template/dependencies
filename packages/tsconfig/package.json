@@ -11,9 +11,11 @@
     "email": "monorepo-template-tsconfig@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "tsconfig.json"
-  ],
+  "exports": {
+    ".": {
+      "default": "./tsconfig.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -30,10 +32,10 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "devDependencies": {
-    "@types/node": "^17.0.13",
-    "eslint": "^8.7.0"
+    "@types/node": "^17.0.34",
+    "eslint": "^8.15.0"
   },
   "peerDependencies": {
-    "@types/node": "^17.0.0"
+    "@types/node": "*"
   }
 }

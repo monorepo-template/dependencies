@@ -10,8 +10,9 @@ It is recommended that you use this rule in tandem with
 
 ## Install
 
-- `npm install --save-dev @monorepo-template/eslint-config-react-fixable` or
-- `yarn add --dev @monorepo-template/eslint-config-react-fixable`
+```sh
+yarn add --dev "@monorepo-template/eslint-config-react-fixable" eslint-plugin-react
+```
 
 ## Use
 

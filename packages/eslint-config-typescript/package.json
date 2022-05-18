@@ -1,25 +1,36 @@
 {
   "name": "@monorepo-template/eslint-config-typescript",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript@charlesstover.com>",
   "description": "TypeScript configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-typescript#readme",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-typescript@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "rules",
-    "src",
-    "cjs.js",
-    "index.js",
-    "js.js",
-    "json.js",
-    "ts.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    },
+    "./cjs": {
+      "default": "./rules/cjs.json"
+    },
+    "./eslint": {
+      "default": "./rules/eslint.json"
+    },
+    "./js": {
+      "default": "./rules/js.json"
+    },
+    "./json": {
+      "default": "./rules/json.json"
+    },
+    "./ts": {
+      "default": "./rules/ts.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -40,6 +51,6 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "devDependencies": {
-    "eslint": "^8.7.0"
+    "eslint": "^8.15.0"
   }
 }

@@ -3,6 +3,14 @@
 The `@monorepo-template/coverage` module generates a coverage report given
 _multiple_ coverage report paths.
 
+## Install
+
+This package rules on NYC to generate coverage reports.
+
+```sh
+yarn add --dev "@monorepo-template/coverage" istanbul-lib-coverage make-dir nyc p-map
+```
+
 ## Usage
 
 ### Command line

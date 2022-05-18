@@ -1,21 +1,21 @@
 {
   "name": "@monorepo-template/eslint-config-typescript-strict",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript-strict@charlesstover.com>",
   "description": "strict TypeScript configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-typescript-strict#readme",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./rules/index.json",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config-typescript-strict@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "rules",
-    "src",
-    "index.js"
-  ],
+  "exports": {
+    ".": {
+      "default": "./rules/index.json"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -36,6 +36,12 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "devDependencies": {
-    "eslint": "^8.7.0"
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0"
   }
 }

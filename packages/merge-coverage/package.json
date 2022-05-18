@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/merge-coverage",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-merge-coverage@charlesstover.com>",
   "description": "merges Cypress and Jest coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/merge-coverage#readme",
@@ -13,12 +13,11 @@
     "email": "monorepo-template-merge-coverage@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "bin",
-    "src",
-    "index.js",
-    "index.mjs"
-  ],
+  "exports": {
+    ".": {
+      "default": "./src/index.mjs"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -34,13 +33,17 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix"
   },
-  "dependencies": {
+  "devDependencies": {
+    "eslint": "^8.15.0",
     "istanbul-lib-coverage": "^3.2.0",
     "make-dir": "^3.1.0",
     "nyc": "^15.1.0",
-    "p-map": "^5.3.0"
+    "p-map": "^5.4.0"
   },
-  "devDependencies": {
-    "eslint": "^8.7.0"
+  "peerDependencies": {
+    "istanbul-lib-coverage": "^3.0.0",
+    "make-dir": "^3.0.0",
+    "nyc": "^15.0.0",
+    "p-map": "^5.0.0"
   }
 }

@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import MISSING_BABEL_LOADER_ERROR from '../constants/missing-babel-loader-error';
 import mapOneOfBabelRuleToInstrumented from './map-one-of-babel-rule-to-instrumented';
 

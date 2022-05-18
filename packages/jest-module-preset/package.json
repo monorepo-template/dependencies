@@ -1,23 +1,16 @@
 {
   "name": "@monorepo-template/jest-module-preset",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-jest-module-preset@charlesstover.com>",
   "description": "Jest preset for monorepo template modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-module-preset#readme",
   "license": "MIT",
-  "main": "./src/jest-module-preset.cjs",
-  "type": "commonjs",
+  "main": "./src/jest-module-preset.mjs",
+  "type": "module",
   "bugs": {
     "email": "monorepo-template-jest-module-preset@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "files": [
-    "src",
-    "index.cjs",
-    "index.js",
-    "jest-preset.cjs",
-    "jest-preset.js"
-  ],
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
@@ -37,6 +30,20 @@
     "@monorepo-template/jest-preset": "workspace:^"
   },
   "devDependencies": {
-    "eslint": "^8.7.0"
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "babel-jest": "^28.1.0",
+    "eslint": "^8.15.0",
+    "identity-obj-proxy": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "babel-jest": "^28.0.0",
+    "identity-obj-proxy": "^3.0.0"
   }
 }
