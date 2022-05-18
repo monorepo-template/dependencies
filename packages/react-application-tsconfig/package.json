@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/react-application-tsconfig",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <monorepo-template-react-application-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React applications",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/react-application-tsconfig#readme",
@@ -43,6 +43,7 @@
     "eslint": "^8.15.0"
   },
   "peerDependencies": {
-    "@types/jest": "*"
+    "@types/jest": "*",
+    "@types/node": "*"
   }
 }

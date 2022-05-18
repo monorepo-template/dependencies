@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/react-module-tsconfig",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Charles Stover <monorepo-template-react-module-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for React modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/react-module-tsconfig#readme",
@@ -13,10 +13,10 @@
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
   "exports": {
-    ".": "./config/tsconfig.json",
-    "./development": "./config/development.json",
-    "./eslint": "./config/eslint.json",
-    "./no-jsx-runtime": "./config/no-jsx-runtime.json"
+    ".": "./tsconfig.json",
+    "./development": "./development.json",
+    "./eslint": "./eslint.json",
+    "./no-jsx-runtime": "./no-jsx-runtime.json"
   },
   "funding": {
     "type": "individual",
@@ -42,6 +42,7 @@
     "eslint": "^8.15.0"
   },
   "peerDependencies": {
-    "@types/jest": "*"
+    "@types/jest": "*",
+    "@types/node": "*"
   }
 }

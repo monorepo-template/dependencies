@@ -3312,6 +3312,7 @@ __metadata:
     eslint: ^8.15.0
   peerDependencies:
     "@types/jest": "*"
+    "@types/node": "*"
   languageName: unknown
   linkType: soft
 
@@ -3325,6 +3326,7 @@ __metadata:
     eslint: ^8.15.0
   peerDependencies:
     "@types/jest": "*"
+    "@types/node": "*"
   languageName: unknown
   linkType: soft
 
