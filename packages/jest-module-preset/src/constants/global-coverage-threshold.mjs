@@ -1,4 +1,4 @@
-const GLOBAL_COVERAGE_THRESHOLD_PRESET = require('../constants/global-coverage-threshold-preset.cjs');
+import GLOBAL_COVERAGE_THRESHOLD_PRESET from '../constants/global-coverage-threshold-preset.mjs';
 
 const GLOBAL_COVERAGE_THRESHOLD = {
   ...GLOBAL_COVERAGE_THRESHOLD_PRESET,
@@ -8,4 +8,4 @@ const GLOBAL_COVERAGE_THRESHOLD = {
   statements: 100,
 };
 
-module.exports = GLOBAL_COVERAGE_THRESHOLD;
+export default GLOBAL_COVERAGE_THRESHOLD;

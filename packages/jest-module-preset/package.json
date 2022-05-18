@@ -5,19 +5,11 @@
   "description": "Jest preset for monorepo template modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-module-preset#readme",
   "license": "MIT",
-  "main": "./src/jest-module-preset.cjs",
-  "type": "commonjs",
+  "main": "./src/jest-module-preset.mjs",
+  "type": "module",
   "bugs": {
     "email": "monorepo-template-jest-module-preset@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
-  },
-  "exports": {
-    ".": {
-      "default": "./src/jest-module-preset.cjs"
-    },
-    "./jest-preset": {
-      "default": "./src/jest-module-preset.cjs"
-    }
   },
   "funding": {
     "type": "individual",

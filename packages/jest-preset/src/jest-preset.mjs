@@ -1,12 +1,13 @@
-const EMPTY_STRING_PATH = require('./constants/empty-string-path.cjs');
-const NULL_PATH = require('./constants/null-path.cjs');
-const TRANSFORM = require('./constants/transform.cjs');
+import EMPTY_STRING_PATH from './constants/empty-string-path.mjs';
+import NULL_PATH from './constants/null-path.mjs';
+import TRANSFORM from './constants/transform.mjs';
+import requireResolve from './utils/require-resolve.mjs';
 
 const CSS_FILE = '(?<!\\.module)\\.(?:css|sass|scss)$';
 const CSS_MODULE = '^.+\\.module\\.(?:css|sass|scss)$';
 const IMAGE_FILE = '\\.(?:gif|jpg|png)$';
 
-module.exports = {
+export default {
   cacheDirectory: './jest/cache',
   collectCoverage: true,
   coverageDirectory: './jest/coverage',
@@ -15,7 +16,7 @@ module.exports = {
   resetModules: true,
   restoreMocks: true,
   roots: ['<rootDir>/src'],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   transform: TRANSFORM,
 
   // Extends the default Jest configuration with `.cjs` and `.mjs` extensions.
@@ -53,7 +54,7 @@ module.exports = {
 
   moduleNameMapper: {
     [CSS_FILE]: NULL_PATH,
-    [CSS_MODULE]: require.resolve('identity-obj-proxy'),
+    [CSS_MODULE]: requireResolve('identity-obj-proxy'),
     [IMAGE_FILE]: EMPTY_STRING_PATH,
   },
 };

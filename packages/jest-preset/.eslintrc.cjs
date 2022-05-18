@@ -11,7 +11,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['src/constants/transform.cjs'],
+      files: ['src/constants/transform.mjs'],
       rules: {
         '@typescript-eslint/naming-convention': 'off',
       },

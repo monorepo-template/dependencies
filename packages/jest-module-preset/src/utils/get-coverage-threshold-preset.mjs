@@ -1,8 +1,8 @@
-const JEST_PRESET = require('../constants/jest-preset.cjs');
+import JEST_PRESET from '@monorepo-template/jest-preset';
 
-module.exports = function getCoverageThresholdPreset() {
+export default function getCoverageThresholdPreset() {
   if (Object.prototype.hasOwnProperty.call(JEST_PRESET, 'coverageThreshold')) {
     return JEST_PRESET.coverageThreshold;
   }
   return Object.create(null);
-};
+}

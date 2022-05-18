@@ -1,8 +1,8 @@
-const JEST_PRESET = require('../constants/jest-preset.cjs');
+import JEST_PRESET from '@monorepo-template/jest-preset';
 
 const COLLECT_COVERAGE_FROM = [
   ...JEST_PRESET.collectCoverageFrom,
   '!<rootDir>/src/**/*.e2e.ts',
 ];
 
-module.exports = COLLECT_COVERAGE_FROM;
+export default COLLECT_COVERAGE_FROM;

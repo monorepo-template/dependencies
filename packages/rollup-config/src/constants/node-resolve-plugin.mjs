@@ -1,6 +1,6 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
 
-const NODE_RESOLVE_PLUGIN = nodeResolve.default({
+const NODE_RESOLVE_PLUGIN = nodeResolve({
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
   preferBuiltins: true,
 });
