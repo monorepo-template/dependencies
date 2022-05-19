@@ -5,6 +5,7 @@ export default function resolveRelative(...paths) {
   return resolve(
     requireResolve('@monorepo-template/jest-preset'),
     '..',
+    '..',
     ...paths,
   );
 }
