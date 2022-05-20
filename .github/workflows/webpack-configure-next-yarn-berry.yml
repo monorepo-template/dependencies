@@ -148,6 +148,7 @@ on:
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
       - 'packages/webpack-configure-next-yarn-berry/**/*'
   push:
     branches: [main]
@@ -157,4 +158,5 @@ on:
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
       - 'packages/webpack-configure-next-yarn-berry/**/*'
