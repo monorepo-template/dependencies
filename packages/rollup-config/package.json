@@ -40,8 +40,8 @@
     "jest:watch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage=false --runInBand --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.12",
-    "@babel/preset-env": "^7.17.12",
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@monorepo-template/jest-module-preset": "workspace:^",
@@ -52,7 +52,7 @@
     "eslint": "^8.15.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
-    "rollup": "^2.73.0",
+    "rollup": "^2.74.1",
     "rollup-plugin-insert": "^1.3.2",
     "rollup-plugin-typescript2": "^0.31.2",
     "typescript": "^4.6.4"
