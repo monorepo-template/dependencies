@@ -29,6 +29,7 @@ The `dependencies` repository contains the dependencies for the
 | [![rollup-config](https://github.com/monorepo-template/dependencies/actions/workflows/rollup-config.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/rollup-config.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/rollup-config.svg)](https://www.npmjs.com/package/@monorepo-template/rollup-config) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/rollup-config.svg)](https://www.npmjs.com/package/@monorepo-template/rollup-config) |
 | [![test](https://github.com/monorepo-template/dependencies/actions/workflows/test.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/test.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/test.svg)](https://www.npmjs.com/package/@monorepo-template/test) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/test.svg)](https://www.npmjs.com/package/@monorepo-template/test) |
 | [![tsconfig](https://github.com/monorepo-template/dependencies/actions/workflows/tsconfig.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/tsconfig.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/tsconfig.svg)](https://www.npmjs.com/package/@monorepo-template/tsconfig) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/tsconfig.svg)](https://www.npmjs.com/package/@monorepo-template/tsconfig) |
+| [![webpack-configure-next-yarn-berry](https://github.com/monorepo-template/dependencies/actions/workflows/webpack-configure-next-yarn-berry.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/webpack-configure-next-yarn-berry.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/webpack-configure-next-yarn-berry.svg)](https://www.npmjs.com/package/@monorepo-template/webpack-configure-next-yarn-berry) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/webpack-configure-next-yarn-berry.svg)](https://www.npmjs.com/package/@monorepo-template/webpack-configure-next-yarn-berry) |
 
 ## Contributing
 
@@ -55,3 +56,13 @@ To test your changes to the repository, run `yarn test`.
 ### `merge-coverage`
 
 - To lint your changes to the module, run `yarn merge-coverage:eslint`.
+
+### `webpack-configure-next-yarn-berry`
+
+- To build the module, run `yarn webpack-configure-next-yarn-berry:rollup`.
+- To lint your changes to the module, run
+  `yarn webpack-configure-next-yarn-berry:eslint`.
+- To unit test your changes to the module, run
+  `yarn webpack-configure-next-yarn-berry:jest`.
+- To unit test your changes to the module in watch mode, run
+  `yarn webpack-configure-next-yarn-berry:jest:watch`.
