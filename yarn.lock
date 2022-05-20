@@ -3530,6 +3530,7 @@ __metadata:
     "@jest/globals": ^28.1.0
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-node-resolve": ^13.3.0
     "@types/jest": ^27.5.1
