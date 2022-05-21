@@ -9,6 +9,7 @@ The `dependencies` repository contains the dependencies for the
 
 | CI/CD | Version | Meta |
 | :---- | ------: | ---: |
+| [![compose-next-webpack](https://github.com/monorepo-template/dependencies/actions/workflows/compose-next-webpack.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/compose-next-webpack.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/compose-next-webpack.svg)](https://www.npmjs.com/package/@monorepo-template/compose-next-webpack) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/compose-next-webpack.svg)](https://www.npmjs.com/package/@monorepo-template/compose-next-webpack) |
 | [![coverage](https://github.com/monorepo-template/dependencies/actions/workflows/coverage.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/coverage.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/coverage.svg)](https://www.npmjs.com/package/@monorepo-template/coverage) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/coverage.svg)](https://www.npmjs.com/package/@monorepo-template/coverage) |
 | [![cypress-coverage-config-override](https://github.com/monorepo-template/dependencies/actions/workflows/cypress-coverage-config-override.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/cypress-coverage-config-override.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/cypress-coverage-config-override.svg)](https://www.npmjs.com/package/@monorepo-template/coverage) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/cypress-coverage-config-override.svg)](https://www.npmjs.com/package/@monorepo-template/cypress-coverage-config-override) |
 | [![cypress-coverage-plugin](https://github.com/monorepo-template/dependencies/actions/workflows/cypress-coverage-plugin.yml/badge.svg?branch=main&event=push)](https://github.com/monorepo-template/dependencies/actions/workflows/cypress-coverage-plugin.yml) | [![version](https://img.shields.io/npm/v/@monorepo-template/cypress-coverage-plugin.svg)](https://www.npmjs.com/package/@monorepo-template/coverage) | [![downloads](https://img.shields.io/npm/dt/@monorepo-template/cypress-coverage-plugin.svg)](https://www.npmjs.com/package/@monorepo-template/cypress-coverage-plugin) |
@@ -42,27 +43,9 @@ To contribute to this repository, start by running the following commands.
 
 To test your changes to the repository, run `yarn test`.
 
-### `coverage`
+To contribute to an individual module,
 
-- To lint your changes to the module, run `yarn coverage:eslint`.
-
-### `cypress-coverage-config-override`
-
-- To lint your changes to the module, run
-  `yarn cypress-coverage-config-override:eslint`.
-- To unit test your changes to the module, run
-  `yarn cypress-coverage-config-override:jest`.
-
-### `merge-coverage`
-
-- To lint your changes to the module, run `yarn merge-coverage:eslint`.
-
-### `webpack-configure-next-yarn-berry`
-
-- To build the module, run `yarn webpack-configure-next-yarn-berry:rollup`.
-- To lint your changes to the module, run
-  `yarn webpack-configure-next-yarn-berry:eslint`.
-- To unit test your changes to the module, run
-  `yarn webpack-configure-next-yarn-berry:jest`.
-- To unit test your changes to the module in watch mode, run
-  `yarn webpack-configure-next-yarn-berry:jest:watch`.
+- To build, run `yarn MODULE-NAME:rollup`.
+- To lint, run `yarn MODULE-NAME:eslint`.
+- To unit test, run `yarn MODULE-NAME:jest`.
+- To unit test in watch mode, run `yarn MODULE-NAME:jest:watch`.
