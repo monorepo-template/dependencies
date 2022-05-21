@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/compose-next-webpack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Charles Stover <monorepo-template-compose-next-webpack@charlesstover.com>",
   "description": "a utility function to compose NextJS Webpack configs",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/compose-next-webpack#readme",
@@ -18,9 +18,9 @@
   },
   "exports": {
     ".": {
-      "default": "./dist/esm/index.js",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
     }
   },
   "funding": {

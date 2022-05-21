@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/webpack-configure-next-yarn-berry",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Charles Stover <monorepo-template-webpack-configure-next-yarn-berry@charlesstover.com>",
   "description": "Webpack configuration to support Yarn Berry for Next applications",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/webpack-configure-next-yarn-berry#readme",
@@ -18,9 +18,9 @@
   },
   "exports": {
     ".": {
-      "default": "./dist/esm/index.js",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
     }
   },
   "funding": {

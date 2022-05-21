@@ -1,10 +1,15 @@
 import LOGGER from '../../constants/logger.mjs';
+import DEFAULT_EXPORT_CONDITION_INDEX_ERROR from './constants/default-export-condition-index-error.mjs';
 import FILES_PROPERTY_ERROR from './constants/files-property-error.mjs';
 import PACKAGE_DIRECTORY_NAMES from './constants/package-directory-names.mjs';
+import filterByRecord from './utils/filter-by-record.mjs';
+import findDefaultString from './utils/find-default-string.mjs';
 import mapPackageDirectoryNameToPackageJson from './utils/map-package-directory-name-to-package-json.mjs';
 import mapPackageJsonToDependenciesSet from './utils/map-package-json-to-dependencies-set.mjs';
 import mapPackageJsonToPeerDependenciesList from './utils/map-package-json-to-peer-dependencies-list.mjs';
 
+const ARRAY_INDEX_OFFSET = 1;
+const NOT_FOUND = -1;
 const WORKSPACE_VERSION = /^workspace:.*$/;
 
 export default function testPackages() {
@@ -25,6 +30,39 @@ export default function testPackages() {
     LOGGER.indent();
 
     const packageJson = packageDirectoryToJsonMap.get(packageDirectoryName);
+
+    // Check for an `exports` property.
+    if (
+      Object.prototype.hasOwnProperty.call(packageJson, 'exports') &&
+      filterByRecord(packageJson.exports)
+    ) {
+      LOGGER.addItem('exports');
+      LOGGER.indent();
+
+      const exportsEntries = Object.entries(packageJson.exports);
+      for (const [exportPath, exportRecord] of exportsEntries) {
+        if (!filterByRecord(exportRecord)) {
+          continue;
+        }
+
+        LOGGER.addItem(exportPath);
+
+        const exportKeys = Object.keys(exportRecord);
+        const defaultExportIndex = exportKeys.findIndex(findDefaultString);
+        if (defaultExportIndex === NOT_FOUND) {
+          continue;
+        }
+
+        const lastExportIndex = exportKeys.length - ARRAY_INDEX_OFFSET;
+        if (defaultExportIndex !== lastExportIndex) {
+          LOGGER.indent();
+          LOGGER.addError(DEFAULT_EXPORT_CONDITION_INDEX_ERROR);
+          LOGGER.unindent();
+        }
+      }
+
+      LOGGER.unindent();
+    }
 
     // Check for a `files` property.
     if (Object.prototype.hasOwnProperty.call(packageJson, 'files')) {
