@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config-typescript",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Charles Stover <monorepo-template-eslint-config-typescript@charlesstover.com>",
   "description": "TypeScript configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-typescript#readme",
