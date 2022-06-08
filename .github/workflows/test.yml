@@ -16,13 +16,41 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
-    name: ESLint
+  dependencies:
+    name: Build dependencies
     needs: install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build tree-logger
+        run: yarn tree-logger:rollup
+      - name: Upload tree-logger
+        uses: actions/upload-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
+
+  eslint:
+    name: ESLint
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `tree-logger` dependency
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -89,8 +117,10 @@ on:
     paths:
       - '.github/workflows/test.yml'
       - 'packages/test/**/*'
+      - 'packages/tree-logger/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/test.yml'
       - 'packages/test/**/*'
+      - 'packages/tree-logger/**/*'

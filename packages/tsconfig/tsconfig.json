@@ -37,6 +37,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "suppressImplicitAnyIndexErrors": false,
+    "target": "ES5",
     "types": ["node"],
     "useUnknownInCatchVariables": true
   }
