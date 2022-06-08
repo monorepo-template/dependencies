@@ -71,7 +71,14 @@ export default class GitHubWorkflowTest implements Test {
     string,
     Readonly<Record<string, unknown>>,
   ]): (this: Readonly<TreeLogger>) => void {
+    if (event !== 'pull_request' && event !== 'push') {
+      return noop;
+    }
+
     const { paths } = sources;
+    if (typeof paths === 'undefined') {
+      return noop;
+    }
 
     if (!filterByArray(paths) || !paths.every(filterByString)) {
       return mapGitHubWorkflowEventNameToPathsTypeFail(event);

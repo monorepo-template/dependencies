@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn test:eslint
+        run: yarn tree-logger:eslint
 
   github-packages:
     name: GitHub Packages

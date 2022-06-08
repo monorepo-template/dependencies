@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  tree-logger:
-    name: Build tree-logger
+  dependencies:
+    name: Build dependencies
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -41,12 +41,12 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: tree-logger
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download tree-logger
+      - name: Download `tree-logger` dependency
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist

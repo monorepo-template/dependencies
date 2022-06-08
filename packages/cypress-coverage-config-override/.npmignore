@@ -1,3 +1,4 @@
+/cypress/
 /jest/
 /tests/
 /.eslintignore
@@ -5,6 +6,5 @@
 /.gitignore
 /.npmignore
 /jest.config.mjs
-/tsconfig.cypress.json
 /tsconfig.eslint.json
 /tsconfig.json

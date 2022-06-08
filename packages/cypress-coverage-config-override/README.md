@@ -29,6 +29,18 @@ module.exports = function override(config, env) {
 };
 ```
 
+### Custom `tsconfig.json`
+
+By default, Cypress's `tsconfig.json` file must be located at
+`cypress/tsconfig.json`. To change this location, set the
+`CYPRESS_TSCONFIG_PATH` environment variable.
+
+For example,
+
+```
+CYPRESS_TSCONFIG_PATH=./tsconfig.cypress.json
+```
+
 ## Credit
 
 This package was inspired by

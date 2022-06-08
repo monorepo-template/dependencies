@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/cypress-coverage-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Charles Stover <monorepo-template-cypress-coverage-plugin@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-coverage-plugin#readme",

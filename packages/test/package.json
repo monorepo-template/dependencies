@@ -5,7 +5,7 @@
   "description": "tests monorepos for best practices",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/test#readme",
   "license": "MIT",
-  "module": "./index.mjs",
+  "module": "./dist/esm/index.js",
   "type": "module",
   "bin": {
     "monorepo-template-test": "./dist/esm/bin/test.js"

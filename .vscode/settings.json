@@ -5,11 +5,6 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "files.exclude": {
     ".git": true,
-    ".yarn/cache": true,
-    ".yarn/sdks": true,
-    ".yarn/unplugged": true,
-    ".yarn/build-state.yml": true,
-    ".yarn/install-state.gz": true,
     "packages/*/.nyc_output": true,
     "packages/*/build": true,
     "packages/*/coverage": true,
@@ -19,11 +14,9 @@
     "packages/*/dist": true,
     "packages/*/jest": true,
     "packages/*/node_modules": true,
-    ".pnp.cjs": true,
-    ".pnp.data.json": true,
-    ".pnp.js": true,
-    ".pnp.loader.mjs": true,
-    "yarn.lock": true
+    "yarn.lock": true,
+    "**/.yarn": true,
+    "**/*.pnp.*": true
   },
   "search.exclude": {
     ".git": true,
@@ -41,6 +34,8 @@
     ".pnp.data.json": true,
     ".pnp.js": true,
     ".pnp.loader.mjs": true,
-    "yarn.lock": true
+    "yarn.lock": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true
   }
 }

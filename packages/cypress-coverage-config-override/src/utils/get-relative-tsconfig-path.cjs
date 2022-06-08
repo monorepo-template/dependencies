@@ -1,10 +1,7 @@
 module.exports = function getRelativeTSConfigPath() {
-  const relativeTSConfigPathEnv = process.env.TSCONFIG_PATH;
-  if (
-    typeof relativeTSConfigPathEnv === 'string' &&
-    relativeTSConfigPathEnv !== ''
-  ) {
-    return relativeTSConfigPathEnv;
+  const envPath = process.env.CYPRESS_TSCONFIG_PATH;
+  if (typeof envPath === 'string' && envPath !== '') {
+    return envPath;
   }
   return './cypress/tsconfig.json';
 };

@@ -3555,6 +3555,9 @@ __metadata:
   resolution: "@monorepo-template/tree-logger@workspace:packages/tree-logger"
   dependencies:
     "@babel/core": ^7.18.0
+    "@babel/preset-env": ^7.18.0
+    "@babel/preset-react": ^7.17.12
+    "@babel/preset-typescript": ^7.17.12
     "@jest/globals": ^28.1.0
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
@@ -3594,6 +3597,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.18.0
     "@babel/preset-env": ^7.18.0
+    "@babel/preset-react": ^7.17.12
     "@babel/preset-typescript": ^7.17.12
     "@jest/globals": ^28.1.0
     "@monorepo-template/jest-module-preset": "workspace:^"

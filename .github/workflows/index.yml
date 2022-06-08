@@ -57,13 +57,53 @@ jobs:
       - name: Lint
         run: yarn eslint
 
-  test:
-    name: Test
+  dependencies:
+    name: Build dependencies
     needs: install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build `tree-logger` dependency
+        run: yarn tree-logger:rollup
+      - name: Build `test` dependency
+        run: yarn test:rollup
+      - name: Upload `test` dependency
+        uses: actions/upload-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
+      - name: Upload `tree-logger` dependency
+        uses: actions/upload-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
+
+  test:
+    name: Test
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `test` dependency
+        uses: actions/download-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
+      - name: Download `tree-logger` dependency
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
