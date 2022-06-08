@@ -16,7 +16,7 @@ yarn add --dev "@cypress/code-coverage" "@monorepo-template/cypress-coverage-plu
 
 ## Use
 
-In your Cypress plugin file (`cypress/plugin/index.ts`), import the plugin:
+In your Cypress plugin file (`cypress/plugins/e2e.ts`), import the plugin:
 
 ```js
 /// <reference types="cypress" />

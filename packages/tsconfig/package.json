@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/tsconfig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-tsconfig@charlesstover.com>",
   "description": "TypeScript configuration for the monorepo template",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/tsconfig#readme",
