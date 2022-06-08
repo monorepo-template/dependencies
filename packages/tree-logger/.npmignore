@@ -1,0 +1,10 @@
+/jest/
+/src/
+/.eslintignore
+/.eslintrc.cjs
+/.gitignore
+/.npmignore
+/jest.config.mjs
+/rollup.config.js
+/tsconfig.eslint.json
+/tsconfig.json
