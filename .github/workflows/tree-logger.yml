@@ -34,10 +34,33 @@ jobs:
       - name: Lint
         run: yarn tree-logger:eslint
 
+  rollup:
+    name: Rollup
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build
+        run: yarn tree-logger:rollup
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
+
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, rollup]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -53,6 +76,11 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Publish
         working-directory: packages/tree-logger
         env:
@@ -65,7 +93,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -76,6 +104,11 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Publish
         working-directory: packages/tree-logger
         env:
