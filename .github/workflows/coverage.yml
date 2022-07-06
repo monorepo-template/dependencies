@@ -96,3 +96,4 @@ on:
       - '.github/workflows/coverage.yml'
       - 'packages/coverage/**/*'
       - 'packages/merge-coverage/**/*'
+  workflow_dispatch:
