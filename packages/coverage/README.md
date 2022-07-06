@@ -8,7 +8,7 @@ _multiple_ coverage report paths.
 This package rules on NYC to generate coverage reports.
 
 ```sh
-yarn add --dev "@monorepo-template/coverage" istanbul-lib-coverage make-dir nyc p-map
+yarn add --dev "@monorepo-template/coverage" istanbul-lib-coverage nyc
 ```
 
 ## Usage
