@@ -36,7 +36,7 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "dependencies": {
-    "@monorepo-template/merge-coverage": "workspace:^"
+    "@monorepo-template/merge-coverage": "workspace:^",
     "make-dir": "^3.1.0",
     "p-map": "^5.4.0"
   },
