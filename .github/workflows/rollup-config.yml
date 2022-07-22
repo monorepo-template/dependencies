@@ -118,3 +118,4 @@ on:
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
+  workflow_dispatch:

@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/eslint-config-typescript-strict.yml'
       - 'packages/eslint-config-typescript-strict/**/*'
+  workflow_dispatch:

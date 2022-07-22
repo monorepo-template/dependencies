@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/eslint-config-react-fixable.yml'
       - 'packages/eslint-config-react-fixable/**/*'
+  workflow_dispatch:

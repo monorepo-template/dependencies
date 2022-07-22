@@ -118,3 +118,4 @@ on:
     paths:
       - '.github/workflows/cypress-coverage-config-override.yml'
       - 'packages/cypress-coverage-config-override/**/*'
+  workflow_dispatch:

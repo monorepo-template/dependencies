@@ -96,3 +96,4 @@ on:
       - '.github/workflows/jest-preset.yml'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+  workflow_dispatch:

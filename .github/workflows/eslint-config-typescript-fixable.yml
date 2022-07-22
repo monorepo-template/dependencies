@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/eslint-config-typescript-fixable.yml'
       - 'packages/eslint-config-typescript-fixable/**/*'
+  workflow_dispatch:

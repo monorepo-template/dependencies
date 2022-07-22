@@ -98,3 +98,4 @@ on:
       - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+  workflow_dispatch:

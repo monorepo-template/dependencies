@@ -96,3 +96,4 @@ on:
       - '.github/workflows/cypress-coverage-plugin.yml'
       - 'packages/cypress-coverage-plugin/**/*'
       - 'packages/cypress-nyc-config/**/*'
+  workflow_dispatch:

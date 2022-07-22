@@ -160,3 +160,4 @@ on:
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
       - 'packages/compose-next-webpack/**/*'
+  workflow_dispatch:

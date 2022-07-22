@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/jest-transformer.yml'
       - 'packages/jest-transformer/**/*'
+  workflow_dispatch:

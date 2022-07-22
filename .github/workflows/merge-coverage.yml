@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/merge-coverage.yml'
       - 'packages/merge-coverage/**/*'
+  workflow_dispatch:

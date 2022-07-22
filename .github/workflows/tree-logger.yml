@@ -127,3 +127,4 @@ on:
     paths:
       - '.github/workflows/tree-logger.yml'
       - 'packages/tree-logger/**/*'
+  workflow_dispatch:

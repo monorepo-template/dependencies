@@ -162,3 +162,4 @@ on:
       - '.github/workflows/test.yml'
       - 'packages/test/**/*'
       - 'packages/tree-logger/**/*'
+  workflow_dispatch:

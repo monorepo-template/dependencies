@@ -160,3 +160,4 @@ on:
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
       - 'packages/webpack-configure-next-yarn-berry/**/*'
+  workflow_dispatch:

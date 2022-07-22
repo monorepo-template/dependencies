@@ -94,3 +94,4 @@ on:
     paths:
       - '.github/workflows/eslint-config-react-strict.yml'
       - 'packages/eslint-config-react-strict/**/*'
+  workflow_dispatch:

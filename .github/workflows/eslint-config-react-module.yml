@@ -106,3 +106,4 @@ on:
       - 'packages/eslint-config-typescript/**/*'
       - 'packages/eslint-config-typescript-fixable/**/*'
       - 'packages/eslint-config-typescript-strict/**/*'
+  workflow_dispatch:
