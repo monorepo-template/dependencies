@@ -5,7 +5,7 @@ The tree logger is a styled, hierarchical logger.
 ```js
 const treeLogger = new TreeLogger('Parent');
 treeLogger.scope('Child 1', () => {
-  treeLogger.addError('Looks good');
+  treeLogger.addItem('Looks good');
 });
 treeLogger.scope('Child 2', () => {
   treeLogger.addError('Looks bad');

@@ -3292,6 +3292,7 @@ __metadata:
     "@monorepo-template/eslint-config-react-fixable": "workspace:^"
     "@monorepo-template/eslint-config-react-strict": "workspace:^"
     "@monorepo-template/eslint-config-react-typescript": "workspace:^"
+    "@monorepo-template/eslint-config-typescript": "workspace:^"
     eslint: ^8.15.0
     eslint-plugin-jsx-a11y: ^6.5.1
     eslint-plugin-react: ^7.30.0

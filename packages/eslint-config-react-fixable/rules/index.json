@@ -11,7 +11,7 @@
     "react/jsx-first-prop-new-line": "error",
     "react/jsx-fragments": "error",
     "react/jsx-indent": "off",
-    "react/jsx-indent-props": "error",
+    "react/jsx-indent-props": ["error", 2],
     "react/jsx-max-props-per-line": "off",
     "react/jsx-newline": "off",
     "react/jsx-no-target-blank": "error",

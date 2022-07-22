@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config-react-fixable",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Charles Stover <monorepo-template-eslint-config-react-fixable@charlesstover.com>",
   "description": "React configuration for ESLint",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-fixable#readme",
