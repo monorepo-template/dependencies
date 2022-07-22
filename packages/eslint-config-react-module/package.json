@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config-react-module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Charles Stover <monorepo-template-eslint-config-react-module@charlesstover.com>",
   "description": "ESLint configuration for monorepo React modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config-react-module#readme",
