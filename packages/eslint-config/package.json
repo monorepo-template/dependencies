@@ -1,0 +1,90 @@
+{
+  "name": "@monorepo-template/eslint-config",
+  "version": "1.0.0",
+  "author": "Charles Stover <monorepo-template-eslint-config@charlesstover.com>",
+  "description": "popular ESLint configurations for monorepos",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config#readme",
+  "license": "MIT",
+  "main": "./rules/index.json",
+  "type": "commonjs",
+  "bugs": {
+    "email": "monorepo-template-eslint-config@charlesstover.com",
+    "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    "./react-fixable": {
+      "default": "./rules/react-fixable.json"
+    },
+    "./react-module": {
+      "default": "./rules/react-module.json"
+    },
+    "./react-strict": {
+      "default": "./rules/react-strict.json"
+    },
+    "./react-typescript": {
+      "default": "./rules/react-typescript.json"
+    },
+    "./react-typescript/json": {
+      "default": "./rules/react-typescript--json.json"
+    },
+    "./react-typescript/react-scripts-4": {
+      "default": "./rules/react-typescript--react-scripts-4.json"
+    },
+    "./typescript": {
+      "default": "./rules/typescript.json"
+    },
+    "./typescript/cjs": {
+      "default": "./rules/typescript--cjs.json"
+    },
+    "./typescript/eslint": {
+      "default": "./rules/typescript--eslint.json"
+    },
+    "./typescript/js": {
+      "default": "./rules/typescript--js.json"
+    },
+    "./typescript/json": {
+      "default": "./rules/typescript--json.json"
+    },
+    "./typescript/ts": {
+      "default": "./rules/typescript--ts.json"
+    },
+    "./typescript-fixable": {
+      "default": "./rules/typescript-fixable.json"
+    },
+    "./typescript-fixable/js": {
+      "default": "./rules/typescript-fixable--js.json"
+    },
+    "./typescript-fixable/json": {
+      "default": "./rules/typescript-fixable--json.json"
+    },
+    "./typescript-strict": {
+      "default": "./rules/typescript-strict.json"
+    }
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/CharlesStover"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monorepo-template/dependencies.git"
+  },
+  "scripts": {
+    "eslint": "eslint '**/*'",
+    "eslint:fix": "eslint '**/*' --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-plugin-react": "^7.30.1"
+  },
+  "peerDependencies": {
+    "eslint-plugin-react": "^7.0.0"
+  }
+}

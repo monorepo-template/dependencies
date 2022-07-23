@@ -38,11 +38,11 @@
   "dependencies": {
     "@monorepo-template/merge-coverage": "workspace:^",
     "make-dir": "^3.1.0",
-    "p-map": "^5.4.0"
+    "p-map": "^5.5.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.35",
-    "eslint": "^8.15.0",
+    "@types/node": "^18.0.6",
+    "eslint": "^8.20.0",
     "istanbul-lib-coverage": "^3.2.0",
     "nyc": "^15.1.0"
   },

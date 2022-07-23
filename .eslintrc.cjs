@@ -9,42 +9,42 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
-    '@monorepo-template/typescript',
-    '@monorepo-template/typescript-fixable',
-    '@monorepo-template/typescript-strict',
+    '@monorepo-template/eslint-config/typescript',
+    '@monorepo-template/eslint-config/typescript-fixable',
+    '@monorepo-template/eslint-config/typescript-strict',
     'prettier',
   ],
 
   overrides: [
     {
       files: ['.eslintrc.cjs'],
-      extends: '@monorepo-template/typescript/eslint',
+      extends: '@monorepo-template/eslint-config/typescript/eslint',
     },
 
     {
       files: ['*.cjs', '*.js', '*.jsx'],
-      extends: '@monorepo-template/typescript/cjs',
+      extends: '@monorepo-template/eslint-config/typescript/cjs',
     },
 
     {
       files: ['*.cjs', '*.js', '*.jsx', '*.mjs'],
       extends: [
-        '@monorepo-template/typescript/js',
-        '@monorepo-template/typescript-fixable/js',
+        '@monorepo-template/eslint-config/typescript/js',
+        '@monorepo-template/eslint-config/typescript-fixable/js',
       ],
     },
 
     {
       files: ['*.json'],
       extends: [
-        '@monorepo-template/typescript/json',
-        '@monorepo-template/typescript-fixable/json',
+        '@monorepo-template/eslint-config/typescript/json',
+        '@monorepo-template/eslint-config/typescript-fixable/json',
       ],
     },
 
     {
       files: ['*.ts', '*.tsx'],
-      extends: '@monorepo-template/typescript/ts',
+      extends: '@monorepo-template/eslint-config/typescript/ts',
     },
   ],
 

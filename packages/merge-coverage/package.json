@@ -34,11 +34,11 @@
     "eslint:fix": "eslint '**/*' --fix"
   },
   "devDependencies": {
-    "eslint": "^8.15.0",
+    "eslint": "^8.20.0",
     "istanbul-lib-coverage": "^3.2.0",
     "make-dir": "^3.1.0",
     "nyc": "^15.1.0",
-    "p-map": "^5.4.0"
+    "p-map": "^5.5.0"
   },
   "peerDependencies": {
     "istanbul-lib-coverage": "^3.0.0",

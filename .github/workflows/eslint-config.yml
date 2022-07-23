@@ -1,4 +1,4 @@
-name: eslint-config-typescript-strict
+name: eslint-config
 
 jobs:
   install:
@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn eslint-config-typescript-strict:eslint
+        run: yarn eslint-config:eslint
 
   github-packages:
     name: GitHub Packages
@@ -54,7 +54,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
       - name: Publish
-        working-directory: packages/eslint-config-typescript-strict
+        working-directory: packages/eslint-config
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
@@ -77,7 +77,7 @@ jobs:
           check-latest: true
           node-version: 'lts/*'
       - name: Publish
-        working-directory: packages/eslint-config-typescript-strict
+        working-directory: packages/eslint-config
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
@@ -87,11 +87,11 @@ jobs:
 on:
   pull_request:
     paths:
-      - '.github/workflows/eslint-config-typescript-strict.yml'
-      - 'packages/eslint-config-typescript-strict/**/*'
+      - '.github/workflows/eslint-config.yml'
+      - 'packages/eslint-config/**/*'
   push:
     branches: [main]
     paths:
-      - '.github/workflows/eslint-config-typescript-strict.yml'
-      - 'packages/eslint-config-typescript-strict/**/*'
+      - '.github/workflows/eslint-config.yml'
+      - 'packages/eslint-config/**/*'
   workflow_dispatch:
