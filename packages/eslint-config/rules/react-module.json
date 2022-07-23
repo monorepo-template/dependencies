@@ -12,19 +12,19 @@
     "plugin:react/jsx-runtime",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "@monorepo-template/react-fixable",
-    "@monorepo-template/react-strict",
-    "@monorepo-template/react-typescript"
+    "@monorepo-template/eslint-config/react-fixable",
+    "@monorepo-template/eslint-config/react-strict",
+    "@monorepo-template/eslint-config/react-typescript"
   ],
 
   "overrides": [
     {
       "files": [".eslintrc.cjs"],
-      "extends": ["@monorepo-template/typescript/eslint"]
+      "extends": ["@monorepo-template/eslint-config/typescript/eslint"]
     },
     {
       "files": ["*.json"],
-      "extends": ["@monorepo-template/react-typescript/json"]
+      "extends": ["@monorepo-template/eslint-config/react-typescript/json"]
     }
   ],
 
