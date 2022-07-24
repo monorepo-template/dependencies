@@ -3,7 +3,6 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "sourceMap": true,
-    "target": "ES5",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }
