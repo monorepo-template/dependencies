@@ -1,12 +1,12 @@
 {
   "name": "@monorepo-template/tsconfig",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Charles Stover <monorepo-template-tsconfig@charlesstover.com>",
-  "description": "TypeScript configuration for the monorepo template",
+  "description": "TypeScript configurations for monorepos",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/tsconfig#readme",
   "license": "MIT",
-  "main": "./tsconfig.json",
-  "module": "./tsconfig.json",
+  "main": "./configurations/index.json",
+  "module": "./configurations/index.json",
   "bugs": {
     "email": "monorepo-template-tsconfig@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
@@ -14,6 +14,33 @@
   "exports": {
     ".": {
       "default": "./tsconfig.json"
+    },
+    "./react-application": {
+      "default": "./configurations/react-application.json"
+    },
+    "./react-application/cypress": {
+      "default": "./configurations/react-application--cypress.json"
+    },
+    "./react-application/development": {
+      "default": "./configurations/react-application--development.json"
+    },
+    "./react-application/eslint": {
+      "default": "./configurations/react-application--eslint.json"
+    },
+    "./react-application/no-jsx-runtime": {
+      "default": "./configurations/react-application--no-jsx-runtime.json"
+    },
+    "./react-module": {
+      "default": "./configurations/react-module.json"
+    },
+    "./react-module/development": {
+      "default": "./configurations/react-module--development.json"
+    },
+    "./react-module/eslint": {
+      "default": "./configurations/react-module--eslint.json"
+    },
+    "./react-module/no-jsx-runtime": {
+      "default": "./configurations/react-module--no-jsx-runtime.json"
     }
   },
   "funding": {

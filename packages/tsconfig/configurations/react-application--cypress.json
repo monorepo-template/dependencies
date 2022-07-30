@@ -1,12 +1,10 @@
 {
   "compileOnSave": false,
-  "extends": "@monorepo-template/tsconfig",
+  "extends": "@monorepo-template/tsconfig/react-application",
   "compilerOptions": {
     "importHelpers": true,
     "inlineSourceMap": true,
-    "jsx": "react-jsx",
     "sourceMap": true,
-    "target": "ES5",
-    "types": ["cypress"]
+    "types": ["cypress", "node"]
   }
 }

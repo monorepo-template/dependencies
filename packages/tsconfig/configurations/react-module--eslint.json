@@ -1,0 +1,9 @@
+{
+  "compileOnSave": false,
+  "extends": "@monorepo-template/tsconfig/react-module",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationDir": null,
+    "jsx": "react-jsxdev"
+  }
+}

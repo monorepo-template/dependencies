@@ -1,9 +1,0 @@
-{
-  "extends": "@monorepo-template/tsconfig",
-  "compilerOptions": {
-    "jsx": "react-jsxdev",
-    "sourceMap": true,
-    "target": "ES5",
-    "types": ["jest"]
-  }
-}

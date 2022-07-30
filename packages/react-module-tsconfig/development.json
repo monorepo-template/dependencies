@@ -1,9 +1,0 @@
-{
-  "extends": "@monorepo-template/tsconfig",
-  "compilerOptions": {
-    "declaration": false,
-    "declarationDir": null,
-    "jsx": "react-jsxdev",
-    "types": ["jest"]
-  }
-}
