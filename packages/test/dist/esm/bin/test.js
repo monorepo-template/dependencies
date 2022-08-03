@@ -1,5 +1,5 @@
 import TreeLogger from '@monorepo-template/tree-logger';
-import { G as GitHubWorkflowsTest, P as PackagesTest, V as VSCodeTest } from '../vscode-9a51fcc3.js';
+import { G as GitHubWorkflowsTest, P as PackagesTest, V as VSCodeTest } from '../vscode-78f72b8f.js';
 import 'fs';
 import 'path';
 import 'js-yaml';
