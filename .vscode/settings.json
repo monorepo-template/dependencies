@@ -4,8 +4,8 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "files.exclude": {
+    "**/.pnp.*": true,
     "**/.yarn": true,
-    "**/*.pnp.*": true,
     ".git/": true,
     "packages/*/.nyc_output/": true,
     "packages/*/build/": true,
@@ -19,8 +19,8 @@
     "yarn.lock": true
   },
   "search.exclude": {
+    "**/.pnp.*": true,
     "**/.yarn": true,
-    "**/*.pnp.*": true,
     ".git/": true,
     "packages/*/.nyc_output/": true,
     "packages/*/build/": true,
