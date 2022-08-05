@@ -25,7 +25,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-application"
+  "extends": "@monorepo-template/tsconfig/react-application.json"
 }
 ```
 
@@ -33,7 +33,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-application/development"
+  "extends": "@monorepo-template/tsconfig/react-application/development.json"
 }
 ```
 
@@ -41,7 +41,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-application/eslint"
+  "extends": "@monorepo-template/tsconfig/react-application/eslint.json"
 }
 ```
 
@@ -49,7 +49,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-application/no-jsx-runtime"
+  "extends": "@monorepo-template/tsconfig/react-application/no-jsx-runtime.json"
 }
 ```
 
@@ -59,7 +59,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-module",
+  "extends": "@monorepo-template/tsconfig/react-module.json",
   "compilerOptions": {
     "declarationDir": "./dist/types"
   }
@@ -70,7 +70,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-module/development"
+  "extends": "@monorepo-template/tsconfig/react-module/development.json"
 }
 ```
 
@@ -78,7 +78,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-module/eslint"
+  "extends": "@monorepo-template/tsconfig/react-module/eslint.json"
 }
 ```
 
@@ -86,6 +86,6 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 
 ```json
 {
-  "extends": "@monorepo-template/tsconfig/react-module/no-jsx-runtime"
+  "extends": "@monorepo-template/tsconfig/react-module/no-jsx-runtime.json"
 }
 ```

@@ -1,6 +1,6 @@
 {
   "compileOnSave": false,
-  "extends": "@monorepo-template/tsconfig/react-module",
+  "extends": "@monorepo-template/tsconfig/react-module.json",
   "compilerOptions": {
     "declaration": false,
     "declarationDir": null,
