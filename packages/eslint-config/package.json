@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <monorepo-template-eslint-config@charlesstover.com>",
   "description": "popular ESLint configurations for monorepos",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config#readme",
@@ -94,5 +94,8 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0"
   }
 }
