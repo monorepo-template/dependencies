@@ -79,7 +79,7 @@
     "@monorepo-template/eslint-config": "workspace:^",
     "@monorepo-template/test": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.6.3",
+    "@types/node": "^18.6.4",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "@yarnpkg/sdks": "^3.0.0-rc.14",
