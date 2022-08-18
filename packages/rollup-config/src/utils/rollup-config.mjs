@@ -5,7 +5,8 @@ import IS_DEV from '../constants/is-dev.mjs';
 import NO_JSX_RUNTIME_PLUGIN from '../constants/no-jsx-runtime-plugin.mjs';
 import NODE_RESOLVE_PLUGIN from '../constants/node-resolve-plugin.mjs';
 import WATCH from '../constants/watch.mjs';
-import mapMapToRecord from '../utils/map-map-to-record.mjs';
+import mapMapToRecord from './map-map-to-record.mjs';
+import reducePluginsFunctionToPlugins from './reduce-plugins-functions-to-plugins.mjs';
 
 const EMPTY = 0;
 
@@ -29,6 +30,8 @@ export default class RollupConfig {
   _input = new Map();
 
   _jsxRuntime = true;
+
+  _pluginsFunctions = [];
 
   _tsconfigPath = './tsconfig.json';
 
@@ -113,7 +116,10 @@ export default class RollupConfig {
     }
 
     plugins.push(this.typeScriptPlugin);
-    return plugins;
+    return this._pluginsFunctions.reduce(
+      reducePluginsFunctionToPlugins,
+      plugins,
+    );
   }
 
   get tsconfig() {
@@ -219,6 +225,11 @@ export default class RollupConfig {
 
   setFileName = fileName => {
     this._fileName = fileName;
+    return this;
+  };
+
+  setPlugins = f => {
+    this._pluginsFunctions.push(f);
     return this;
   };
 

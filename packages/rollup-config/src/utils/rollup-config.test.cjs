@@ -149,6 +149,15 @@ describe('RollupConfig', () => {
     });
   });
 
+  describe('setPlugins', () => {
+    it('should set plugins', () => {
+      const { plugins } = new RollupConfig()
+        .setPlugins(() => ['test'])
+        .toJSON();
+      expect(plugins).toEqual(['test']);
+    });
+  });
+
   describe('setTSConfigPath', () => {
     it('should set the TSConfig path', () => {
       expect(new RollupConfig().setTSConfigPath('test.json').tsconfigPath).toBe(

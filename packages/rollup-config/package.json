@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/rollup-config",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": "Charles Stover <monorepo-template-rollup-config@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/rollup-config#readme",
