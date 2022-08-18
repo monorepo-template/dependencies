@@ -38,6 +38,7 @@ export default new RollupConfig()
   .setEsmDirectorry('./dist/my-esm')
   .setExternalDependency('react-router') // do not bundle `react-router`
   .setFileName('custom') // outputs `custom.js`
+  .setPlugins(plugins => [...plugins, newPlugin])
   .setTSConfigPath('./tsconfig.json')
   .toJSON();
 ```

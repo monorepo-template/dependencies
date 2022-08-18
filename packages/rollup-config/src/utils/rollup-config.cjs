@@ -5,7 +5,8 @@ const IS_DEV = require('../constants/is-dev.cjs');
 const NO_JSX_RUNTIME_PLUGIN = require('../constants/no-jsx-runtime-plugin.cjs');
 const NODE_RESOLVE_PLUGIN = require('../constants/node-resolve-plugin.cjs');
 const WATCH = require('../constants/watch.cjs');
-const mapMapToRecord = require('../utils/map-map-to-record.cjs');
+const mapMapToRecord = require('./map-map-to-record.cjs');
+const reducePluginsFunctionsToPlugins = require('./reduce-plugins-functions-to-plugins.cjs');
 
 const EMPTY = 0;
 
@@ -29,6 +30,8 @@ module.exports = class RollupConfig {
   _input = new Map();
 
   _jsxRuntime = true;
+
+  _pluginsFunctions = [];
 
   _tsconfigPath = './tsconfig.json';
 
@@ -113,7 +116,10 @@ module.exports = class RollupConfig {
     }
 
     plugins.push(this.typeScriptPlugin);
-    return plugins;
+    return this._pluginsFunctions.reduce(
+      reducePluginsFunctionsToPlugins,
+      plugins,
+    );
   }
 
   get tsconfig() {
@@ -219,6 +225,11 @@ module.exports = class RollupConfig {
 
   setFileName = fileName => {
     this._fileName = fileName;
+    return this;
+  };
+
+  setPlugins = f => {
+    this._pluginsFunctions.push(f);
     return this;
   };
 
