@@ -228,7 +228,7 @@ yarn add --dev "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
 
 ```json
 {
-  "extends": ["@monorepo-template/typescript-strict"]
+  "extends": ["@monorepo-template/eslint-config/typescript-strict"]
 }
 ```
 
