@@ -1,19 +1,28 @@
 {
   "name": "@monorepo-template/cypress-coverage-config-override",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Charles Stover <monorepo-template-coverage-config-override@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage-config-override#readme",
   "license": "MIT",
-  "main": "./index.cjs",
-  "type": "commonjs",
-  "types": "./index.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "type": "module",
+  "types": "./dist/types/index.d.ts",
   "bugs": {
     "email": "monorepo-template-coverage-config-override@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
   "directories": {
     "lib": "src"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
   },
   "funding": {
     "type": "individual",
@@ -30,19 +39,38 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest --runInBand",
-    "jest:watch": "jest --coverage=false --runInBand --watch"
+    "jest:watch": "jest --coverage=false --runInBand --watch",
+    "rollup": "rollup --config",
+    "rollup:watch": "rollup --config --watch"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@jest/globals": "^28.1.3",
+    "@monorepo-template/jest-preset": "workspace:^",
+    "@monorepo-template/rollup-config": "workspace:^",
+    "@monorepo-template/tsconfig": "workspace:^",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.4",
+    "babel-jest": "^28.1.3",
     "babel-plugin-istanbul": "^6.1.1",
     "eslint": "^8.21.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
+    "rollup": "^2.78.1",
+    "rollup-plugin-insert": "^1.3.2",
+    "rollup-plugin-typescript2": "^0.33.0",
     "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4"
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0"
   },
   "peerDependencies": {
-    "babel-plugin-istanbul": "^6.0.0"
+    "babel-plugin-istanbul": "^6.0.0",
+    "webpack": "^5.0.0"
   }
 }

@@ -1,7 +1,8 @@
 {
-  "exclude": ["jest", "node_modules"],
-  "extends": "../../tsconfig.json",
+  "exclude": ["dist", "jest", "node_modules"],
+  "extends": "@monorepo-template/tsconfig",
+  "include": ["./**/*.ts"],
   "compilerOptions": {
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }
