@@ -1,3 +1,0 @@
-declare const BABEL_PLUGIN_ISTANBUL_PATH: string;
-
-export = BABEL_PLUGIN_ISTANBUL_PATH;

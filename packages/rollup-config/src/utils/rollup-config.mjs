@@ -148,6 +148,7 @@ export default class RollupConfig {
   get typeScriptPlugin() {
     return typescript2({
       check: !this.developmentMode,
+      clean: true,
       tsconfig: this.tsconfig,
       tsconfigOverride: this.tsconfigOverride,
       useTsconfigDeclarationDir: true,

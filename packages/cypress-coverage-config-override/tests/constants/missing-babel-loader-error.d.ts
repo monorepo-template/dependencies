@@ -1,3 +1,0 @@
-declare const MISSING_BABEL_LOADER_ERROR: Error;
-
-export = MISSING_BABEL_LOADER_ERROR;
