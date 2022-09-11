@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/cypress-coverage-config-override",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Charles Stover <monorepo-template-coverage-config-override@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage-config-override#readme",
@@ -19,7 +19,7 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
       "types": "./dist/types/index.d.ts",
       "default": "./dist/esm/index.js"
     }
