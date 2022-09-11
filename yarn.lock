@@ -2584,7 +2584,7 @@ __metadata:
     istanbul-lib-coverage: ^3.0.0
     nyc: ^15.0.0
   bin:
-    monorepo-template-coverage: ./bin/coverage.mjs
+    monorepo-template-coverage: ./dist/bin/index.js
   languageName: unknown
   linkType: soft
 
@@ -2813,7 +2813,7 @@ __metadata:
     istanbul-lib-coverage: ^3.0.0
     nyc: ^15.0.0
   bin:
-    merge-coverage: ./dist/bin/index.js
+    monorepo-template-merge-coverage: ./dist/bin/index.js
   languageName: unknown
   linkType: soft
 
