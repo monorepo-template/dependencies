@@ -2,8 +2,8 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const packageJsonPath = join(process.cwd(), 'package.json');
-
-const { bin } = readFileSync(packageJsonPath);
+const packageJsonStr = readFileSync(packageJsonPath);
+const { bin } = JSON.parse(packageJsonStr);
 
 for (const relativePath of Object.values(bin)) {
   const absolutePath = join(process.cwd(), relativePath);
