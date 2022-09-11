@@ -1,4 +1,10 @@
+/scripts/
+/src/
 /.eslintignore
 /.eslintrc.json
+/.gitignore
 /.npmignore
+/rollup.config.js
+/tsconfig.bin.json
 /tsconfig.eslint.json
+/tsconfig.json
