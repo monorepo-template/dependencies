@@ -154,12 +154,22 @@ on:
   pull_request:
     paths:
       - '.github/workflows/test.yml'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/test/**/*'
       - 'packages/tree-logger/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/test.yml'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/test/**/*'
       - 'packages/tree-logger/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:

@@ -2536,7 +2536,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     babel-jest: ^28.1.3
     eslint: ^8.21.0
@@ -2563,17 +2563,28 @@ __metadata:
   resolution: "@monorepo-template/coverage@workspace:packages/coverage"
   dependencies:
     "@monorepo-template/merge-coverage": "workspace:^"
+    "@monorepo-template/rollup-config": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@rollup/plugin-commonjs": ^22.0.2
+    "@rollup/plugin-node-resolve": ^13.3.0
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     eslint: ^8.21.0
     istanbul-lib-coverage: ^3.2.0
+    jest: ^28.1.3
     make-dir: ^3.1.0
     nyc: ^15.1.0
     p-map: ^5.5.0
+    rollup: ^2.77.2
+    rollup-plugin-insert: ^1.3.2
+    rollup-plugin-typescript2: ^0.32.1
+    tslib: ^2.4.0
+    typescript: ^4.7.4
   peerDependencies:
     istanbul-lib-coverage: ^3.0.0
     nyc: ^15.0.0
   bin:
-    monorepo-template-coverage: ./bin/coverage.mjs
+    monorepo-template-coverage: ./dist/bin/index.js
   languageName: unknown
   linkType: soft
 
@@ -2591,7 +2602,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     babel-jest: ^28.1.3
     babel-plugin-istanbul: ^6.1.1
@@ -2780,18 +2791,29 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/merge-coverage@workspace:packages/merge-coverage"
   dependencies:
+    "@monorepo-template/rollup-config": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@rollup/plugin-commonjs": ^22.0.2
+    "@rollup/plugin-node-resolve": ^13.3.0
+    "@types/istanbul-lib-coverage": ^2.0.4
+    "@types/jest": ^28.1.7
+    "@types/node": ^18.7.10
     eslint: ^8.21.0
     istanbul-lib-coverage: ^3.2.0
+    jest: ^28.1.3
     make-dir: ^3.1.0
     nyc: ^15.1.0
     p-map: ^5.5.0
+    rollup: ^2.77.2
+    rollup-plugin-insert: ^1.3.2
+    rollup-plugin-typescript2: ^0.32.1
+    tslib: ^2.4.0
+    typescript: ^4.7.4
   peerDependencies:
     istanbul-lib-coverage: ^3.0.0
-    make-dir: ^3.0.0
     nyc: ^15.0.0
-    p-map: ^5.0.0
   bin:
-    merge-coverage: ./bin/merge-coverage.mjs
+    monorepo-template-merge-coverage: ./dist/bin/index.js
   languageName: unknown
   linkType: soft
 
@@ -2806,7 +2828,7 @@ __metadata:
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2834,7 +2856,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.6.4
     eslint: ^8.21.0
@@ -2865,7 +2887,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     ansi-styles: ^6.1.0
     babel-jest: ^28.1.3
@@ -2906,7 +2928,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     babel-jest: ^28.1.3
     eslint: ^8.21.0
@@ -2942,7 +2964,7 @@ __metadata:
     "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/jest": ^28.1.6
+    "@types/jest": ^28.1.7
     "@types/node": ^18.6.4
     babel-jest: ^28.1.3
     eslint: ^8.21.0
@@ -3360,6 +3382,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/istanbul-lib-coverage@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@types/istanbul-lib-coverage@npm:2.0.4"
+  checksum: a25d7589ee65c94d31464c16b72a9dc81dfa0bea9d3e105ae03882d616e2a0712a9c101a599ec482d297c3591e16336962878cb3eb1a0a62d5b76d277a890ce7
+  languageName: node
+  linkType: hard
+
 "@types/istanbul-lib-report@npm:*":
   version: 3.0.0
   resolution: "@types/istanbul-lib-report@npm:3.0.0"
@@ -3378,13 +3407,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^28.1.6":
-  version: 28.1.6
-  resolution: "@types/jest@npm:28.1.6"
+"@types/jest@npm:^28.1.7":
+  version: 28.1.7
+  resolution: "@types/jest@npm:28.1.7"
   dependencies:
-    jest-matcher-utils: ^28.0.0
+    expect: ^28.0.0
     pretty-format: ^28.0.0
-  checksum: f2ba5fbefc8f44d1c16ee19d8d2811bca75754a2846e222287f2788d96062801c568215e6b81eb532a48e8cb2a7282729da1d4f6fb496831da8269c5abaad4c5
+  checksum: 17c9bf9667cd4f062eba5aa9eaea248927bf6479da1cc009e0b7d26d501f460f068dd23eddb67d2602264e915a30b63ae7c9cbb516723ffd18589f6f9d267d43
   languageName: node
   linkType: hard
 
@@ -3447,6 +3476,13 @@ __metadata:
   version: 18.6.4
   resolution: "@types/node@npm:18.6.4"
   checksum: fc453dd2b541f5812ba1a8f957f577727cf2d8aee886f1d5c03eb153b2b3373d2e0953c5bd2b7a5b184073bc317f54ec91f1ec4830a58eda4a833e90654021de
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.10":
+  version: 18.7.10
+  resolution: "@types/node@npm:18.7.10"
+  checksum: 4e9d883762db9d854ba462d89014d4eb4fc90027c33a3573af9e4e7a0fe161f05b7b5382083c9305ce60a5c84622eae42d1bf19c5103859e69b135a2f8278e12
   languageName: node
   linkType: hard
 
@@ -5983,7 +6019,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^28.1.3":
+"expect@npm:^28.0.0, expect@npm:^28.1.3":
   version: 28.1.3
   resolution: "expect@npm:28.1.3"
   dependencies:
@@ -7490,7 +7526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^28.0.0, jest-matcher-utils@npm:^28.1.3":
+"jest-matcher-utils@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-matcher-utils@npm:28.1.3"
   dependencies:

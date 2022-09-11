@@ -84,10 +84,15 @@ module.exports = class RollupConfig {
   }
 
   get output() {
-    return [this.outputCjs, this.outputEsm];
+    return [this.outputCjs, this.outputEsm].filter(output => output !== null);
   }
 
   get outputCjs() {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (this.cjsDirectory === null) {
+      return null;
+    }
+
     return {
       chunkFileNames: `${this.fileName}-[hash].${this.cjsExtension}`,
       dir: this.cjsDirectory,
@@ -99,6 +104,11 @@ module.exports = class RollupConfig {
   }
 
   get outputEsm() {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (this.esmDirectory === null) {
+      return null;
+    }
+
     return {
       chunkFileNames: `${this.fileName}-[hash].${this.esmExtension}`,
       dir: this.esmDirectory,

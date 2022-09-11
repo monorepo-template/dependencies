@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
-    name: ESLint
+  dependencies:
+    name: Build dependencies
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,13 +31,69 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build merge-coverage
+        run: yarn merge-coverage:rollup
+      - name: Upload merge-coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
+
+  eslint:
+    name: ESLint
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Download merge-coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
       - name: Lint
         run: yarn coverage:eslint
+
+  rollup:
+    name: Rollup
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Download merge-coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
+      - name: Build
+        run: yarn coverage:rollup
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage--dist
+          path: packages/coverage/dist
 
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, rollup]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -53,6 +109,11 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage--dist
+          path: packages/coverage/dist
       - name: Publish
         working-directory: packages/coverage
         env:
@@ -65,7 +126,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -76,6 +137,11 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage--dist
+          path: packages/coverage/dist
       - name: Publish
         working-directory: packages/coverage
         env:
@@ -89,11 +155,21 @@ on:
     paths:
       - '.github/workflows/coverage.yml'
       - 'packages/coverage/**/*'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/merge-coverage/**/*'
+      - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/coverage.yml'
       - 'packages/coverage/**/*'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/merge-coverage/**/*'
+      - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:

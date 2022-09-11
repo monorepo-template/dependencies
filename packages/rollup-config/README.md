@@ -33,9 +33,9 @@ export default new RollupConfig()
   .addInput('table', 'src/components/table/index.ts')
   .disableDevelopmentMode()
   .disableJsxRuntime() // support React < 16.14.0
-  .setCjsDirectory('./dist/my-cjs')
+  .setCjsDirectory('./dist/my-cjs') // or `null` to disable CJS output
   .setDevelopmentTSConfigPath('./tsconfig.development.json')
-  .setEsmDirectorry('./dist/my-esm')
+  .setEsmDirectorry('./dist/my-esm') // or `null` to disable ESM output
   .setExternalDependency('react-router') // do not bundle `react-router`
   .setFileName('custom') // outputs `custom.js`
   .setPlugins(plugins => [...plugins, newPlugin])

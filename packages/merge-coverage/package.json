@@ -1,22 +1,20 @@
 {
   "name": "@monorepo-template/merge-coverage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Charles Stover <monorepo-template-merge-coverage@charlesstover.com>",
   "description": "merges Cypress and Jest coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/merge-coverage#readme",
   "license": "MIT",
-  "main": "./index.js",
-  "module": "./index.js",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
   "type": "module",
-  "bin": "./bin/merge-coverage.mjs",
+  "types": "./dist/types/index.d.ts",
+  "bin": {
+    "monorepo-template-merge-coverage": "./dist/bin/index.js"
+  },
   "bugs": {
     "email": "monorepo-template-merge-coverage@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
-  },
-  "exports": {
-    ".": {
-      "default": "./src/index.mjs"
-    }
   },
   "funding": {
     "type": "individual",
@@ -31,19 +29,34 @@
   },
   "scripts": {
     "eslint": "eslint '**/*'",
-    "eslint:fix": "eslint '**/*' --fix"
+    "eslint:fix": "eslint '**/*' --fix",
+    "rollup": "rollup --config && node ./scripts/post-rollup.mjs",
+    "rollup:watch": "rollup --config --watch"
+  },
+  "dependencies": {
+    "make-dir": "^3.1.0",
+    "p-map": "^5.5.0"
   },
   "devDependencies": {
+    "@monorepo-template/rollup-config": "workspace:^",
+    "@monorepo-template/tsconfig": "workspace:^",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/istanbul-lib-coverage": "^2.0.4",
+    "@types/jest": "^28.1.7",
+    "@types/node": "^18.7.10",
     "eslint": "^8.21.0",
     "istanbul-lib-coverage": "^3.2.0",
-    "make-dir": "^3.1.0",
+    "jest": "^28.1.3",
     "nyc": "^15.1.0",
-    "p-map": "^5.5.0"
+    "rollup": "^2.77.2",
+    "rollup-plugin-insert": "^1.3.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "istanbul-lib-coverage": "^3.0.0",
-    "make-dir": "^3.0.0",
-    "nyc": "^15.0.0",
-    "p-map": "^5.0.0"
+    "nyc": "^15.0.0"
   }
 }

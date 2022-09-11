@@ -103,6 +103,12 @@ describe('RollupConfig', () => {
   });
 
   describe('setCjsDirectory', () => {
+    it('should disable CJS', () => {
+      const { output } = new RollupConfig().setCjsDirectory(null).toJSON();
+      const findCjsOutput = ({ format }) => format === 'cjs';
+      expect(output.find(findCjsOutput)).toBeUndefined();
+    });
+
     it('should set the CJS directory', () => {
       const { output } = new RollupConfig()
         .setCjsDirectory('./dist/custom')
@@ -126,7 +132,13 @@ describe('RollupConfig', () => {
   });
 
   describe('setEsmDirectory', () => {
-    it('should set the CJS directory', () => {
+    it('should disable ESM', () => {
+      const { output } = new RollupConfig().setEsmDirectory(null).toJSON();
+      const findEsmOutput = ({ format }) => format === 'es';
+      expect(output.find(findEsmOutput)).toBeUndefined();
+    });
+
+    it('should set the ESM directory', () => {
       const { output } = new RollupConfig()
         .setEsmDirectory('./dist/custom')
         .toJSON();
