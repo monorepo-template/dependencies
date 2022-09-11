@@ -4,6 +4,7 @@
   "include": ["./bin/**/*.ts"],
   "compilerOptions": {
     "declaration": false,
-    "declarationDir": null
+    "declarationDir": null,
+    "target": "ES2017"
   }
 }
