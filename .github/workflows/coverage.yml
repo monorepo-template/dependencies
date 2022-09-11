@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
-    name: ESLint
+  dependencies:
+    name: Build dependencies
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,12 +31,40 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build merge-coverage
+        run: yarn merge-coverage:rollup
+      - name: Upload merge-coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
+
+  eslint:
+    name: ESLint
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Download merge-coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
       - name: Lint
         run: yarn coverage:eslint
 
   rollup:
     name: Rollup
-    needs: install
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -49,6 +77,11 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Download merge-coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
       - name: Build
         run: yarn coverage:rollup
       - name: Upload build

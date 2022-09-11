@@ -1,13 +1,15 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-const { bin } = readFileSync(join('..', 'package.json'));
+const packageJsonPath = join(process.cwd(), 'package.json');
 
-for (const relativeRootPath of Object.values(bin)) {
-  const relativeLocalPath = join('..', relativeRootPath);
-  const contents = readFileSync(relativeLocalPath);
+const { bin } = readFileSync(packageJsonPath);
+
+for (const relativePath of Object.values(bin)) {
+  const absolutePath = join(process.cwd(), relativePath);
+  const contents = readFileSync(absolutePath);
   writeFileSync(
-    relativeLocalPath,
+    absolutePath,
     `#!/usr/bin/env node
 
 ${contents}`,
