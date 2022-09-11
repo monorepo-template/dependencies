@@ -30,7 +30,7 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
-    "rollup": "rollup --config",
+    "rollup": "rollup --config && node ./scripts/post-rollup.mjs",
     "rollup:watch": "rollup --config --watch"
   },
   "dependencies": {

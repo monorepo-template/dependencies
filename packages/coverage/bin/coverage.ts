@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { existsSync } from 'fs';
 import { join } from 'path';
 import MISSING_CYPRESS_COVERAGE_DIRECTORY_ERROR from './constants/missing-cypress-coverage-directory-error';
