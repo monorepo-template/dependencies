@@ -16,11 +16,6 @@
     "email": "monorepo-template-coverage@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
   },
-  "export": {
-    ".": {
-      "default": "./src/index.mjs"
-    }
-  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/CharlesStover"
