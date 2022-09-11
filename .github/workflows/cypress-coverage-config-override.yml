@@ -146,7 +146,9 @@ on:
     paths:
       - '.github/workflows/cypress-coverage-config-override.yml'
       - 'packages/cypress-coverage-config-override/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   push:
@@ -154,7 +156,9 @@ on:
     paths:
       - '.github/workflows/cypress-coverage-config-override.yml'
       - 'packages/cypress-coverage-config-override/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   workflow_dispatch:

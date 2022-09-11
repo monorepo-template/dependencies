@@ -28,7 +28,7 @@ export default class GitHubWorkflowTest implements Test {
     this._relativePath = mapGitHubWorkflowPathToRelative(absolutePath);
   }
 
-  // `run` is a getter that returns a function, instead of a method, so that it
+  // `test` is a getter that returns a function, instead of a method, so that it
   //   has access to the `GitHubWorkflowsTest` object despite that returned
   //   function using a `TreeLogger` context.
   public get test(): (this: Readonly<TreeLogger>) => void {

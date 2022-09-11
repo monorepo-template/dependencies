@@ -5,7 +5,7 @@
 To install this module and its peer dependencies, run:
 
 ```sh
-yarn add --dev "@monorepo-template/merge-coverage" istanbul-lib-coverage make-dir nyc p-map
+yarn add --dev "@monorepo-template/merge-coverage" istanbul-lib-coverage nyc
 ```
 
 ## Use

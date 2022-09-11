@@ -56,22 +56,6 @@ export default class GitHubWorkflowsTest implements Test {
     return this.testEntries;
   }
 
-  private mapWorkspaceGlobToPaths(glob: string): readonly string[] {
-    if (!glob.endsWith('/*')) {
-      throw mapWorkspaceGlobToEndsWithError(glob);
-    }
-
-    const newPath: string = join(this._root, glob.replace(GLOB_ENDING, ''));
-
-    // We use `/` instead of `path.join()` because this should pass on developers'
-    //   Windows machines and the path will be `/` during CI.
-    const mapFileNameToPath = (fileName: string): string =>
-      `${newPath}/${fileName}`;
-
-    const newFileNames: readonly string[] = readdirSync(newPath);
-    return newFileNames.map(mapFileNameToPath);
-  }
-
   private mapPackageJsonToRelativeWorkspacePaths({
     workspaces,
   }: PackageJson): readonly string[] {
@@ -83,9 +67,9 @@ export default class GitHubWorkflowsTest implements Test {
       throw PACKAGE_WORKSPACES_TYPE_ERROR;
     }
 
-    const reduceWorkspaceGlobsToPaths =
-      this.reduceWorkspaceGlobsToPaths.bind(this);
-    return workspaces.reduce(reduceWorkspaceGlobsToPaths, []);
+    const reduceWorkspaceGlobsToRelativePaths =
+      this.reduceWorkspaceGlobsToRelativePaths.bind(this);
+    return workspaces.reduce(reduceWorkspaceGlobsToRelativePaths, []);
   }
 
   private mapPathToTestEntry(
@@ -96,11 +80,29 @@ export default class GitHubWorkflowsTest implements Test {
     return [mapYamlFilePathToName(path), gitHubWorkflow.test];
   }
 
-  private reduceWorkspaceGlobsToPaths(
+  private mapWorkspaceGlobToRelativePaths(glob: string): readonly string[] {
+    if (!glob.endsWith('/*')) {
+      throw mapWorkspaceGlobToEndsWithError(glob);
+    }
+
+    const relativeRoot: string = glob.replace(GLOB_ENDING, '');
+    const absoluteRoot: string = join(this._root, relativeRoot);
+
+    // We use `/` instead of `path.join()` because this should pass on developers'
+    //   Windows machines and the path will be `/` during CI.
+    const mapFileNameToRelativePath = (fileName: string): string =>
+      `${relativeRoot}/${fileName}`;
+
+    const newFileNames: readonly string[] = readdirSync(absoluteRoot);
+    return newFileNames.map(mapFileNameToRelativePath);
+  }
+
+  private reduceWorkspaceGlobsToRelativePaths(
     paths: readonly string[],
     glob: string,
   ): readonly string[] {
-    const newPaths: readonly string[] = this.mapWorkspaceGlobToPaths(glob);
+    const newPaths: readonly string[] =
+      this.mapWorkspaceGlobToRelativePaths(glob);
     return [...paths, ...newPaths];
   }
 }
