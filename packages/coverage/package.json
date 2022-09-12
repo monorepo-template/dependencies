@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage#readme",
@@ -15,6 +15,14 @@
   "bugs": {
     "email": "monorepo-template-coverage@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
   },
   "funding": {
     "type": "individual",
