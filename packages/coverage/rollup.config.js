@@ -10,5 +10,5 @@ export default [
     .toJSON(),
 
   // src
-  new RollupConfig().toJSON(),
+  new RollupConfig().setTSConfigPath('./tsconfig.src.json').toJSON(),
 ];
