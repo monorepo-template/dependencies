@@ -1,10 +1,8 @@
 {
-  "exclude": ["./bin/", "./dist/", "./jest/", "./node_modules/"],
+  "exclude": ["dist/", "jest/"],
   "extends": "@monorepo-template/tsconfig",
-  "include": ["./src/**/*.ts"],
+  "include": ["**/*.ts"],
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./dist/types",
-    "types": ["jest", "node", "../../types/nyc"]
+    "target": "ES2017"
   }
 }

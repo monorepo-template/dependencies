@@ -4,7 +4,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "inlineSourceMap": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "types": ["cypress", "node"]
   }
 }

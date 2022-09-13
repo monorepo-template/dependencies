@@ -1,0 +1,6 @@
+{
+  "extends": "@monorepo-template/tsconfig/react-application/eslint.json",
+  "compilerOptions": {
+    "types": ["cypress", "node"]
+  }
+}
