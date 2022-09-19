@@ -2849,10 +2849,10 @@ __metadata:
     rollup-plugin-typescript2: ^0.34.0
     typescript: ~4.7.0
   peerDependencies:
-    "@rollup/plugin-commonjs": ^22.0.0
+    "@rollup/plugin-commonjs": ">=22.0.0"
     "@rollup/plugin-node-resolve": ">=13.0.0"
     rollup: ^2.0.0
-    rollup-plugin-insert: ^1.0.0
+    rollup-plugin-insert: ">=1.0.0"
     rollup-plugin-typescript2: ">=0.31.0"
     typescript: ^4.0.0
   languageName: unknown
