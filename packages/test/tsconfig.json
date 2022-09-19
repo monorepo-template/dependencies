@@ -1,7 +1,8 @@
 {
-  "exclude": ["jest/", "node_modules/"],
+  "exclude": ["dist/", "jest/", "node_modules/"],
   "extends": "../../tsconfig.json",
+  "include": ["**/*.ts"],
   "compilerOptions": {
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }

@@ -1,9 +1,11 @@
 import type { NextConfigComplete } from 'next/dist/server/config-shared';
 import asyncArray from '../utils/async-array';
+import returnEmpty from '../utils/return-empty';
 import returnNull from '../utils/return-null';
 
 const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   amp: {},
+  analyticsId: 'test-analytics-id',
   assetPrefix: 'test-asset-prefix',
   basePath: 'test-base-path',
   cleanDistDir: false,
@@ -13,6 +15,7 @@ const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   crossOrigin: false,
   excludeDefaultMomentLocales: true,
   experimental: {},
+  exportPathMap: returnEmpty,
   devIndicators: {},
   distDir: 'test-dist-dir',
   env: {},
@@ -25,6 +28,7 @@ const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   i18n: null,
   onDemandEntries: {},
   optimizeFonts: false,
+  output: 'standalone',
   outputFileTracing: false,
   productionBrowserSourceMaps: false,
   publicRuntimeConfig: {},

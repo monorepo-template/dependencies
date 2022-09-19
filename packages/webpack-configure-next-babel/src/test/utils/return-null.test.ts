@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { expect } from '@jest/globals';
 import returnNull from '../utils/return-null';
 
 describe('returnNull', (): void => {

@@ -49,6 +49,7 @@
     "@monorepo-template/rollup-config": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
     "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@types/istanbul-lib-coverage": "^2.0.4",
     "@types/jest": "^28.1.7",
