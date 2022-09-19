@@ -1,5 +1,5 @@
 {
-  "exclude": ["jest", "node_modules"],
+  "exclude": ["jest/", "node_modules/"],
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["jest"]

@@ -1,4 +1,4 @@
-import EXCLUDE from './constants/exclude.mjs';
+import EXCLUDE from './constants/exclude';
 
 export default {
   all: true,

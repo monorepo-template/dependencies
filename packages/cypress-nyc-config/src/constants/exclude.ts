@@ -1,4 +1,4 @@
-module.exports = [
+const EXCLUDE: readonly string[] = [
   'src/**/*.{bmp,gif,ico,jpeg,jpg,png,psd,svg,tif,tiff,webp}',
   'src/**/*.d.ts',
   'src/**/*.e2e.ts',
@@ -7,3 +7,5 @@ module.exports = [
   'src/**/*.test.{js,jsx,ts,tsx}',
   'src/**/*.txt',
 ];
+
+export default EXCLUDE;

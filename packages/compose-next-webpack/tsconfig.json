@@ -1,11 +1,10 @@
 {
-  "exclude": ["dist", "jest", "node_modules", "./**/*.test.ts"],
+  "exclude": ["dist/", "jest/", "node_modules/", "./**/*.test.ts"],
   "extends": "@monorepo-template/tsconfig",
-  "include": ["./**/*.ts"],
+  "include": ["**/*.ts"],
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist/types",
-    "target": "ES5",
     "types": ["jest"]
   }
 }
