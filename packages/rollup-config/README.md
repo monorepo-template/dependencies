@@ -5,7 +5,9 @@ Rollup configuration for monorepo template modules
 ## Install
 
 ```sh
-yarn add --dev "@monorepo-template/rollup-config" "@rollup/plugin-commonjs" "@rollup/plugin-node-resolve" rollup-plugin-insert rollup-plugin-typescript2
+yarn add --dev "@monorepo-template/rollup-config" "@rollup/plugin-commonjs" \
+  "@rollup/plugin-json" "@rollup/plugin-node-resolve" rollup-plugin-insert \
+  rollup-plugin-typescript2
 ```
 
 ## Use

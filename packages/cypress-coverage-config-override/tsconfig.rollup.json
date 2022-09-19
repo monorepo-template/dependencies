@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["./**/*.ts"],
+  "include": ["**/*.ts"],
 
   "compilerOptions": {
     "declaration": true,
@@ -10,10 +10,10 @@
   },
 
   "exclude": [
-    "dist/**",
-    "jest/**",
-    "node_modules",
+    "dist/",
+    "jest/",
+    "node_modules/",
     "src/**/*.test.ts",
-    "src/test/**"
+    "src/test/"
   ]
 }

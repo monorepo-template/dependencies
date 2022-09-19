@@ -33,6 +33,10 @@
     "cypress-coverage-plugin:eslint:fix": "yarn packages/cypress-coverage-plugin run eslint:fix",
     "cypress-nyc-config:eslint": "yarn packages/cypress-nyc-config run eslint",
     "cypress-nyc-config:eslint:fix": "yarn packages/cypress-nyc-config run eslint:fix",
+    "cypress-nyc-config:jest": "yarn packages/cypress-nyc-config run jest",
+    "cypress-nyc-config:jest:watch": "yarn packages/cypress-nyc-config run jest:watch",
+    "cypress-nyc-config:rollup": "yarn packages/cypress-nyc-config run rollup",
+    "cypress-nyc-config:rollup:watch": "yarn packages/cypress-nyc-config run rollup:watch",
     "eslint": "eslint '**/*' --ignore-pattern 'packages/**/*'",
     "eslint:fix": "eslint '**/*' --fix --ignore-pattern 'packages/**/*'",
     "eslint-config:eslint": "yarn packages/eslint-config run eslint",
@@ -95,6 +99,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "js-yaml": "^4.1.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "~4.7.0"
   }
 }

@@ -4,7 +4,6 @@
   "include": ["**/*.ts"],
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist/types",
-    "types": ["jest", "node"]
+    "declarationDir": "./dist/types"
   }
 }

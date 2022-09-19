@@ -1,7 +1,7 @@
 {
-  "exclude": ["./dist/", "./jest/", "./node_modules/", "./src/"],
+  "exclude": ["dist/", "jest/", "node_modules/", "src/"],
   "extends": "./tsconfig.json",
-  "include": ["./bin/**/*.ts"],
+  "include": ["bin/**/*.ts"],
   "compilerOptions": {
     "declaration": false,
     "declarationDir": null,

@@ -2,6 +2,7 @@ const typescript2 = require('rollup-plugin-typescript2');
 const COMMONJS_PLUGIN = require('../constants/commonjs-plugin.cjs');
 const EXTERNAL_DEPENDENCIES_SET = require('../constants/external-dependencies-set.cjs');
 const IS_DEV = require('../constants/is-dev.cjs');
+const JSON_PLUGIN = require('../constants/json-plugin.cjs');
 const NO_JSX_RUNTIME_PLUGIN = require('../constants/no-jsx-runtime-plugin.cjs');
 const NODE_RESOLVE_PLUGIN = require('../constants/node-resolve-plugin.cjs');
 const WATCH = require('../constants/watch.cjs');
@@ -119,7 +120,7 @@ module.exports = class RollupConfig {
   }
 
   get plugins() {
-    const plugins = [COMMONJS_PLUGIN, NODE_RESOLVE_PLUGIN];
+    const plugins = [COMMONJS_PLUGIN, NODE_RESOLVE_PLUGIN, JSON_PLUGIN];
 
     if (!this.jsxRuntime) {
       plugins.push(NO_JSX_RUNTIME_PLUGIN);

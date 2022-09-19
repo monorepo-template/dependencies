@@ -2,6 +2,7 @@ import typescript2 from 'rollup-plugin-typescript2';
 import COMMONJS_PLUGIN from '../constants/commonjs-plugin.mjs';
 import EXTERNAL_DEPENDENCIES_SET from '../constants/external-dependencies-set.mjs';
 import IS_DEV from '../constants/is-dev.mjs';
+import JSON_PLUGIN from '../constants/json-plugin.mjs';
 import NO_JSX_RUNTIME_PLUGIN from '../constants/no-jsx-runtime-plugin.mjs';
 import NODE_RESOLVE_PLUGIN from '../constants/node-resolve-plugin.mjs';
 import WATCH from '../constants/watch.mjs';
@@ -119,7 +120,7 @@ export default class RollupConfig {
   }
 
   get plugins() {
-    const plugins = [COMMONJS_PLUGIN, NODE_RESOLVE_PLUGIN];
+    const plugins = [COMMONJS_PLUGIN, NODE_RESOLVE_PLUGIN, JSON_PLUGIN];
 
     if (!this.jsxRuntime) {
       plugins.push(NO_JSX_RUNTIME_PLUGIN);

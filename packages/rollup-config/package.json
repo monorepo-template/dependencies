@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/rollup-config",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": "Charles Stover <monorepo-template-rollup-config@charlesstover.com>",
   "description": "optimized Rollup configuration for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/rollup-config#readme",
@@ -46,22 +46,24 @@
     "@babel/preset-typescript": "^7.18.6",
     "@monorepo-template/jest-module-preset": "workspace:^",
     "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "@types/jest": "^28.1.7",
     "babel-jest": "^28.1.3",
     "eslint": "^8.21.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
-    "rollup": "^2.77.2",
+    "rollup": "^2.79.0",
     "rollup-plugin-insert": "^1.3.2",
-    "rollup-plugin-typescript2": "^0.32.1",
-    "typescript": "^4.7.4"
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "~4.7.0"
   },
   "peerDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-commonjs": ">=22.0.0",
+    "@rollup/plugin-json": ">=4.0.0",
+    "@rollup/plugin-node-resolve": ">=13.0.0",
     "rollup": "^2.0.0",
-    "rollup-plugin-insert": "^1.0.0",
+    "rollup-plugin-insert": ">=1.0.0",
     "rollup-plugin-typescript2": ">=0.31.0",
     "typescript": "^4.0.0"
   }
