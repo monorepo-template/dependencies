@@ -122,6 +122,7 @@ on:
     paths:
       - '.github/workflows/cypress-nyc-config.yml'
       - 'packages/cypress-nyc-config/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   push:
@@ -129,6 +130,7 @@ on:
     paths:
       - '.github/workflows/cypress-nyc-config.yml'
       - 'packages/cypress-nyc-config/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   workflow_dispatch:

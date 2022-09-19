@@ -90,10 +90,16 @@ on:
       - '.github/workflows/cypress-coverage-plugin.yml'
       - 'packages/cypress-coverage-plugin/**/*'
       - 'packages/cypress-nyc-config/**/*'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/cypress-coverage-plugin.yml'
       - 'packages/cypress-coverage-plugin/**/*'
       - 'packages/cypress-nyc-config/**/*'
+      - 'packages/jest-module-preset/**/*'
+      - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:
