@@ -2538,7 +2538,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2570,7 +2570,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     eslint: ^8.21.0
     istanbul-lib-coverage: ^3.2.0
     jest: ^28.1.3
@@ -2606,7 +2606,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     babel-plugin-istanbul: ^6.1.1
     eslint: ^8.21.0
@@ -2633,7 +2633,8 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@cypress/code-coverage": ^3.10.0
     "@monorepo-template/cypress-nyc-config": "workspace:^"
-    "@types/node": ^18.6.4
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     babel-loader: ^8.2.5
     cypress: ^10.4.0
     eslint: ^8.21.0
@@ -2658,7 +2659,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     eslint: ^8.21.0
     rollup: ^2.79.0
     rollup-plugin-insert: ^1.3.2
@@ -2675,7 +2676,7 @@ __metadata:
     "@monorepo-template/eslint-config": "workspace:^"
     "@monorepo-template/test": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     "@typescript-eslint/eslint-plugin": ^5.32.0
     "@typescript-eslint/parser": ^5.32.0
     "@yarnpkg/sdks": ^3.0.0-rc.14
@@ -2693,6 +2694,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/eslint-config@workspace:packages/eslint-config"
   dependencies:
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     "@typescript-eslint/eslint-plugin": ^5.32.0
     "@typescript-eslint/parser": ^5.32.0
     eslint: ^8.21.0
@@ -2724,6 +2727,8 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@monorepo-template/jest-preset": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2748,6 +2753,8 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@monorepo-template/jest-preset": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2770,6 +2777,8 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@monorepo-template/jest-transformer": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2791,6 +2800,8 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
+    "@monorepo-template/tsconfig": "workspace:^"
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
   peerDependencies:
@@ -2813,7 +2824,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/istanbul-lib-coverage": ^2.0.4
     "@types/jest": ^28.1.7
-    "@types/node": ^18.7.10
+    "@types/node": ^18.7.18
     eslint: ^8.21.0
     istanbul-lib-coverage: ^3.2.0
     jest: ^28.1.3
@@ -2842,10 +2853,12 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@monorepo-template/jest-module-preset": "workspace:^"
+    "@monorepo-template/tsconfig": "workspace:^"
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2877,7 +2890,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
     "@types/js-yaml": ^4.0.5
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     eslint: ^8.21.0
     jest: ^28.1.3
     js-yaml: ^4.1.0
@@ -2908,7 +2921,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     ansi-styles: ^6.1.0
     babel-jest: ^28.1.3
     eslint: ^8.21.0
@@ -2927,7 +2940,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/tsconfig@workspace:packages/tsconfig"
   dependencies:
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     eslint: ^8.21.0
   peerDependencies:
     "@types/node": "*"
@@ -2950,7 +2963,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -2987,7 +3000,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/jest": ^28.1.7
-    "@types/node": ^18.6.4
+    "@types/node": ^18.7.18
     babel-jest: ^28.1.3
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
@@ -3505,17 +3518,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.6.4":
-  version: 18.6.4
-  resolution: "@types/node@npm:18.6.4"
-  checksum: fc453dd2b541f5812ba1a8f957f577727cf2d8aee886f1d5c03eb153b2b3373d2e0953c5bd2b7a5b184073bc317f54ec91f1ec4830a58eda4a833e90654021de
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.7.10":
-  version: 18.7.10
-  resolution: "@types/node@npm:18.7.10"
-  checksum: 4e9d883762db9d854ba462d89014d4eb4fc90027c33a3573af9e4e7a0fe161f05b7b5382083c9305ce60a5c84622eae42d1bf19c5103859e69b135a2f8278e12
+"@types/node@npm:^18.7.18":
+  version: 18.7.18
+  resolution: "@types/node@npm:18.7.18"
+  checksum: 8aec61f0f96e2a69ce51f1f40f949ca578bbb4fe05d7c0b8ce3aeeb848e90f755837f17f6ac132ca404d974fe9b2974150ad3b4984fc9dc7c3ceddb10bae0167
   languageName: node
   linkType: hard
 

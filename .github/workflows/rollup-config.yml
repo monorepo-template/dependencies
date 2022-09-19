@@ -110,6 +110,7 @@ on:
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
@@ -118,4 +119,5 @@ on:
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:

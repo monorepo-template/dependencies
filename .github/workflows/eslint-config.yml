@@ -89,9 +89,11 @@ on:
     paths:
       - '.github/workflows/eslint-config.yml'
       - 'packages/eslint-config/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/eslint-config.yml'
       - 'packages/eslint-config/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:

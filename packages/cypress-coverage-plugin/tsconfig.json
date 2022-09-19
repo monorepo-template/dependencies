@@ -1,6 +1,6 @@
 {
   "exclude": ["dist/", "jest/", "node_modules/"],
-  "extends": "../../tsconfig.json",
+  "extends": "@monorepo-template/tsconfig",
   "include": ["**/*"],
   "compilerOptions": {
     "types": ["cypress"]

@@ -89,9 +89,11 @@ on:
     paths:
       - '.github/workflows/jest-transformer.yml'
       - 'packages/jest-transformer/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
       - '.github/workflows/jest-transformer.yml'
       - 'packages/jest-transformer/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:
