@@ -124,6 +124,7 @@ on:
       - 'packages/cypress-nyc-config/**/*'
       - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   push:
@@ -133,6 +134,7 @@ on:
       - 'packages/cypress-nyc-config/**/*'
       - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
+      - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   workflow_dispatch:
