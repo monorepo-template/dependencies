@@ -1,12 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["src/**/*.ts"],
 
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist/types",
     "importHelpers": false,
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
 
   "exclude": [

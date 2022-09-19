@@ -91,6 +91,7 @@ on:
       - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
     paths:
@@ -98,4 +99,5 @@ on:
       - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/tsconfig/**/*'
   workflow_dispatch:

@@ -1,5 +1,7 @@
 {
-  "include": ["**/*"],
+  "exclude": ["dist/", "jest/", "node_modules/"],
+  "extends": "@monorepo-template/tsconfig",
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
     "types": ["jest"]
   }
