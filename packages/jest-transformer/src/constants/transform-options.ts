@@ -1,4 +1,4 @@
-import { TransformOptions } from '@babel/core';
+import type { TransformOptions } from '@babel/core';
 import PRESETS from './presets';
 
 const TRANSFORM_OPTIONS: TransformOptions = {
