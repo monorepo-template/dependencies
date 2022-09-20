@@ -34,10 +34,57 @@ jobs:
       - name: Lint
         run: yarn jest-preset:eslint
 
+  rollup:
+    name: Rollup
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build
+        run: yarn jest-preset:rollup
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+
+  jest:
+    name: Rollup
+    needs: [install, rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Publish
+      - name: Unit test
+        run: yarn jest-preset:jest
+
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -53,6 +100,11 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
       - name: Publish
         working-directory: packages/jest-preset
         env:
@@ -65,7 +117,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -76,6 +128,11 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
       - name: Publish
         working-directory: packages/jest-preset
         env:
@@ -90,6 +147,7 @@ on:
       - '.github/workflows/jest-preset.yml'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   push:
     branches: [main]
@@ -97,5 +155,6 @@ on:
       - '.github/workflows/jest-preset.yml'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   workflow_dispatch:

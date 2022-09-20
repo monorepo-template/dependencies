@@ -1,11 +1,11 @@
-import EMPTY_STRING_PATH from './constants/empty-string-path.mjs';
-import NULL_PATH from './constants/null-path.mjs';
-import TRANSFORM from './constants/transform.mjs';
-import requireResolve from './utils/require-resolve.mjs';
+import EMPTY_STRING_PATH from './constants/empty-string-path';
+import NULL_PATH from './constants/null-path';
+import TRANSFORM from './constants/transform';
+import requireResolve from './utils/require-resolve';
 
-const CSS_FILE = '(?<!\\.module)\\.(?:css|sass|scss)$';
-const CSS_MODULE = '^.+\\.module\\.(?:css|sass|scss)$';
-const IMAGE_FILE = '\\.(?:gif|jpg|png)$';
+const CSS_FILE_PATH = '(?<!\\.module)\\.(?:css|sass|scss)$';
+const CSS_MODULE_PATH = '^.+\\.module\\.(?:css|sass|scss)$';
+const IMAGE_FILE_PATH = '\\.(?:gif|jpe?g|png)$';
 
 export default {
   cacheDirectory: './jest/cache',
@@ -53,8 +53,8 @@ export default {
   ],
 
   moduleNameMapper: {
-    [CSS_FILE]: NULL_PATH,
-    [CSS_MODULE]: requireResolve('identity-obj-proxy'),
-    [IMAGE_FILE]: EMPTY_STRING_PATH,
+    [CSS_FILE_PATH]: NULL_PATH,
+    [CSS_MODULE_PATH]: requireResolve('identity-obj-proxy'),
+    [IMAGE_FILE_PATH]: EMPTY_STRING_PATH,
   },
 };

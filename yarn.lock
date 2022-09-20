@@ -1887,7 +1887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:^7.18.10":
+"@babel/template@npm:^7.18.10, @babel/template@npm:^7.4.4":
   version: 7.18.10
   resolution: "@babel/template@npm:7.18.10"
   dependencies:
@@ -2530,7 +2530,6 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@jest/globals": ^28.1.3
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
@@ -2598,7 +2597,6 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@jest/globals": ^28.1.3
     "@monorepo-template/jest-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
@@ -2777,11 +2775,23 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@monorepo-template/jest-transformer": "workspace:^"
+    "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
+    "@rollup/plugin-commonjs": ^22.0.2
+    "@rollup/plugin-json": ^4.1.0
+    "@rollup/plugin-node-resolve": ^14.1.0
+    "@types/jest": ^28.1.7
     "@types/node": ^18.7.18
     babel-jest: ^28.1.3
+    babel-plugin-transform-import-meta: ^2.2.0
     eslint: ^8.21.0
     identity-obj-proxy: ^3.0.0
+    jest: ^28.1.3
+    rollup: ^2.79.0
+    rollup-plugin-insert: ^1.3.2
+    rollup-plugin-typescript2: ^0.34.0
+    tslib: ^2.4.0
+    typescript: ~4.7.0
   peerDependencies:
     "@babel/core": ^7.0.0
     "@babel/preset-env": ^7.0.0
@@ -2913,7 +2923,6 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@jest/globals": ^28.1.3
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
@@ -2955,7 +2964,6 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@jest/globals": ^28.1.3
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
@@ -2992,7 +3000,6 @@ __metadata:
     "@babel/preset-env": ^7.18.10
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@jest/globals": ^28.1.3
     "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"
@@ -4503,6 +4510,18 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 699aa9c0dc5a2259d7fa52b26613fa1e782439eee54cd98506991f87fddf0c00eec6c5b1917edf586c170731d9e318903bc41210225a691e7bb8087652bbda94
+  languageName: node
+  linkType: hard
+
+"babel-plugin-transform-import-meta@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "babel-plugin-transform-import-meta@npm:2.2.0"
+  dependencies:
+    "@babel/template": ^7.4.4
+    tslib: ^2.4.0
+  peerDependencies:
+    "@babel/core": ^7.10.0
+  checksum: 305b0750f957e4df3ce08e0b24359dc55fb789c96477e944d113d259a8292e7bb8d665944e04b5a690c82a8dc23f54b711a85917d80988dffe1e046e1db940ee
   languageName: node
   linkType: hard
 

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
-import { describe, expect, it } from '@jest/globals';
 import type { WebpackConfigContext } from 'next/dist/server/config-shared';
 import type { Configuration } from 'webpack';
 import TEST_WEBPACK_CONFIG_CONTEXT from './test/constants/test-webpack-config-context';

@@ -29,7 +29,7 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest",
-    "jest:watch": "jest --coverage=false --watch",
+    "jest:watch": "jest --watch",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
