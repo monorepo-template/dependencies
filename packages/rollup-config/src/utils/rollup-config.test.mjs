@@ -1,6 +1,9 @@
 import NO_JSX_RUNTIME_PLUGIN from '../constants/no-jsx-runtime-plugin.mjs';
 import RollupConfig from './rollup-config.mjs';
 
+const findCjsOutput = ({ format }) => format === 'cjs';
+const findEsmOutput = ({ format }) => format === 'es';
+
 describe('RollupConfig', () => {
   describe('addExternalDependency', () => {
     it('should identify external dependencies', () => {
@@ -105,7 +108,6 @@ describe('RollupConfig', () => {
   describe('setCjsDirectory', () => {
     it('should disable CJS', () => {
       const { output } = new RollupConfig().setCjsDirectory(null).toJSON();
-      const findCjsOutput = ({ format }) => format === 'cjs';
       expect(output.find(findCjsOutput)).toBeUndefined();
     });
 
@@ -113,12 +115,17 @@ describe('RollupConfig', () => {
       const { output } = new RollupConfig()
         .setCjsDirectory('./dist/custom')
         .toJSON();
-      for (const { dir, format } of output) {
-        if (format !== 'cjs') {
-          continue;
-        }
-        expect(dir).toBe('./dist/custom');
-      }
+      const { dir } = output.find(findCjsOutput);
+      expect(dir).toBe('./dist/custom');
+    });
+  });
+
+  describe('setCjsExtension', () => {
+    it('should set the CJS extension', () => {
+      const { output } = new RollupConfig().setCjsExtension('test').toJSON();
+      const { chunkFileNames, entryFileNames } = output.find(findCjsOutput);
+      expect(chunkFileNames).toMatch(/\.test$/);
+      expect(entryFileNames).toMatch(/\.test$/);
     });
   });
 
@@ -134,7 +141,6 @@ describe('RollupConfig', () => {
   describe('setEsmDirectory', () => {
     it('should disable ESM', () => {
       const { output } = new RollupConfig().setEsmDirectory(null).toJSON();
-      const findEsmOutput = ({ format }) => format === 'es';
       expect(output.find(findEsmOutput)).toBeUndefined();
     });
 
@@ -142,12 +148,17 @@ describe('RollupConfig', () => {
       const { output } = new RollupConfig()
         .setEsmDirectory('./dist/custom')
         .toJSON();
-      for (const { dir, format } of output) {
-        if (format !== 'es') {
-          continue;
-        }
-        expect(dir).toBe('./dist/custom');
-      }
+      const { dir } = output.find(findEsmOutput);
+      expect(dir).toBe('./dist/custom');
+    });
+  });
+
+  describe('setEsmExtension', () => {
+    it('should set the ESM extension', () => {
+      const { output } = new RollupConfig().setEsmExtension('test').toJSON();
+      const { chunkFileNames, entryFileNames } = output.find(findEsmOutput);
+      expect(chunkFileNames).toMatch(/\.test$/);
+      expect(entryFileNames).toMatch(/\.test$/);
     });
   });
 

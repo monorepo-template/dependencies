@@ -1,4 +1,3 @@
-import { expect } from '@jest/globals';
 import asyncArray from '../utils/async-array';
 
 describe('asyncArray', (): void => {

@@ -1,4 +1,10 @@
+/src/
 /.eslintignore
 /.eslintrc.cjs
+/.gitignore
 /.npmignore
+/babel.config.json
+/rollup.config.js
 /tsconfig.eslint.json
+/tsconfig.json
+/tsconfig.rollup.json

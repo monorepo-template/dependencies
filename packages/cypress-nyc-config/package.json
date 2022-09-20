@@ -35,8 +35,8 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
+    "jest": "jest --runInBand",
+    "jest:watch": "jest --runInBand --watch",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },

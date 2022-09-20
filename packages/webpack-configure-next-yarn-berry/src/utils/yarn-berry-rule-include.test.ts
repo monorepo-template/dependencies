@@ -1,4 +1,3 @@
-import { expect } from '@jest/globals';
 import yarnBerryRuleInclude from './yarn-berry-rule-include';
 
 describe('yarnBerryRuleInclude', (): void => {

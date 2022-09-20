@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import requireResolve from '../utils/require-resolve.mjs';
+import requireResolve from './require-resolve';
 
-export default function resolveRelative(...paths) {
+export default function resolveRelative(...paths: readonly string[]): string {
   return resolve(
     requireResolve('@monorepo-template/jest-preset'),
     '..',

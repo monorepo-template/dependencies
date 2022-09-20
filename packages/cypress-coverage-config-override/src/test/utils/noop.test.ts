@@ -1,4 +1,3 @@
-import { expect } from '@jest/globals';
 import noop from './noop';
 
 describe('noop', (): void => {

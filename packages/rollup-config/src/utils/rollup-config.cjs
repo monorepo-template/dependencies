@@ -225,6 +225,11 @@ module.exports = class RollupConfig {
     return this;
   };
 
+  setCjsExtension = cjsExtension => {
+    this._cjsExtension = cjsExtension;
+    return this;
+  };
+
   setDevelopmentTSConfigPath = developmentTSConfigPath => {
     this._developmentTSConfigPath = developmentTSConfigPath;
     return this;
@@ -232,6 +237,11 @@ module.exports = class RollupConfig {
 
   setEsmDirectory = esmDirectory => {
     this._esmDirectory = esmDirectory;
+    return this;
+  };
+
+  setEsmExtension = esmExtension => {
+    this._esmExtension = esmExtension;
     return this;
   };
 
