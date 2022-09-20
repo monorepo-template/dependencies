@@ -89,6 +89,7 @@ on:
     paths:
       - '.github/workflows/jest-application-preset.yml'
       - 'packages/jest-application-preset/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
@@ -98,6 +99,7 @@ on:
     paths:
       - '.github/workflows/jest-application-preset.yml'
       - 'packages/jest-application-preset/**/*'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
