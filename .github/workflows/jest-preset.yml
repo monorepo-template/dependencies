@@ -145,6 +145,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/jest-preset.yml'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'
@@ -153,6 +154,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/jest-preset.yml'
+      - 'packages/jest-module-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
       - 'packages/rollup-config/**/*'

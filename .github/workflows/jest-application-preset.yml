@@ -91,6 +91,7 @@ on:
       - 'packages/jest-application-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   push:
     branches: [main]
@@ -99,5 +100,6 @@ on:
       - 'packages/jest-application-preset/**/*'
       - 'packages/jest-preset/**/*'
       - 'packages/jest-transformer/**/*'
+      - 'packages/rollup-config/**/*'
       - 'packages/tsconfig/**/*'
   workflow_dispatch:
