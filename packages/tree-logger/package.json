@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/tree-logger",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-tree-logger@charlesstover.com>",
   "description": "a logger for hierarchical validation",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/tree-logger#readme",

@@ -1,7 +1,4 @@
 import type { NextConfigComplete } from 'next/dist/server/config-shared';
-import asyncArray from '../utils/async-array';
-import returnEmpty from '../utils/return-empty';
-import returnNull from '../utils/return-null';
 
 const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   amp: {},
@@ -15,15 +12,15 @@ const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   crossOrigin: false,
   excludeDefaultMomentLocales: true,
   experimental: {},
-  exportPathMap: returnEmpty,
+  exportPathMap: jest.fn(),
   devIndicators: {},
   distDir: 'test-dist-dir',
   env: {},
   eslint: {},
   future: {},
-  generateBuildId: returnNull,
+  generateBuildId: jest.fn(),
   generateEtags: false,
-  headers: asyncArray,
+  headers: jest.fn(),
   httpAgentOptions: {},
   i18n: null,
   onDemandEntries: {},
@@ -33,8 +30,8 @@ const TEST_NEXT_CONFIG_COMPLETE: NextConfigComplete = {
   productionBrowserSourceMaps: false,
   publicRuntimeConfig: {},
   reactStrictMode: true,
-  redirects: asyncArray,
-  rewrites: asyncArray,
+  redirects: jest.fn(),
+  rewrites: jest.fn(),
   pageExtensions: [],
   poweredByHeader: false,
   sassOptions: {},

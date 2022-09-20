@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/webpack-configure-next-yarn-berry",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "author": "Charles Stover <monorepo-template-webpack-configure-next-yarn-berry@charlesstover.com>",
   "description": "Webpack configuration to support Yarn Berry for Next applications",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/webpack-configure-next-yarn-berry#readme",

@@ -3,8 +3,6 @@
   "extends": "@monorepo-template/tsconfig",
   "include": ["src/**/*.ts"],
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./dist/types",
     "types": ["jest", "node"]
   }
 }
