@@ -49,6 +49,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build jest-transformer
+        run: yarn jest-transformer:rollup
       - name: Build jest-preset
         run: yarn jest-preset:rollup
       - name: Unit test

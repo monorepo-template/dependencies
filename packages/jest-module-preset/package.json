@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/jest-module-preset",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Charles Stover <monorepo-template-jest-module-preset@charlesstover.com>",
   "description": "Jest preset for monorepo template modules",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-module-preset#readme",
@@ -36,7 +36,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@monorepo-template/tsconfig": "workspace:^",
     "@types/node": "^18.7.18",
-    "babel-jest": "^28.1.3",
+    "babel-jest": "^29.0.3",
     "eslint": "^8.21.0",
     "identity-obj-proxy": "^3.0.0"
   },
@@ -45,7 +45,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
-    "babel-jest": "^28.0.0",
+    "babel-jest": ">=28.0.0",
     "identity-obj-proxy": "^3.0.0"
   }
 }
