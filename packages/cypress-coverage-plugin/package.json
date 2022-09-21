@@ -34,7 +34,9 @@
   },
   "scripts": {
     "eslint": "eslint '**/*'",
-    "eslint:fix": "eslint '**/*' --fix"
+    "eslint:fix": "eslint '**/*' --fix",
+    "prepack": "exit 0",
+    "prepublish": "eslint '**/*'"
   },
   "dependencies": {
     "@monorepo-template/cypress-nyc-config": "workspace:^"

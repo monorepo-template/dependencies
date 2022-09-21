@@ -30,6 +30,8 @@
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest",
     "jest:watch": "jest --watch",
+    "prepack": "rollup --config",
+    "prepublish": "eslint '**/*' && jest --runInBand",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
