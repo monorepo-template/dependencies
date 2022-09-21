@@ -72,9 +72,9 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `tree-logger` dependency
+      - name: Build `tree-logger`
         run: yarn tree-logger:rollup
-      - name: Build `test` dependency
+      - name: Build `test`
         run: yarn test:rollup
       - name: Upload `test` dependency
         uses: actions/upload-artifact@v2
@@ -94,12 +94,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `test` dependency
+      - name: Download `test`
         uses: actions/download-artifact@v2
         with:
           name: test--dist
           path: packages/test/dist
-      - name: Download `tree-logger` dependency
+      - name: Download `tree-logger`
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist

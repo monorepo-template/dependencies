@@ -49,12 +49,18 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build jest-transformer
+      - name: Build `jest-transformer`
         run: yarn jest-transformer:rollup
-      - name: Build jest-preset
+      - name: Build `jest-preset`
         run: yarn jest-preset:rollup
       - name: Unit test
         run: yarn rollup-config:jest
+      - name: Upload coverage
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--jest--coverage
+          path: packages/rollup-config/jest/coverage
 
   github-packages:
     name: GitHub Packages

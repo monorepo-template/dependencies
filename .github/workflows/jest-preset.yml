@@ -80,6 +80,12 @@ jobs:
       - name: Publish
       - name: Unit test
         run: yarn jest-preset:jest
+      - name: Upload coverage
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-preset--jest--coverage
+          path: packages/jest-preset/jest/coverage
 
   github-packages:
     name: GitHub Packages
