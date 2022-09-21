@@ -37,7 +37,9 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --runInBand",
-    "jest:watch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --runInBand --watch"
+    "jest:watch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --runInBand --watch",
+    "prepack": "exit 0",
+    "prepublish": "eslint '**/*' && NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --runInBand"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

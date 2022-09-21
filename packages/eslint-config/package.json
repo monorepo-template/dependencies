@@ -78,7 +78,9 @@
   },
   "scripts": {
     "eslint": "eslint '**/*'",
-    "eslint:fix": "eslint '**/*' --fix"
+    "eslint:fix": "eslint '**/*' --fix",
+    "prepack": "exit 0",
+    "prepublish": "eslint '**/*'"
   },
   "devDependencies": {
     "@monorepo-template/tsconfig": "workspace:^",

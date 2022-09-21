@@ -38,6 +38,8 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
+    "prepack": "rollup --config && node ./scripts/post-rollup.mjs",
+    "prepublish": "eslint '**/*'",
     "rollup": "rollup --config && node ./scripts/post-rollup.mjs",
     "rollup:watch": "rollup --config --watch"
   },
