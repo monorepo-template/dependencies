@@ -31,7 +31,7 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build merge-coverage
+      - name: Build `merge-coverage`
         run: yarn merge-coverage:rollup
       - name: Upload merge-coverage
         uses: actions/upload-artifact@v2
@@ -54,7 +54,7 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Download merge-coverage
+      - name: Download `merge-coverage`
         uses: actions/download-artifact@v2
         with:
           name: merge-coverage--dist
@@ -77,7 +77,7 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Download merge-coverage
+      - name: Download `merge-coverage`
         uses: actions/download-artifact@v2
         with:
           name: merge-coverage--dist

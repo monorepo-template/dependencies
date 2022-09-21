@@ -3,6 +3,6 @@
   "extends": "@monorepo-template/tsconfig",
   "include": ["**/*", ".eslintrc.cjs", "*.json"],
   "compilerOptions": {
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }

@@ -4,6 +4,7 @@
 /.gitignore
 /.npmignore
 /babel.config.json
+/jest.config.js
 /rollup.config.js
 /tsconfig.eslint.json
 /tsconfig.json

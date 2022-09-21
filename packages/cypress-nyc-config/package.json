@@ -1,13 +1,13 @@
 {
   "name": "@monorepo-template/cypress-nyc-config",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "Charles Stover <monorepo-template-cypress-nyc-config@charlesstover.com>",
   "description": "Cypress NYC configuration for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-nyc-config#readme",
   "license": "MIT",
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
-  "type": "commonjs",
+  "type": "module",
   "types": "./dist/types/index.d.ts",
   "bugs": {
     "email": "monorepo-template-cypress-nyc-config@charlesstover.com",

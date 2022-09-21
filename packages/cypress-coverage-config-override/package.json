@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/cypress-coverage-config-override",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "Charles Stover <monorepo-template-coverage-config-override@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage-config-override#readme",
@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "@monorepo-template/jest-preset": "workspace:^",
+    "@monorepo-template/jest-module-preset": "workspace:^",
     "@monorepo-template/rollup-config": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
     "@rollup/plugin-commonjs": "^22.0.2",
@@ -64,7 +64,6 @@
     "rollup": "^2.79.0",
     "rollup-plugin-insert": "^1.3.2",
     "rollup-plugin-typescript2": "^0.34.0",
-    "ts-jest": "^28.0.7",
     "tslib": "^2.4.0",
     "typescript": "~4.7.0",
     "webpack": "^5.74.0"
