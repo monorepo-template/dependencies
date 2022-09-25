@@ -83,6 +83,8 @@
     "merge-coverage:prepublish": "yarn packages/merge-coverage run prepublish",
     "merge-coverage:rollup": "yarn packages/merge-coverage run rollup",
     "merge-coverage:rollup:watch": "yarn packages/merge-coverage run rollup:watch",
+    "prepack": "yarn workspaces foreach --parallel --topological-dev run prepack",
+    "prepublish": "yarn eslint && yarn test && yarn workspaces foreach --parallel --topological-dev run prepublish",
     "rollup-config:eslint": "yarn packages/rollup-config run eslint",
     "rollup-config:eslint:fix": "yarn packages/rollup-config run eslint:fix",
     "rollup-config:jest": "yarn packages/rollup-config run jest",

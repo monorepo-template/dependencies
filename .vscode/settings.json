@@ -1,13 +1,20 @@
 {
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
   "eslint.nodePath": ".yarn/sdks",
+  "eslint.packageManager": "yarn",
+  "files.eol": "\n",
+  "prettier.configPath": ".prettierrc.json",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "files.exclude": {
     "**/.pnp.*": true,
-    "**/.yarn": true,
+    "**/.yarn/": true,
+    "**/node_modules/": true,
     ".git/": true,
     "packages/*/.nyc_output/": true,
+    "packages/*/.yarn/": true,
     "packages/*/build/": true,
     "packages/*/coverage/": true,
     "packages/*/cypress/coverage/": true,
@@ -15,14 +22,30 @@
     "packages/*/cypress/videos/": true,
     "packages/*/dist/": true,
     "packages/*/jest/": true,
-    "packages/*/node_modules/": true,
+    "yarn.lock": true
+  },
+  "files.watcherExclude": {
+    "**/.pnp.*": true,
+    "**/.yarn/": true,
+    "**/node_modules/": true,
+    ".git/objects/": true,
+    ".git/subtree-cache/": true,
+    "packages/*/.nyc_output/": true,
+    "packages/*/.yarn/": true,
+    "packages/*/build/": true,
+    "packages/*/coverage/": true,
+    "packages/*/cypress/coverage/": true,
+    "packages/*/dist/": true,
+    "packages/*/jest/": true,
     "yarn.lock": true
   },
   "search.exclude": {
     "**/.pnp.*": true,
-    "**/.yarn": true,
+    "**/.yarn/": true,
+    "**/node_modules/": true,
     ".git/": true,
     "packages/*/.nyc_output/": true,
+    "packages/*/.yarn/": true,
     "packages/*/build/": true,
     "packages/*/coverage/": true,
     "packages/*/cypress/coverage/": true,
@@ -30,7 +53,30 @@
     "packages/*/cypress/videos/": true,
     "packages/*/dist/": true,
     "packages/*/jest/": true,
-    "packages/*/node_modules/": true,
     "yarn.lock": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
