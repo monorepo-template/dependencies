@@ -1,3 +1,4 @@
+/.yarn/plugins/*  binary
 /.yarn/releases/* binary
 *                 text eol=lf
 *.3gpp            binary
