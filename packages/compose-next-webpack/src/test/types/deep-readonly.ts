@@ -2,9 +2,7 @@
 //   `Function` type here, because we are deliberately including all functions,
 //   as opposed to loosely typing our own function.
 // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-type-alias
-type DeepReadonly<T> = T extends Function
-  ? T
-  : T extends object
+type DeepReadonly<T> = T extends object
   ? {
       readonly [K in keyof T]: DeepReadonly<T[K]>;
     }
