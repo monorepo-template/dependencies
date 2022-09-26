@@ -77,7 +77,9 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Rollup
+      - name: Build `rollup-config`
+        run: yarn rollup-config:rollup
+      - name: Build
         run: yarn cypress-coverage-config-override:rollup
       - name: Upload build
         uses: actions/upload-artifact@v2

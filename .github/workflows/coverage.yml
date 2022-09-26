@@ -77,6 +77,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build `rollup-config`
+        run: yarn rollup-config:rollup
       - name: Download `merge-coverage`
         uses: actions/download-artifact@v2
         with:
