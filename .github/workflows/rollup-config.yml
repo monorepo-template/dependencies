@@ -51,7 +51,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn packages/rollup-config run rollup
-      - name: Upload build
+      - name: Upload `rollup-config`
         uses: actions/upload-artifact@v2
         with:
           name: rollup-config--dist
@@ -64,7 +64,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `rollup-config` build
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -79,7 +79,7 @@ jobs:
         run: yarn install --immutable
       - name: Prepack `jest-preset`
         run: yarn packages/jest-preset run prepack
-      - name: Upload `jest-preset` build
+      - name: Upload `jest-preset`
         uses: actions/upload-artifact@v2
         with:
           name: jest-preset--dist
@@ -92,7 +92,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `rollup-config` build
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -107,7 +107,7 @@ jobs:
         run: yarn install --immutable
       - name: Prepack `jest-transformer`
         run: yarn packages/jest-transformer run prepack
-      - name: Upload `jest-transformer` build
+      - name: Upload `jest-transformer`
         uses: actions/upload-artifact@v2
         with:
           name: jest-transformer--dist
@@ -120,12 +120,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `jest-preset` build
+      - name: Download `jest-preset`
         uses: actions/download-artifact@v2
         with:
           name: jest-preset--dist
           path: packages/jest-preset/dist
-      - name: Download `jest-transformer` build
+      - name: Download `jest-transformer`
         uses: actions/download-artifact@v2
         with:
           name: jest-transformer--dist
@@ -150,7 +150,12 @@ jobs:
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest, rollup]
+    needs:
+      - eslint
+      - jest
+      - jest-preset--prepack
+      - jest-transformer--prepack
+      - rollup
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -158,7 +163,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `jest-preset`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Download `jest-transformer`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -185,12 +200,27 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest, rollup]
+    needs:
+      - eslint
+      - jest
+      - jest-preset--prepack
+      - jest-transformer--prepack
+      - rollup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `jest-preset`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Download `jest-transformer`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist

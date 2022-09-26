@@ -51,7 +51,7 @@ jobs:
         run: yarn install --immutable
       - name: Prepack `rollup-config`
         run: yarn packages/rollup-config run prepack
-      - name: Upload `rollup-config` build
+      - name: Upload `rollup-config`
         uses: actions/upload-artifact@v2
         with:
           name: rollup-config--dist
@@ -64,7 +64,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `rollup-config` build
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -79,7 +79,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn packages/cypress-nyc-config run rollup
-      - name: Upload build
+      - name: Upload `cypress-nyc-config`
         uses: actions/upload-artifact@v2
         with:
           name: cypress-nyc-config--dist
@@ -96,7 +96,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `cypress-nyc-config`
         uses: actions/download-artifact@v2
         with:
           name: cypress-nyc-config--dist
@@ -128,7 +128,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `cypress-nyc-config`
         uses: actions/download-artifact@v2
         with:
           name: cypress-nyc-config--dist

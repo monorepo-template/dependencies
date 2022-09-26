@@ -33,7 +33,7 @@ jobs:
         run: yarn install --immutable
       - name: Prepack `rollup-config`
         run: yarn packages/rollup-config run prepack
-      - name: Upload `rollup-config` build
+      - name: Upload `rollup-config`
         uses: actions/upload-artifact@v2
         with:
           name: rollup-config--dist
@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `rollup-config` build
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -61,7 +61,7 @@ jobs:
         run: yarn install --immutable
       - name: Prepack `merge-coverage`
         run: yarn packages/merge-coverage run prepack
-      - name: Upload `merge-coverage` build
+      - name: Upload `merge-coverage`
         uses: actions/upload-artifact@v2
         with:
           name: merge-coverage--dist
@@ -74,7 +74,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `merge-coverage` build
+      - name: Download `merge-coverage`
         uses: actions/download-artifact@v2
         with:
           name: merge-coverage--dist
@@ -97,12 +97,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `merge-coverage` build
+      - name: Download `merge-coverage`
         uses: actions/download-artifact@v2
         with:
           name: merge-coverage--dist
           path: packages/merge-coverage/dist
-      - name: Download `rollup-config` build
+      - name: Download `rollup-config`
         uses: actions/download-artifact@v2
         with:
           name: rollup-config--dist
@@ -117,7 +117,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn packages/coverage run rollup
-      - name: Upload build
+      - name: Upload `coverage`
         uses: actions/upload-artifact@v2
         with:
           name: coverage--dist
@@ -134,7 +134,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `coverage`
         uses: actions/download-artifact@v2
         with:
           name: coverage--dist
@@ -166,7 +166,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `coverage`
         uses: actions/download-artifact@v2
         with:
           name: coverage--dist
