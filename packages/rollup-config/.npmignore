@@ -1,7 +1,5 @@
 /jest/
-/src/**/*.test.cjs
-/src/**/*.test.mjs
-/src/test/
+/src/
 /.eslintignore
 /.eslintrc.cjs
 /.npmignore
