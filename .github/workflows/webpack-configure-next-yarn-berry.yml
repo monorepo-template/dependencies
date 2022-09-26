@@ -184,6 +184,7 @@ jobs:
       - jest-preset--prepack
       - jest-transformer--prepack
       - rollup
+      - rollup-config--prepack
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -201,6 +202,11 @@ jobs:
         with:
           name: jest-transformer--dist
           path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Download `webpack-configure-next-yarn-berry`
         uses: actions/download-artifact@v2
         with:
@@ -234,6 +240,7 @@ jobs:
       - jest-preset--prepack
       - jest-transformer--prepack
       - rollup
+      - rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -248,6 +255,11 @@ jobs:
         with:
           name: jest-transformer--dist
           path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Download `webpack-configure-next-yarn-berry`
         uses: actions/download-artifact@v2
         with:

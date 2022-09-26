@@ -126,7 +126,7 @@ jobs:
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, rollup, tree-logger--prepack]
+    needs: [eslint, rollup, rollup-config--prepack, tree-logger--prepack]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -134,6 +134,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Download `test`
         uses: actions/download-artifact@v2
         with:
@@ -166,11 +171,16 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, rollup, tree-logger--prepack]
+    needs: [eslint, rollup, rollup-config--prepack, tree-logger--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Download `test`
         uses: actions/download-artifact@v2
         with:

@@ -88,7 +88,7 @@ jobs:
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, rollup]
+    needs: [eslint, rollup, rollup-config--prepack]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -101,6 +101,11 @@ jobs:
         with:
           name: jest-transformer--dist
           path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -123,7 +128,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, rollup]
+    needs: [eslint, rollup, rollup-config--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -133,6 +138,11 @@ jobs:
         with:
           name: jest-transformer--dist
           path: packages/jest-transformer/dist
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
