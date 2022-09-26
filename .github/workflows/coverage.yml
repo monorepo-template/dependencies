@@ -16,55 +16,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  dependencies:
-    name: Build dependencies
+  rollup-config-rollup:
+    name: Build `rollup-config`
     needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Build `merge-coverage`
-        run: yarn merge-coverage:rollup
-      - name: Upload merge-coverage
-        uses: actions/upload-artifact@v2
-        with:
-          name: merge-coverage--dist
-          path: packages/merge-coverage/dist
-
-  eslint:
-    name: ESLint
-    needs: dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Download `merge-coverage`
-        uses: actions/download-artifact@v2
-        with:
-          name: merge-coverage--dist
-          path: packages/merge-coverage/dist
-      - name: Lint
-        run: yarn coverage:eslint
-
-  rollup:
-    name: Rollup
-    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -79,11 +33,88 @@ jobs:
         run: yarn install --immutable
       - name: Build `rollup-config`
         run: yarn rollup-config:rollup
-      - name: Download `merge-coverage`
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  merge-coverage-rollup:
+    name: Build `merge-coverage`
+    needs: [install, rollup-config-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build `merge-coverage`
+        run: yarn merge-coverage:rollup
+      - name: Upload `merge-coverage` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
+
+  eslint:
+    name: ESLint
+    needs: [install, merge-coverage-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `merge-coverage` build
         uses: actions/download-artifact@v2
         with:
           name: merge-coverage--dist
           path: packages/merge-coverage/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn coverage:eslint
+
+  rollup:
+    name: Rollup
+    needs: [install, merge-coverage-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `merge-coverage` build
+        uses: actions/download-artifact@v2
+        with:
+          name: merge-coverage--dist
+          path: packages/merge-coverage/dist
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Build
         run: yarn coverage:rollup
       - name: Upload build
@@ -103,6 +134,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage--dist
+          path: packages/coverage/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -111,11 +147,6 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage--dist
-          path: packages/coverage/dist
       - name: Publish
         working-directory: packages/coverage
         env:
@@ -133,17 +164,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage--dist
+          path: packages/coverage/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage--dist
-          path: packages/coverage/dist
       - name: Publish
         working-directory: packages/coverage
         env:

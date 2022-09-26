@@ -34,8 +34,31 @@ jobs:
       - name: Lint
         run: yarn cypress-coverage-config-override:eslint
 
-  jest:
-    name: Jest
+  jest-preset-rollup:
+    name: Build `jest-preset`
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build `jest-preset`
+        run: yarn jest-preset:rollup
+      - name: Upload `jest-preset` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+
+  jest-transformer-rollup:
+    name: Build `jest-transformer`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -51,19 +74,14 @@ jobs:
         run: yarn install --immutable
       - name: Build `jest-transformer`
         run: yarn jest-transformer:rollup
-      - name: Build `jest-preset`
-        run: yarn jest-preset:rollup
-      - name: Unit test
-        run: yarn cypress-coverage-config-override:jest
-      - name: Upload coverage
-        if: ${{ always() }}
+      - name: Upload `jest-transformer` build
         uses: actions/upload-artifact@v2
         with:
-          name: cypress-coverage-config-override--jest-coverage
-          path: packages/cypress-coverage-config-override/jest/coverage
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
 
-  rollup:
-    name: Rollup
+  rollup-config-rollup:
+    name: Build `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -79,6 +97,66 @@ jobs:
         run: yarn install --immutable
       - name: Build `rollup-config`
         run: yarn rollup-config:rollup
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  jest:
+    name: Jest
+    needs: [install, jest-preset-rollup, jest-transformer-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `jest-preset` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Download `jest-transformer` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Unit test
+        run: yarn cypress-coverage-config-override:jest
+      - name: Upload coverage
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage-config-override--jest-coverage
+          path: packages/cypress-coverage-config-override/jest/coverage
+
+  rollup:
+    name: Rollup
+    needs: [install, rollup-config-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Build
         run: yarn cypress-coverage-config-override:rollup
       - name: Upload build
@@ -98,6 +176,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: cypress-coverage-config-override--dist
+          path: packages/cypress-coverage-config-override/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -106,11 +189,6 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: cypress-coverage-config-override--dist
-          path: packages/cypress-coverage-config-override/dist
       - name: Publish
         working-directory: packages/cypress-coverage-config-override
         env:
@@ -128,17 +206,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: cypress-coverage-config-override--dist
+          path: packages/cypress-coverage-config-override/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: cypress-coverage-config-override--dist
-          path: packages/cypress-coverage-config-override/dist
       - name: Publish
         working-directory: packages/cypress-coverage-config-override
         env:

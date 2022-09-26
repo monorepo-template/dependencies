@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  dependencies:
-    name: Build dependencies
+  rollup-config-rollup:
+    name: Build `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,9 +31,37 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Build `rollup-config`
+        run: yarn rollup-config:rollup
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  tree-logger-rollup:
+    name: Build `tree-logger`
+    needs: [install, rollup-config-rollup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Build `tree-logger`
         run: yarn tree-logger:rollup
-      - name: Upload tree-logger
+      - name: Upload `tree-logger` build
         uses: actions/upload-artifact@v2
         with:
           name: tree-logger--dist
@@ -41,12 +69,12 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: dependencies
+    needs: [install, tree-logger-rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `tree-logger`
+      - name: Download `tree-logger` build
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist
@@ -64,12 +92,17 @@ jobs:
 
   rollup:
     name: Rollup
-    needs: dependencies
+    needs: [rollup-config-rollup, tree-logger-rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `tree-logger`
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Download `tree-logger` build
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist
@@ -82,8 +115,6 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `rollup-config`
-        run: yarn rollup-config:rollup
       - name: Build
         run: yarn test:rollup
       - name: Upload build
@@ -103,6 +134,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -111,11 +147,6 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: test--dist
-          path: packages/test/dist
       - name: Publish
         working-directory: packages/test
         env:
@@ -133,17 +164,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: test--dist
-          path: packages/test/dist
       - name: Publish
         working-directory: packages/test
         env:
