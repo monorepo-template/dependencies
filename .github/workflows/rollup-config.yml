@@ -62,10 +62,33 @@ jobs:
           name: rollup-config--jest--coverage
           path: packages/rollup-config/jest/coverage
 
+  rollup:
+    name: Rollup
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build
+        run: yarn rollup-config:rollup
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest]
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -81,6 +104,11 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Publish
         working-directory: packages/rollup-config
         env:
@@ -93,7 +121,7 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest]
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -104,6 +132,11 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Publish
         working-directory: packages/rollup-config
         env:
