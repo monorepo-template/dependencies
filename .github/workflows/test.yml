@@ -41,7 +41,7 @@ jobs:
 
   tree-logger--prepack:
     name: Prepack `tree-logger`
-    needs: [install, rollup-config--prepack]
+    needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -69,7 +69,7 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: [install, tree-logger--prepack]
+    needs: tree-logger--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

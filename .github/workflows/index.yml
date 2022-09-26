@@ -57,9 +57,32 @@ jobs:
       - name: Lint
         run: yarn eslint
 
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
   test--prepack:
     name: Prepack `test`
-    needs: install
+    needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -82,7 +105,7 @@ jobs:
 
   tree-logger--prepack:
     name: Prepack `tree-logger`
-    needs: install
+    needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

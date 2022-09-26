@@ -59,7 +59,7 @@ jobs:
 
   rollup:
     name: Rollup
-    needs: [install, rollup-config--prepack]
+    needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

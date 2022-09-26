@@ -41,7 +41,7 @@ jobs:
 
   merge-coverage--prepack:
     name: Prepack `merge-coverage`
-    needs: [install, rollup-config--prepack]
+    needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -69,7 +69,7 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: [install, merge-coverage--prepack]
+    needs: merge-coverage--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -92,7 +92,7 @@ jobs:
 
   rollup:
     name: Rollup
-    needs: [install, merge-coverage--prepack]
+    needs: merge-coverage--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
