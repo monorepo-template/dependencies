@@ -1,3 +1,5 @@
+import type { Config } from 'jest';
+import COVERAGE_REPORTERS from './constants/coverage-reporters';
 import EMPTY_STRING_PATH from './constants/empty-string-path';
 import NULL_PATH from './constants/null-path';
 import TRANSFORM from './constants/transform';
@@ -7,11 +9,11 @@ const CSS_FILE_PATH = '(?<!\\.module)\\.(?:css|sass|scss)$';
 const CSS_MODULE_PATH = '^.+\\.module\\.(?:css|sass|scss)$';
 const IMAGE_FILE_PATH = '\\.(?:gif|jpe?g|png)$';
 
-export default {
+const JEST_PRESET: Config = {
   cacheDirectory: './jest/cache',
   collectCoverage: true,
   coverageDirectory: './jest/coverage',
-  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  coverageReporters: COVERAGE_REPORTERS,
   resetMocks: true,
   resetModules: true,
   restoreMocks: true,
@@ -58,3 +60,5 @@ export default {
     [IMAGE_FILE_PATH]: EMPTY_STRING_PATH,
   },
 };
+
+export default JEST_PRESET;

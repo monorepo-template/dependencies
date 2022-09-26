@@ -42,14 +42,14 @@
     "@monorepo-template/cypress-nyc-config": "workspace:^"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
     "@cypress/code-coverage": "^3.10.0",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.21",
+    "@types/node": "^18.7.22",
     "babel-loader": "^8.2.5",
-    "cypress": "^10.4.0",
-    "eslint": "^8.21.0",
+    "cypress": "^10.8.0",
+    "eslint": "^8.24.0",
     "webpack": "^5.74.0"
   },
   "peerDependencies": {
