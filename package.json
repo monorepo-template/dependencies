@@ -26,16 +26,16 @@
     "@monorepo-template/eslint-config": "workspace:^",
     "@monorepo-template/test": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.21",
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
-    "@yarnpkg/sdks": "^3.0.0-rc.14",
-    "ansi-styles": "^6.1.0",
-    "eslint": "^8.21.0",
+    "@types/node": "^18.7.22",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.21",
+    "ansi-styles": "^6.1.1",
+    "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "js-yaml": "^4.1.0",
     "prettier": "^2.7.1",
-    "typescript": "~4.7.0"
+    "typescript": "^4.8.3"
   }
 }
