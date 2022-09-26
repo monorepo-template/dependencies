@@ -109,6 +109,8 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Publish
         working-directory: packages/jest-transformer
         env:
@@ -137,6 +139,8 @@ jobs:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Publish
         working-directory: packages/jest-transformer
         env:
