@@ -1,3 +1,3 @@
 export default {
-  preset: '@monorepo-template/jest-module-preset',
+  preset: '../jest-module-preset',
 };
