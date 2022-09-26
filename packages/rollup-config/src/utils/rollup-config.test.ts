@@ -18,10 +18,11 @@ describe('RollupConfig', (): void => {
         .addExternalDependency('react')
         .toJSON();
       const externalFunction = validateFunction<
-        [string, string | undefined, boolean],
+        [string, (string | undefined)?, boolean?],
         boolean | null
       >(external);
-      expect(externalFunction('react', undefined, false)).toBe(true);
+      expect(externalFunction('react')).toBe(true);
+      expect(externalFunction('react/jsx-runtime')).toBe(true);
     });
   });
 
@@ -86,10 +87,10 @@ describe('RollupConfig', (): void => {
         .removeExternalDependency('react')
         .toJSON();
       const externalFunction = validateFunction<
-        [string, string | undefined, boolean],
+        [string, (string | undefined)?, boolean?],
         boolean | null
       >(external);
-      expect(externalFunction('react', undefined, false)).toBe(false);
+      expect(externalFunction('react')).toBe(false);
     });
   });
 
@@ -203,7 +204,7 @@ describe('RollupConfig', (): void => {
       const { plugins } = new RollupConfig()
         .setPlugins((): Plugin[] => [TEST_PLUGIN])
         .toJSON();
-      expect(plugins).toStrictEqual(TEST_PLUGIN);
+      expect(plugins).toStrictEqual([TEST_PLUGIN]);
     });
   });
 

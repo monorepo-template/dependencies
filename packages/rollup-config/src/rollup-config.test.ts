@@ -3,7 +3,6 @@ import ROLLUP_CONFIG from '.';
 describe('@monorepo-template/rollup-config', () => {
   it('should be optimized by default', () => {
     expect(ROLLUP_CONFIG).toEqual({
-      cache: true,
       external: expect.any(Function) as () => void,
       input: 'src/index.ts',
       plugins: expect.any(Array) as readonly unknown[],

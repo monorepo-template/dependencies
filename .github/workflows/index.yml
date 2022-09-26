@@ -80,34 +80,6 @@ jobs:
           name: rollup-config--dist
           path: packages/rollup-config/dist
 
-  test--prepack:
-    name: Prepack `test`
-    needs: rollup-config--prepack
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Download `rollup-config` build
-        uses: actions/download-artifact@v2
-        with:
-          name: rollup-config--dist
-          path: packages/rollup-config/dist
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          check-latest: true
-          node-version: 'lts/*'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Prepack `test`
-        run: yarn packages/test run prepack
-      - name: Upload `test` build
-        uses: actions/upload-artifact@v2
-        with:
-          name: test--dist
-          path: packages/test/dist
-
   tree-logger--prepack:
     name: Prepack `tree-logger`
     needs: rollup-config--prepack
@@ -135,6 +107,39 @@ jobs:
         with:
           name: tree-logger--dist
           path: packages/tree-logger/dist
+
+  test--prepack:
+    name: Prepack `test`
+    needs: [rollup-config--prepack, tree-logger--prepack]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Download `tree-logger` build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `test`
+        run: yarn packages/test run prepack
+      - name: Upload `test` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
 
   test:
     name: Test
