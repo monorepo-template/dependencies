@@ -39,7 +39,7 @@ To test your changes to the repository, run `yarn test`.
 
 To contribute to an individual module,
 
-- To build, run `yarn MODULE-NAME:rollup`.
-- To lint, run `yarn MODULE-NAME:eslint`.
-- To unit test, run `yarn MODULE-NAME:jest`.
-- To unit test in watch mode, run `yarn MODULE-NAME:jest:watch`.
+- To build, run `yarn packages/MODULE-NAME run prepack`.
+- To lint, run `yarn packages/MODULE-NAME run eslint`.
+- To unit test, run `yarn packages/MODULE-NAME run jest`.
+- To unit test in watch mode, run `yarn packages/MODULE-NAME run jest:watch`.

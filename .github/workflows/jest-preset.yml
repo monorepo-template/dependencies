@@ -32,10 +32,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn jest-preset:eslint
+        run: yarn packages/jest-preset run eslint
 
-  rollup-config-rollup:
-    name: Build `rollup-config`
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -49,8 +49,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `rollup-config`
-        run: yarn rollup-config:rollup
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
       - name: Upload `rollup-config` build
         uses: actions/upload-artifact@v2
         with:
@@ -59,7 +59,7 @@ jobs:
 
   rollup:
     name: Rollup
-    needs: [install, rollup-config-rollup]
+    needs: [install, rollup-config--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -78,7 +78,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build
-        run: yarn jest-preset:rollup
+        run: yarn packages/jest-preset run rollup
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
@@ -106,7 +106,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Unit test
-        run: yarn jest-preset:jest
+        run: yarn packages/jest-preset run jest
       - name: Upload coverage
         if: ${{ always() }}
         uses: actions/upload-artifact@v2

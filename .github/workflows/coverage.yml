@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  rollup-config-rollup:
-    name: Build `rollup-config`
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,17 +31,17 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `rollup-config`
-        run: yarn rollup-config:rollup
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
       - name: Upload `rollup-config` build
         uses: actions/upload-artifact@v2
         with:
           name: rollup-config--dist
           path: packages/rollup-config/dist
 
-  merge-coverage-rollup:
-    name: Build `merge-coverage`
-    needs: [install, rollup-config-rollup]
+  merge-coverage--prepack:
+    name: Prepack `merge-coverage`
+    needs: [install, rollup-config--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -59,8 +59,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `merge-coverage`
-        run: yarn merge-coverage:rollup
+      - name: Prepack `merge-coverage`
+        run: yarn packages/merge-coverage run prepack
       - name: Upload `merge-coverage` build
         uses: actions/upload-artifact@v2
         with:
@@ -69,7 +69,7 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: [install, merge-coverage-rollup]
+    needs: [install, merge-coverage--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -88,11 +88,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn coverage:eslint
+        run: yarn packages/coverage run eslint
 
   rollup:
     name: Rollup
-    needs: [install, merge-coverage-rollup]
+    needs: [install, merge-coverage--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -116,7 +116,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build
-        run: yarn coverage:rollup
+        run: yarn packages/coverage run rollup
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:

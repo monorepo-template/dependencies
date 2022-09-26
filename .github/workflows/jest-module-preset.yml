@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn jest-module-preset:eslint
+        run: yarn packages/jest-module-preset run eslint
 
   github-packages:
     name: GitHub Packages

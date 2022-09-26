@@ -57,8 +57,8 @@ jobs:
       - name: Lint
         run: yarn eslint
 
-  test-rollup:
-    name: Build `test`
+  test--prepack:
+    name: Prepack `test`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -72,16 +72,16 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `test`
-        run: yarn test:rollup
+      - name: Prepack `test`
+        run: yarn packages/test run prepack
       - name: Upload `test` build
         uses: actions/upload-artifact@v2
         with:
           name: test--dist
           path: packages/test/dist
 
-  tree-logger-rollup:
-    name: Build `tree-logger`
+  tree-logger--prepack:
+    name: Prepack `tree-logger`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -95,8 +95,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `tree-logger`
-        run: yarn tree-logger:rollup
+      - name: Prepack `tree-logger`
+        run: yarn packages/tree-logger run prepack
       - name: Upload `tree-logger` build
         uses: actions/upload-artifact@v2
         with:
@@ -105,7 +105,7 @@ jobs:
 
   test:
     name: Test
-    needs: [test-rollup, tree-logger-rollup]
+    needs: [test--prepack, tree-logger--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
