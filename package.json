@@ -2,7 +2,7 @@
   "name": "@monorepo-template/dependencies",
   "version": "1.0.0",
   "license": "MIT",
-  "packageManager": "yarn@3.2.2",
+  "packageManager": "yarn@3.2.3",
   "private": true,
   "type": "module",
   "funding": {
@@ -133,7 +133,7 @@
     "@monorepo-template/eslint-config": "workspace:^",
     "@monorepo-template/test": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.7.21",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "@yarnpkg/sdks": "^3.0.0-rc.14",

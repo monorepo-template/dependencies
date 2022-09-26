@@ -1,0 +1,18 @@
+{
+  "babelrc": false,
+  "browserslistConfigFile": false,
+  "comments": false,
+  "ignore": ["src/**/*.test.ts", "src/test/"],
+  "include": "src/**/*.ts",
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ]
+}
