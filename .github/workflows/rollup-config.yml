@@ -32,10 +32,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn rollup-config:eslint
+        run: yarn packages/rollup-config run eslint
 
-  jest:
-    name: Jest
+  rollup:
+    name: Rollup
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -49,12 +49,97 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `jest-transformer`
-        run: yarn jest-transformer:rollup
-      - name: Build `jest-preset`
-        run: yarn jest-preset:rollup
+      - name: Build
+        run: yarn packages/rollup-config run rollup
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  jest-preset--prepack:
+    name: Prepack `jest-preset`
+    needs: rollup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `jest-preset`
+        run: yarn packages/jest-preset run prepack
+      - name: Upload `jest-preset` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+
+  jest-transformer--prepack:
+    name: Prepack `jest-transformer`
+    needs: rollup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `jest-transformer`
+        run: yarn packages/jest-transformer run prepack
+      - name: Upload `jest-transformer` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+
+  jest:
+    name: Jest
+    needs: [jest-preset--prepack, jest-transformer--prepack]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `jest-preset` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Download `jest-transformer` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Unit test
-        run: yarn rollup-config:jest
+        run: yarn packages/rollup-config run jest
       - name: Upload coverage
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
@@ -65,7 +150,7 @@ jobs:
   github-packages:
     name: GitHub Packages
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest]
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -73,6 +158,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -93,11 +183,16 @@ jobs:
   npm:
     name: Publish to NPM
     if: ${{ github.event_name == 'push' }}
-    needs: [eslint, jest]
+    needs: [eslint, jest, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:

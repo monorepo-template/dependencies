@@ -61,7 +61,7 @@ Change your `tsconfig.json` file to extend this preconfiguration:
 {
   "extends": "@monorepo-template/tsconfig/react-module.json",
   "compilerOptions": {
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types/"
   }
 }
 ```

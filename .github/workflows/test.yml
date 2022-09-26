@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  dependencies:
-    name: Build dependencies
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,9 +31,37 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `tree-logger`
-        run: yarn tree-logger:rollup
-      - name: Upload tree-logger
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  tree-logger--prepack:
+    name: Prepack `tree-logger`
+    needs: rollup-config--prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `tree-logger`
+        run: yarn packages/tree-logger run prepack
+      - name: Upload `tree-logger` build
         uses: actions/upload-artifact@v2
         with:
           name: tree-logger--dist
@@ -41,12 +69,12 @@ jobs:
 
   eslint:
     name: ESLint
-    needs: dependencies
+    needs: tree-logger--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `tree-logger`
+      - name: Download `tree-logger` build
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist
@@ -60,16 +88,21 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn test:eslint
+        run: yarn packages/test run eslint
 
   rollup:
     name: Rollup
-    needs: dependencies
+    needs: [rollup-config--prepack, tree-logger--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `tree-logger`
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Download `tree-logger` build
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist
@@ -83,7 +116,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build
-        run: yarn test:rollup
+        run: yarn packages/test run rollup
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
@@ -101,6 +134,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -109,11 +147,6 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: test--dist
-          path: packages/test/dist
       - name: Publish
         working-directory: packages/test
         env:
@@ -131,17 +164,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: test--dist
-          path: packages/test/dist
       - name: Publish
         working-directory: packages/test
         env:

@@ -84,7 +84,7 @@
   },
   "devDependencies": {
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.7.21",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "eslint": "^8.21.0",

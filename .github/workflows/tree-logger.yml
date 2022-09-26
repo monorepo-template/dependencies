@@ -32,10 +32,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn tree-logger:eslint
+        run: yarn packages/tree-logger run eslint
 
-  rollup:
-    name: Rollup
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -49,8 +49,36 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
+      - name: Upload `rollup-config` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  rollup:
+    name: Rollup
+    needs: rollup-config--prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Build
-        run: yarn tree-logger:rollup
+        run: yarn packages/tree-logger run rollup
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
@@ -68,6 +96,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -76,11 +109,6 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@${{ github.repository_owner }}'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: tree-logger--dist
-          path: packages/tree-logger/dist
       - name: Publish
         working-directory: packages/tree-logger
         env:
@@ -98,17 +126,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: yarn
           check-latest: true
           node-version: 'lts/*'
-      - name: Download build
-        uses: actions/download-artifact@v2
-        with:
-          name: tree-logger--dist
-          path: packages/tree-logger/dist
       - name: Publish
         working-directory: packages/tree-logger
         env:

@@ -1,11 +1,11 @@
 /jest/
-/src/**/*.test.cjs
-/src/**/*.test.mjs
-/src/test/
+/src/
 /.eslintignore
 /.eslintrc.cjs
 /.npmignore
-/index.ts
+/babel.config.json
 /jest.config.mjs
+/rollup.config.cjs
 /tsconfig.eslint.json
 /tsconfig.json
+/tsconfig.rollup.json

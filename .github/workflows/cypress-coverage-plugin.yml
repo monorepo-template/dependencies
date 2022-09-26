@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn cypress-coverage-plugin:eslint
+        run: yarn packages/cypress-coverage-plugin run eslint
 
   github-packages:
     name: GitHub Packages

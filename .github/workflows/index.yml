@@ -57,8 +57,8 @@ jobs:
       - name: Lint
         run: yarn eslint
 
-  dependencies:
-    name: Build dependencies
+  rollup-config--prepack:
+    name: Prepack `rollup-config`
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -72,34 +72,88 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Build `tree-logger`
-        run: yarn tree-logger:rollup
-      - name: Build `test`
-        run: yarn test:rollup
-      - name: Upload `test` dependency
+      - name: Prepack `rollup-config`
+        run: yarn packages/rollup-config run prepack
+      - name: Upload `rollup-config` build
         uses: actions/upload-artifact@v2
         with:
-          name: test--dist
-          path: packages/test/dist
-      - name: Upload `tree-logger` dependency
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+
+  tree-logger--prepack:
+    name: Prepack `tree-logger`
+    needs: rollup-config--prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `tree-logger`
+        run: yarn packages/tree-logger run prepack
+      - name: Upload `tree-logger` build
         uses: actions/upload-artifact@v2
         with:
           name: tree-logger--dist
           path: packages/tree-logger/dist
 
-  test:
-    name: Test
-    needs: dependencies
+  test--prepack:
+    name: Prepack `test`
+    needs: [rollup-config--prepack, tree-logger--prepack]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download `test`
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Download `tree-logger` build
+        uses: actions/download-artifact@v2
+        with:
+          name: tree-logger--dist
+          path: packages/tree-logger/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `test`
+        run: yarn packages/test run prepack
+      - name: Upload `test` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: test--dist
+          path: packages/test/dist
+
+  test:
+    name: Test
+    needs: [test--prepack, tree-logger--prepack]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `test` build
         uses: actions/download-artifact@v2
         with:
           name: test--dist
           path: packages/test/dist
-      - name: Download `tree-logger`
+      - name: Download `tree-logger` build
         uses: actions/download-artifact@v2
         with:
           name: tree-logger--dist
