@@ -57,13 +57,46 @@ jobs:
           name: rollup-config--dist
           path: packages/rollup-config/dist
 
-  rollup:
-    name: Rollup
+  jest-transformer--prepack:
+    name: Prepack `jest-transformer`
     needs: rollup-config--prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download `rollup-config` build
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `jest-transformer`
+        run: yarn packages/jest-transformer run prepack
+      - name: Upload `jest-transformer` build
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+
+  rollup:
+    name: Rollup
+    needs: [jest-transformer--prepack, rollup-config--prepack]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `jest-transformer` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
       - name: Download `rollup-config` build
         uses: actions/download-artifact@v2
         with:
@@ -87,16 +120,21 @@ jobs:
 
   jest:
     name: Rollup
-    needs: rollup
+    needs: [jest-transformer--prepack, rollup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Download build
+      - name: Download `jest-preset` build
         uses: actions/download-artifact@v2
         with:
           name: jest-preset--dist
           path: packages/jest-preset/dist
+      - name: Download `jest-transformer` build
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
       - name: Setup Node
         uses: actions/setup-node@v3
         with:

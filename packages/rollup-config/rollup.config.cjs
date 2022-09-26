@@ -1,7 +1,7 @@
 require('@babel/register')({
   babelrc: true,
   cache: false,
-  configFile: './babel.config.json',
+  configFile: './babel.config.rollup.json',
   extensions: ['.ts'],
 });
 
