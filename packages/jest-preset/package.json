@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/jest-preset",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "author": "Charles Stover <monorepo-template-jest-preset@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-preset#readme",

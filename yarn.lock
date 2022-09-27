@@ -2657,6 +2657,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monorepo-template/coverage@workspace:packages/coverage"
   dependencies:
+    "@monorepo-template/jest-module-preset": "workspace:^"
     "@monorepo-template/merge-coverage": "workspace:^"
     "@monorepo-template/rollup-config": "workspace:^"
     "@monorepo-template/tsconfig": "workspace:^"

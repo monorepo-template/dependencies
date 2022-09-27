@@ -6,9 +6,9 @@ import THRESHOLDS from './constants/thresholds';
 import mapCypressCoverageDirectoryToPaths from './utils/map-cypress-coverage-directory-to-paths';
 import coverage from '../src/index';
 
-const CWD = process.cwd();
-const CYPRESS_COVERAGE_DIRECTORY = join(CWD, 'cypress', 'coverage');
-const JEST_COVERAGE_DIRECTORY = join(CWD, 'jest', 'coverage');
+const CWD: string = process.cwd();
+const CYPRESS_COVERAGE_DIRECTORY: string = join(CWD, 'cypress', 'coverage');
+const JEST_COVERAGE_DIRECTORY: string = join(CWD, 'jest', 'coverage');
 
 if (!existsSync(CYPRESS_COVERAGE_DIRECTORY)) {
   throw MISSING_CYPRESS_COVERAGE_DIRECTORY_ERROR;
@@ -18,7 +18,7 @@ if (!existsSync(JEST_COVERAGE_DIRECTORY)) {
   throw MISSING_JEST_COVERAGE_DIRECTORY_ERROR;
 }
 
-const COVERAGE_PATHS = [
+const COVERAGE_PATHS: readonly string[] = [
   JEST_COVERAGE_DIRECTORY,
   ...mapCypressCoverageDirectoryToPaths(CYPRESS_COVERAGE_DIRECTORY),
 ];

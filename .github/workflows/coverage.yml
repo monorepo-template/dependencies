@@ -39,6 +39,62 @@ jobs:
           name: rollup-config--dist
           path: packages/rollup-config/dist
 
+  jest-preset--prepack:
+    name: Prepack `jest-preset`
+    needs: rollup-config--prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `jest-preset`
+        run: yarn packages/jest-preset run prepack
+      - name: Upload `jest-preset`
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+
+  jest-transformer--prepack:
+    name: Prepack `jest-transformer`
+    needs: rollup-config--prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `rollup-config`
+        uses: actions/download-artifact@v2
+        with:
+          name: rollup-config--dist
+          path: packages/rollup-config/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack `jest-transformer`
+        run: yarn packages/jest-transformer run prepack
+      - name: Upload `jest-transformer`
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+
   merge-coverage--prepack:
     name: Prepack `merge-coverage`
     needs: rollup-config--prepack
@@ -88,7 +144,41 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn packages/coverage run eslint
+        run: yarn packages/coverage run eslint  jest:
+
+  jest:
+    name: Jest
+    needs: [jest-preset--prepack, jest-transformer--prepack]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download `jest-preset`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-preset--dist
+          path: packages/jest-preset/dist
+      - name: Download `jest-transformer`
+        uses: actions/download-artifact@v2
+        with:
+          name: jest-transformer--dist
+          path: packages/jest-transformer/dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Unit test
+        run: yarn packages/coverage run jest
+      - name: Upload coverage
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage--jest--coverage
+          path: packages/coverage/jest/coverage
 
   rollup:
     name: Rollup

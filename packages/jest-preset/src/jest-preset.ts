@@ -14,6 +14,7 @@ const JEST_PRESET: Config = {
   collectCoverage: true,
   coverageDirectory: './jest/coverage',
   coverageReporters: COVERAGE_REPORTERS,
+  extensionsToTreatAsEsm: ['.ts'],
   resetMocks: true,
   resetModules: true,
   restoreMocks: true,
@@ -28,10 +29,10 @@ const JEST_PRESET: Config = {
   ],
 
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.{cjs,jsx,jsx,mjs,ts,tsx}',
-    '!<rootDir>/src/**/*.d.ts',
-    '!<rootDir>/src/**/*.e2e.ts',
-    '!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}',
+    '<rootDir>/*/**/*.{cjs,jsx,jsx,mjs,ts,tsx}',
+    '!<rootDir>/*/**/*.d.ts',
+    '!<rootDir>/*/**/*.e2e.ts',
+    '!<rootDir>/*/**/*.stories.{js,jsx,ts,tsx}',
   ],
 
   coverageThreshold: {

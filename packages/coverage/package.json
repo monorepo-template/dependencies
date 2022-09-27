@@ -38,8 +38,10 @@
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
+    "jest": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand",
+    "jest:watch": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand --watch",
     "prepack": "rollup --config",
-    "prepublish": "eslint '**/*'",
+    "prepublish": "eslint '**/*' && jest --runInBand",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
@@ -49,6 +51,7 @@
     "p-map": "^5.5.0"
   },
   "devDependencies": {
+    "@monorepo-template/jest-module-preset": "workspace:^",
     "@monorepo-template/rollup-config": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
     "@rollup/plugin-commonjs": "^22.0.2",
