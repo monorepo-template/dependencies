@@ -41,7 +41,7 @@
     "jest": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand",
     "jest:watch": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand --watch",
     "prepack": "rollup --config",
-    "prepublish": "eslint '**/*' && jest --runInBand",
+    "prepublish": "eslint '**/*' && yarn run jest",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
