@@ -72,8 +72,8 @@ jobs:
           yarn config set \
             npmScopes.${{ github.repository_owner }}.npmPublishRegistry \
             'https://npm.pkg.github.com';
-          yarn workspaces foreach --parallel --topological-dev npm publish \
-            --tolerate-republish;
+          yarn workspaces foreach --no-private --parallel --topological-dev \
+            npm publish --tolerate-republish;
 
   npm:
     name: Publish to NPM
@@ -100,8 +100,8 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
-          yarn workspaces foreach --parallel --topological-dev npm publish \
-            --tolerate-republish;
+          yarn workspaces foreach --no-private --parallel --topological-dev \
+            npm publish --tolerate-republish;
 
 on:
   push:
