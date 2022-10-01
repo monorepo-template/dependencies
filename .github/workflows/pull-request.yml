@@ -1,4 +1,4 @@
-name: Monorepo template dependencies
+name: Pull request
 
 jobs:
   analyze:
