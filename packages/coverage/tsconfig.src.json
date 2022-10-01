@@ -5,7 +5,6 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist/types/",
-    "target": "ES2017",
     "types": ["node", "../../types/nyc"]
   },
 
