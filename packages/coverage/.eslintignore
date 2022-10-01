@@ -1,2 +1,5 @@
+/.nyc_output/
+/coverage/
 /dist/
+/jest/
 /*.md

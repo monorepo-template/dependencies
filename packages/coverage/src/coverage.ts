@@ -1,15 +1,17 @@
 import mergeCoverage from '@monorepo-template/merge-coverage';
 import type { NYCThresholds } from 'nyc';
 import NYC from 'nyc';
+import DEFAULT_OUTPUT_DIRECTORY from './constants/default-output-directory';
+import DEFAULT_TEMPORARY_DIRECTORY from './constants/default-temporary-directory';
 
 interface Options {
+  readonly enableLogging?: boolean | undefined;
+  readonly outputDirectory?: string | undefined;
   readonly paths: readonly string[];
-  readonly tempDirectory?: string | undefined;
+  readonly temporaryDirectory?: string | undefined;
   readonly thresholds?: NYCThresholds | undefined;
   readonly workingDirectory: string;
 }
-
-const DEFAULT_TEMP_DIRECTORY = '.nyc_output';
 
 const DEFAULT_THRESHOLDS: NYCThresholds = {
   branches: 100,
@@ -19,22 +21,26 @@ const DEFAULT_THRESHOLDS: NYCThresholds = {
 };
 
 export default async function coverage({
+  enableLogging,
+  outputDirectory = DEFAULT_OUTPUT_DIRECTORY,
   paths,
-  tempDirectory = DEFAULT_TEMP_DIRECTORY,
+  temporaryDirectory = DEFAULT_TEMPORARY_DIRECTORY,
   thresholds = DEFAULT_THRESHOLDS,
   workingDirectory,
 }: Options): Promise<void> {
   await mergeCoverage(paths, {
-    outputDirectory: tempDirectory,
+    enableLogging,
+    outputDirectory: temporaryDirectory,
     workingDirectory,
   });
 
   const nyc: NYC = new NYC({
     cwd: workingDirectory,
+    reportDir: outputDirectory,
     reporter: ['clover', 'json', 'lcov', 'text'],
     skipEmpty: true,
     skipFull: false,
-    tempDirectory,
+    tempDirectory: temporaryDirectory,
   });
 
   await nyc.report();

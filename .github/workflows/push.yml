@@ -1,4 +1,4 @@
-name: tsconfig
+name: Push
 
 jobs:
   install:
@@ -16,8 +16,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  eslint:
-    name: ESLint
+  prepack:
+    name: Prepack
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -31,13 +31,17 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Lint
-        run: yarn packages/tsconfig run eslint
+      - name: Prepack
+        run: yarn run prepack
+      - name: Upload builds
+        uses: actions/upload-artifact@v2
+        with:
+          name: prepack
+          path: packages/*/dist
 
   github-packages:
     name: GitHub Packages
-    if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: prepack
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -45,6 +49,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download builds
+        uses: actions/download-artifact@v2
+        with:
+          name: prepack
+          path: packages/
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -56,22 +65,28 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Publish
-        working-directory: packages/tsconfig
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
-          yarn config set npmScopes.${{ github.repository_owner }}.npmPublishRegistry 'https://npm.pkg.github.com';
-          yarn npm publish --tolerate-republish;
+          yarn config set \
+            npmScopes.${{ github.repository_owner }}.npmPublishRegistry \
+            'https://npm.pkg.github.com';
+          yarn workspaces foreach --parallel --topological-dev npm publish \
+            --tolerate-republish;
 
   npm:
     name: Publish to NPM
-    if: ${{ github.event_name == 'push' }}
-    needs: eslint
+    needs: prepack
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Download builds
+        uses: actions/download-artifact@v2
+        with:
+          name: prepack
+          path: packages/
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -81,21 +96,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Publish
-        working-directory: packages/tsconfig
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: >
           yarn config set npmAuthToken $NPM_AUTH_TOKEN;
-          yarn npm publish --tolerate-republish;
+          yarn workspaces foreach --parallel --topological-dev npm publish \
+            --tolerate-republish;
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/tsconfig.yml'
-      - 'packages/tsconfig/**/*'
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/tsconfig.yml'
-      - 'packages/tsconfig/**/*'
-  workflow_dispatch:

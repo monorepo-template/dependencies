@@ -1,8 +1,8 @@
 /.git/
-/.yarn/cache/
-/.yarn/sdks/
-/.yarn/unplugged/
+/.yarn/
+/packages/
 /**/*.gz
 /**/*.md
+/.pnp.*
 /LICENSE
 /yarn.lock

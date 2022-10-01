@@ -13,8 +13,8 @@
     "access": "restricted"
   },
   "scripts": {
-    "eslint": "eslint '**/*' --ignore-pattern 'packages/**/*'",
-    "eslint:fix": "eslint '**/*' --fix --ignore-pattern 'packages/**/*'",
+    "eslint": "eslint '**/*'",
+    "eslint:fix": "eslint '**/*' --fix",
     "prepack": "yarn workspaces foreach --parallel --topological-dev run prepack",
     "prepublish": "yarn eslint && yarn test && yarn workspaces foreach --parallel --topological-dev run prepublish",
     "test": "monorepo-template-test"

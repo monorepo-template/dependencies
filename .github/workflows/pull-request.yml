@@ -1,0 +1,78 @@
+name: Pull request
+
+jobs:
+  install:
+    name: Install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+
+  prepack:
+    name: Prepack
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepack
+        run: yarn run prepack
+      - name: Upload builds
+        uses: actions/upload-artifact@v2
+        with:
+          name: prepack
+          path: packages/*/dist
+
+  prepublish:
+    name: Prepublish
+    needs: prepack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download builds
+        uses: actions/download-artifact@v2
+        with:
+          name: prepack
+          path: packages/
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          check-latest: true
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Prepublish
+        run: yarn run prepublish
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: prepublish
+          path: |
+            packages/*/.nyc_output
+            packages/*/coverage
+            packages/*/cypress/coverage
+            packages/*/cypress/screenshots
+            packages/*/cypress/videos
+            packages/*/jest
+
+on:
+  pull_request:
+    branches: [main]

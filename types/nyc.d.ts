@@ -8,14 +8,43 @@ declare module 'nyc' {
   }
 
   interface Options {
+    readonly _processInfo?: unknown;
+    readonly cache?: boolean | undefined;
+    readonly cacheDir?: string | undefined;
+    readonly compact?: boolean | undefined;
+    readonly completeCopy?: boolean | undefined;
     readonly cwd?: string | undefined;
+    readonly eager?: boolean | undefined;
+    readonly esModules?: unknown;
+    readonly exclude?: readonly string[] | undefined;
+    readonly excludeAfterRemap?: boolean | undefined;
+    readonly excludeNodeModules?: boolean | undefined;
+    readonly exitOnError?: boolean | undefined;
+    readonly extension?: readonly string[] | undefined;
+    readonly hookRequire?: unknown;
+    readonly hookRunInContext?: unknown;
+    readonly hookRunInThisContext?: unknown;
+    readonly ignoreClassMethod?: unknown;
+    readonly include?: readonly string[] | undefined;
+    readonly instrumenter?: string | undefined;
+    readonly isChildProcess?: boolean | undefined;
+    readonly parserPlugins?: unknown;
+    readonly preserveComments?: boolean | undefined;
+    readonly produceSourceMap?: boolean | undefined;
+    readonly reportDir?: string | undefined;
     readonly reporter: readonly (
       | string
       | readonly [string, Readonly<Record<string, unknown>>]
     )[];
+    readonly require?: readonly string[] | undefined;
+    readonly showProcessTree?: boolean | undefined;
     readonly skipEmpty?: boolean | undefined;
     readonly skipFull?: boolean | undefined;
+    readonly sourceMap?: boolean | undefined;
+    readonly subprocessBin?: string | undefined;
     readonly tempDirectory?: string | undefined;
+    readonly useSpawnWrap?: boolean | undefined;
+    readonly watermarks?: unknown;
   }
 
   export interface NYCThresholds {
