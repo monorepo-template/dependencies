@@ -3,7 +3,7 @@
 /.eslintignore
 /.eslintrc.cjs
 /.npmignore
-/babel.config.json
+/babel.config.rollup.json
 /jest.config.mjs
 /rollup.config.cjs
 /tsconfig.eslint.json
