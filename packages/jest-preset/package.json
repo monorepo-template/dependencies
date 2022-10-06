@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/jest-preset",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "author": "Charles Stover <monorepo-template-jest-preset@charlesstover.com>",
   "description": "Jest preset for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/jest-preset#readme",
@@ -22,13 +22,13 @@
       "import": "./jest-preset.js",
       "default": "./jest-preset.js"
     },
-    "./modules/empty-string.js": {
-      "import": "./modules/empty-string.js",
-      "default": "./modules/empty-string.js"
+    "./modules/empty-string.cjs": {
+      "require": "./modules/empty-string.cjs",
+      "default": "./modules/empty-string.cjs"
     },
-    "./modules/null.js": {
-      "import": "./modules/null.js",
-      "default": "./modules/null.js"
+    "./modules/null.cjs": {
+      "require": "./modules/null.cjs",
+      "default": "./modules/null.cjs"
     }
   },
   "funding": {
