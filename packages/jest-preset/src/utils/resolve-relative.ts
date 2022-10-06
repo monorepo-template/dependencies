@@ -6,6 +6,7 @@ export default function resolveRelative(...paths: readonly string[]): string {
     requireResolve('@monorepo-template/jest-preset'),
     '..',
     '..',
+    '..',
     ...paths,
   );
 }
