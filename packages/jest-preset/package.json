@@ -21,6 +21,14 @@
     "./jest-preset.js": {
       "import": "./jest-preset.js",
       "default": "./jest-preset.js"
+    },
+    "./modules/empty-string.js": {
+      "import": "./modules/empty-string.js",
+      "default": "./modules/empty-string.js"
+    },
+    "./modules/null.js": {
+      "import": "./modules/null.js",
+      "default": "./modules/null.js"
     }
   },
   "funding": {
