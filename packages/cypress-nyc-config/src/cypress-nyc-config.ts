@@ -9,6 +9,6 @@ export default {
   include: 'src/**',
   'report-dir': 'cypress/coverage',
   reporter: ['clover', 'json', 'lcov', 'text'],
-  'skip-empty': false,
-  'skip-full': false,
+  'skip-empty': true,
+  'skip-full': true,
 };

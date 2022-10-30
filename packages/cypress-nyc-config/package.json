@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/cypress-nyc-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Charles Stover <monorepo-template-cypress-nyc-config@charlesstover.com>",
   "description": "Cypress NYC configuration for monorepo templates",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-nyc-config#readme",
