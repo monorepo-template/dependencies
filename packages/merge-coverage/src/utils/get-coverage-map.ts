@@ -38,12 +38,18 @@ export default async function getCoverageMap({
 
   for (const path of paths) {
     const handlePMap = async (file: string): Promise<void> => {
-      if (enableLogging) {
-        console.log(`Merging coverage file: ${join(path, file)}`);
+      try {
+        const report: CoverageMap = await nyc.coverageFileLoad(file, path);
+        map.merge(report);
+        if (enableLogging) {
+          console.log('Merged coverage file:', join(path, file));
+        }
+      } catch (err: unknown) {
+        // `coverage-summary.json` is expected to throw a non-fatal error.
+        if (enableLogging) {
+          console.log('Failed to merge coverage file:', join(path, file), err);
+        }
       }
-
-      const report: CoverageMap = await nyc.coverageFileLoad(file, path);
-      map.merge(report);
     };
 
     const files: readonly string[] = await nyc.coverageFiles(path);
