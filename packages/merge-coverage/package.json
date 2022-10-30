@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/merge-coverage",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Charles Stover <monorepo-template-merge-coverage@charlesstover.com>",
   "description": "merges Cypress and Jest coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/merge-coverage#readme",

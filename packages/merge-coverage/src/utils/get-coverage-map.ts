@@ -4,6 +4,7 @@ import NYC from 'nyc';
 import pMap from 'p-map';
 import { join } from 'path';
 import P_MAP_OPTIONS from '../constants/p-map-options';
+import findCoverageSummaryObjectError from './find-coverage-summary-object-error';
 
 /**
  * Instead of getting coverage from all coverage files in a base directory, we
@@ -46,7 +47,11 @@ export default async function getCoverageMap({
         }
       } catch (err: unknown) {
         // `coverage-summary.json` is expected to throw a non-fatal error.
-        if (enableLogging) {
+        const findExpectedError = (): boolean =>
+          file === 'coverage-summary.json' &&
+          findCoverageSummaryObjectError(err);
+
+        if (enableLogging && !findExpectedError()) {
           console.log('Failed to merge coverage file:', join(path, file), err);
         }
       }
