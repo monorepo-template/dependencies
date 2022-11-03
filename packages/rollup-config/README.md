@@ -38,7 +38,7 @@ export default new RollupConfig()
   .setCjsDirectory('./dist/my-cjs') // or `null` to disable CJS output
   .setCjsExtension('cjs')
   .setDevelopmentTSConfigPath('./tsconfig.development.json')
-  .setEsmDirectorry('./dist/my-esm') // or `null` to disable ESM output
+  .setEsmDirectory('./dist/my-esm') // or `null` to disable ESM output
   .setEsmExtension('mjs') // default: js
   .setExternalDependency('react-router') // do not bundle `react-router`
   .setFileName('custom') // outputs `custom.js`
