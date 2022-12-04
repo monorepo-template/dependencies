@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/up",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-up@charlesstover.com>",
   "description": "`yarn up` on steroids",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/up#readme",
