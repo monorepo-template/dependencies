@@ -7,7 +7,7 @@ export default [
   // bin
   new RollupConfig()
     .addExternalDependency('..')
-    .addInput('yarn-up-skip-workspace', 'src/bin/skip.ts')
+    .addInput('up', 'src/bin/up.ts')
     .setCjsDirectory(null)
     .setEsmDirectory('./dist/esm/bin')
     .setTSConfigPath('./tsconfig.bin.json')
