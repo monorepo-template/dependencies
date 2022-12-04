@@ -6,7 +6,7 @@ export default [
 
   // bin
   new RollupConfig()
-    .addExternalDependency('..')
+    .addExternalDependency('@monorepo-template/up')
     .addInput('up', 'src/bin/up.ts')
     .setCjsDirectory(null)
     .setEsmDirectory('./dist/esm/bin')

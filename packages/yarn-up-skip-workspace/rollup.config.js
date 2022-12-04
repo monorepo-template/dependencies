@@ -6,7 +6,7 @@ export default [
 
   // bin
   new RollupConfig()
-    .addExternalDependency('..')
+    .addExternalDependency('yarn-up-skip-workspace')
     .addInput('yarn-up-skip-workspace', 'src/bin/yarn-up-skip-workspace.ts')
     .setCjsDirectory(null)
     .setEsmDirectory('./dist/esm/bin')
