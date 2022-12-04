@@ -1,8 +1,8 @@
+/**/.pnp.*
 /.git/
 /.vscode/settings.json
 /.yarn/
 /**/*.gz
-/.pnp.*
 /LICENSE
 /README.md
 /yarn.lock

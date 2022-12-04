@@ -1,7 +1,9 @@
 {
   "globals": {
     "__dirname": "readonly",
-    "module": "readonly"
+    "console": "readonly",
+    "module": "readonly",
+    "process": "readonly"
   },
 
   "rules": {

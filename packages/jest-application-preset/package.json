@@ -32,17 +32,17 @@
     "@monorepo-template/jest-preset": "workspace:^"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.1",
-    "@babel/preset-env": "^7.19.1",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/jest": "^29.0.3",
-    "@types/node": "^18.7.22",
-    "babel-jest": "^29.0.3",
-    "eslint": "^8.24.0",
+    "@types/jest": "^29.2.3",
+    "@types/node": "^18.11.10",
+    "babel-jest": "^29.3.1",
+    "eslint": "^8.29.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest-environment-jsdom": "^29.0.3"
+    "jest-environment-jsdom": "^29.3.1"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0",

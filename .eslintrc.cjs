@@ -17,11 +17,6 @@ module.exports = {
 
   overrides: [
     {
-      files: ['.eslintrc.cjs'],
-      extends: '@monorepo-template/eslint-config/typescript/eslint',
-    },
-
-    {
       files: ['*.cjs', '*.js', '*.jsx'],
       extends: '@monorepo-template/eslint-config/typescript/cjs',
     },
@@ -45,6 +40,11 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       extends: '@monorepo-template/eslint-config/typescript/ts',
+    },
+
+    {
+      files: ['.eslintrc.cjs'],
+      extends: '@monorepo-template/eslint-config/typescript/eslint',
     },
   ],
 
