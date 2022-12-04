@@ -1,7 +1,7 @@
 {
   "exclude": ["dist/*", "jest/", "node_modules/"],
   "extends": "@monorepo-template/tsconfig",
-  "include": ["**/*", ".eslintrc.cjs", "*.json"],
+  "include": ["**/*", "**/*.json", "**/.*"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }

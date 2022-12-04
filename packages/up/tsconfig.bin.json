@@ -1,0 +1,10 @@
+{
+  "exclude": ["src/bin/**/*.test.ts", "src/bin/test/"],
+  "extends": "@monorepo-template/tsconfig",
+  "include": ["src/bin/**/*.ts"],
+
+  "compilerOptions": {
+    "target": "ES2017",
+    "types": ["node"]
+  }
+}

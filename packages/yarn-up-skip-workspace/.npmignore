@@ -4,6 +4,7 @@
 /.eslintrc.cjs
 /.gitignore
 /.npmignore
+/jest.config.js
 /rollup.config.js
 /tsconfig.eslint.json
 /tsconfig.json
