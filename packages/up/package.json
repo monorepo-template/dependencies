@@ -1,18 +1,28 @@
 {
-  "name": "@monorepo-template/test",
-  "version": "2.2.0",
-  "author": "Charles Stover <monorepo-template-test@charlesstover.com>",
-  "description": "tests monorepos for best practices",
-  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/test#readme",
+  "name": "@monorepo-template/up",
+  "version": "1.0.0",
+  "author": "Charles Stover <monorepo-template-up@charlesstover.com>",
+  "description": "`yarn up` on steroids",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/up#readme",
   "license": "MIT",
+  "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
   "type": "module",
+  "types": "./dist/types/index.d.ts",
   "bin": {
-    "monorepo-template-test": "./dist/esm/bin/test.js"
+    "monorepo-template-up": "./dist/esm/bin/up.js"
   },
   "bugs": {
-    "email": "monorepo-template-test@charlesstover.com",
+    "email": "yarn-up-skip-workspace@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
   },
   "funding": {
     "type": "individual",
@@ -36,9 +46,7 @@
     "rollup:watch": "rollup --config --watch"
   },
   "dependencies": {
-    "@monorepo-template/tree-logger": "workspace:^",
-    "@types/js-yaml": "^4.0.5",
-    "js-yaml": "^4.1.0"
+    "yarn-up-skip-workspace": "workspace:^"
   },
   "devDependencies": {
     "@monorepo-template/rollup-config": "workspace:^",

@@ -1,6 +1,6 @@
 {
   "extends": "@monorepo-template/tsconfig",
-  "include": ["**/*", "**/.*", "*.json"],
+  "include": ["**/*", "**/.*", "**/*.json"],
   "compilerOptions": {
     "target": "ES2017",
     "types": ["jest", "node", "../../types/nyc"]

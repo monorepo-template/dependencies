@@ -2,6 +2,7 @@
 /.git/
 /.vscode/settings.json
 /.yarn/
+/packages/up/src/bin/up.ts
 /**/*.gz
 /LICENSE
 /README.md

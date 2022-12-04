@@ -1,18 +1,26 @@
 {
-  "name": "@monorepo-template/test",
-  "version": "2.2.0",
-  "author": "Charles Stover <monorepo-template-test@charlesstover.com>",
-  "description": "tests monorepos for best practices",
-  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/test#readme",
+  "name": "yarn-up-skip-workspace",
+  "version": "1.0.0",
+  "author": "Charles Stover <yarn-up-skip-workspace@charlesstover.com>",
+  "description": "`yarn up` without workspace dependencies",
+  "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/yarn-up-skip-workspace#readme",
   "license": "MIT",
+  "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
   "type": "module",
-  "bin": {
-    "monorepo-template-test": "./dist/esm/bin/test.js"
-  },
+  "types": "./dist/types/index.d.ts",
+  "bin": "./dist/esm/bin/yarn-up-skip-workspace.js",
   "bugs": {
-    "email": "monorepo-template-test@charlesstover.com",
+    "email": "yarn-up-skip-workspace@charlesstover.com",
     "url": "https://github.com/monorepo-template/dependencies/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
   },
   "funding": {
     "type": "individual",
@@ -34,11 +42,6 @@
     "prepublish": "eslint '**/*'",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
-  },
-  "dependencies": {
-    "@monorepo-template/tree-logger": "workspace:^",
-    "@types/js-yaml": "^4.0.5",
-    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@monorepo-template/rollup-config": "workspace:^",

@@ -1,5 +1,5 @@
-import filterOptionsByKeepWorkspaceDependency from './filter-options-by-keep-workspace-dependency.js';
-import filterOptionsByUseResolvedFromLatest from './filter-options-by-use-resolved-from-latest.js';
+import filterOptionsByKeepWorkspaceDependency from './filter-options-by-keep-workspace-dependency';
+import filterOptionsByUseResolvedFromLatest from './filter-options-by-use-resolved-from-latest';
 
 /*
 Acceptable options:
@@ -7,7 +7,7 @@ Acceptable options:
 - Use latest dependencies.
 */
 
-export default function filterOptionsByAcceptable(option) {
+export default function filterOptionsByAcceptable(option: string): boolean {
   return (
     // Select to keep workspace dependencies.
     filterOptionsByKeepWorkspaceDependency(option) ||

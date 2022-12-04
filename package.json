@@ -18,7 +18,7 @@
     "prepack": "yarn workspaces foreach --parallel --topological-dev run prepack",
     "prepublish": "yarn eslint && yarn test && yarn workspaces foreach --no-private --parallel --topological-dev run prepublish",
     "test": "monorepo-template-test",
-    "up": "yarn node ./scripts/up/index.js"
+    "up": "monorepo-template-up"
   },
   "workspaces": [
     "packages/*"
@@ -27,6 +27,7 @@
     "@monorepo-template/eslint-config": "workspace:^",
     "@monorepo-template/test": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
+    "@monorepo-template/up": "workspace:^",
     "@types/node": "^18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
