@@ -1,14 +1,11 @@
 /// <reference types="jest" />
 import JEST_PRESET from '.';
-import assert from './test/utils/assert';
 import mapModuleNameMapperToPatterns from './test/utils/map-module-name-mapper-to-patterns';
 
 const { moduleNameMapper } = JEST_PRESET;
 
 describe('JEST_PRESET', (): void => {
   describe('moduleNameMapper', (): void => {
-    assert(typeof moduleNameMapper !== 'undefined');
-
     const PATTERNS: readonly RegExp[] =
       mapModuleNameMapperToPatterns(moduleNameMapper);
 
