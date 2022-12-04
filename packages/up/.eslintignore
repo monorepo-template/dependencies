@@ -1,3 +1,5 @@
 /dist/
 /jest/
+/node_modules/
+/src/bin/up.ts
 /*.md

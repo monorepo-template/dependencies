@@ -45,7 +45,8 @@ export default async function yarnUpSkipWorkspace(
       child.stdin.write(chunk);
     };
 
-    const handleStdOutData = (chunk: Buffer | string): void => {
+    // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+    const handleStdOutData = (chunk: Readonly<Buffer> | string): void => {
       const chunkStr: string = chunk.toString();
       const options: readonly string[] = chunkStr.split('\n');
 
