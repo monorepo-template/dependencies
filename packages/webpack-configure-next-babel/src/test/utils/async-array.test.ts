@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import asyncArray from '../utils/async-array';
 
 describe('asyncArray', (): void => {

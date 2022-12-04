@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import noop from './noop';
 
 describe('noop', (): void => {

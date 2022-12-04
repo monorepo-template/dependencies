@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import returnNull from '../utils/return-null';
 
 describe('returnNull', (): void => {

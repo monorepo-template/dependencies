@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import validateDefined from './validate-defined';
 
 describe('validateDefined', (): void => {

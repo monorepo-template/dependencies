@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import ROLLUP_CONFIG from '.';
 
 describe('@monorepo-template/rollup-config', () => {

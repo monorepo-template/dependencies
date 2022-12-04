@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import validateFunction from './validate-function';
 
 describe('validateFunction', (): void => {

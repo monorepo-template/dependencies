@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import getCoverageThreshold from './get-coverage-threshold';
 
 const DEFAULT_COVERAGE_THRESHOLD = 100;

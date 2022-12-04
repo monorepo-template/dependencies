@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import cypressCoverageConfigOverride from '.';
 import ABSOLUTE_TSCONFIG_PATH from './constants/absolute-tsconfig-path';
 import BABEL_PLUGIN_ISTANBUL_PATH from './constants/babel-plugin-istanbul-path';

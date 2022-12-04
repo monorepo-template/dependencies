@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import type {
   NextConfigComplete,
   WebpackConfigContext,

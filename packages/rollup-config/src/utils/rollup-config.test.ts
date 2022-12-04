@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import type { OutputOptions, Plugin, RollupOptions } from 'rollup';
 import NO_JSX_RUNTIME_PLUGIN from '../constants/no-jsx-runtime-plugin';
 import findCjsOutputOptions from '../test/utils/find-cjs-output-options';

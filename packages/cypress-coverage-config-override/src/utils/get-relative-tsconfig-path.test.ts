@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import getRelativeTSConfigPath from './get-relative-tsconfig-path';
 
 const TEST_TSCONFIG_PATH = './tsconfig.test.json';

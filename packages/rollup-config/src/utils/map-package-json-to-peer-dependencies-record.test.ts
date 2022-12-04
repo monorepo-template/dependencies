@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import mapPackageJsonToPeerDependenciesRecord from './map-package-json-to-peer-dependencies-record';
 
 describe('mapPackageJsonToPeerDependenciesRecord', () => {
