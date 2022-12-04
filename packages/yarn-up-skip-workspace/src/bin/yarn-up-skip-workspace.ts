@@ -1,4 +1,4 @@
-import yarnUpSkipWorkspace from '..';
+import yarnUpSkipWorkspace from 'yarn-up-skip-workspace';
 const { argv } = process;
 
 const ARGV_DEPENDENCIES_INDEX = 2;

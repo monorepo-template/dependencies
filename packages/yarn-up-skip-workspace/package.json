@@ -1,6 +1,6 @@
 {
   "name": "yarn-up-skip-workspace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Charles Stover <yarn-up-skip-workspace@charlesstover.com>",
   "description": "`yarn up` without workspace dependencies",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/yarn-up-skip-workspace#readme",
