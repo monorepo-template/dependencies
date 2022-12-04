@@ -17,12 +17,12 @@ execute the `ignoreCypressDependencyLogs` function.
 ```js
 import ignoreCypressDependencyLogs from '@monorepo-template/ignore-cypress-dependency-logs';
 
-beforeEach(
+beforeEach(() => {
   ignoreCypressDependencyLogs([
     'https://cloudflareinsights.com/', // ignore Cloudflare
     'https://o592283.ingest.sentry.io/', // ignore Sentry
     'https://rum.browser-intake-datadoghq.com/', // ignore Datadog
     'https://session-replay.browser-intake-datadoghq.com/', // ignore Datadog
-  ]),
-);
+  ]);
+});
 ```
