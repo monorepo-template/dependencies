@@ -2,7 +2,7 @@
   "name": "@monorepo-template/dependencies",
   "version": "1.0.0",
   "license": "MIT",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.3.0",
   "private": true,
   "type": "module",
   "funding": {
@@ -17,7 +17,8 @@
     "eslint:fix": "eslint '**/*' --fix",
     "prepack": "yarn workspaces foreach --parallel --topological-dev run prepack",
     "prepublish": "yarn eslint && yarn test && yarn workspaces foreach --no-private --parallel --topological-dev run prepublish",
-    "test": "monorepo-template-test"
+    "test": "monorepo-template-test",
+    "up": "yarn node ./scripts/up/index.js"
   },
   "workspaces": [
     "packages/*"
@@ -26,16 +27,16 @@
     "@monorepo-template/eslint-config": "workspace:^",
     "@monorepo-template/test": "workspace:^",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.22",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "@yarnpkg/sdks": "^3.0.0-rc.21",
-    "ansi-styles": "^6.1.1",
-    "eslint": "^8.24.0",
+    "@types/node": "^18.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.32",
+    "ansi-styles": "^6.2.1",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "js-yaml": "^4.1.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.3"
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.3"
   }
 }

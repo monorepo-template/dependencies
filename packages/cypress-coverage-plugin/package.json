@@ -43,15 +43,15 @@
     "@monorepo-template/cypress-nyc-config": "workspace:^"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.1",
-    "@babel/preset-env": "^7.19.1",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@cypress/code-coverage": "^3.10.0",
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.22",
-    "babel-loader": "^8.2.5",
-    "cypress": "^10.8.0",
-    "eslint": "^8.24.0",
-    "webpack": "^5.74.0"
+    "@types/node": "^18.11.10",
+    "babel-loader": "^9.1.0",
+    "cypress": "^11.2.0",
+    "eslint": "^8.29.0",
+    "webpack": "^5.75.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.1",

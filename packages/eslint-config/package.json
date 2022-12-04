@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Charles Stover <monorepo-template-eslint-config@charlesstover.com>",
   "description": "popular ESLint configurations for monorepos",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config#readme",
@@ -84,19 +84,19 @@
   },
   "devDependencies": {
     "@monorepo-template/tsconfig": "workspace:^",
-    "@types/node": "^18.7.22",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "eslint": "^8.24.0",
+    "@types/node": "^18.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.29.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "optionalDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "peerDependencies": {
