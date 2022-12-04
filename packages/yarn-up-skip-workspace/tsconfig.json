@@ -4,6 +4,6 @@
   "include": ["src/**/*.ts"],
   "compilerOptions": {
     "target": "ES2017",
-    "types": ["jest", "node"]
+    "types": ["node"]
   }
 }

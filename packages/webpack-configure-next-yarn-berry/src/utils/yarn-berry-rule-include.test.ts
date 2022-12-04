@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import yarnBerryRuleInclude from './yarn-berry-rule-include';
 
 describe('yarnBerryRuleInclude', (): void => {

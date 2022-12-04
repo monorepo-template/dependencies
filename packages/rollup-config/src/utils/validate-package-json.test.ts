@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import validatePackageJson from './validate-package-json';
 
 describe('validatePackageJson', (): void => {

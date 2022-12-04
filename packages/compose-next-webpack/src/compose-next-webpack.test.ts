@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import type { WebpackConfigContext } from 'next/dist/server/config-shared';
 import type { Configuration } from 'webpack';
 import composeNextWebpack from '.';

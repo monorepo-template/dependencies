@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import { existsSync, rmSync } from 'fs';
 import { join } from 'path';
 import coverage from '.';

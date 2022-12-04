@@ -4,6 +4,6 @@
   "include": ["bin/**/*.ts", "src/**/*.ts"],
   "compilerOptions": {
     "target": "ES2017",
-    "types": ["jest", "node", "../../types/nyc"]
+    "types": ["node", "../../types/nyc"]
   }
 }

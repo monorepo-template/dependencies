@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import mapPackageJsonToDependenciesRecord from './map-package-json-to-dependencies-record';
 
 describe('mapPackageJsonToDependenciesRecord', () => {

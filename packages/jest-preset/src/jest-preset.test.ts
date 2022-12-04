@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import JEST_PRESET from '.';
 import mapModuleNameMapperToPatterns from './test/utils/map-module-name-mapper-to-patterns';
 

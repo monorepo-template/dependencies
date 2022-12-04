@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import validateArray from './validate-array';
 
 describe('validateArray', (): void => {

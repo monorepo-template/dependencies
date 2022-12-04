@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import type { RuleSetRule } from 'webpack';
 import YARN_BERRY_RULE_TEST from '../constants/yarn-berry-rule-test';
 import yarnBerryRuleInclude from '../utils/yarn-berry-rule-include';

@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import type { WebpackConfigContext } from 'next/dist/server/config-shared';
 import type { Configuration, RuleSetRule } from 'webpack';
 import NON_BABEL_RULES from './test/constants/non-babel-rules';
