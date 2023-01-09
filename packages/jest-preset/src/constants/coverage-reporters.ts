@@ -7,6 +7,7 @@ const COVERAGE_REPORTERS: Required<Config>['coverageReporters'] = [
   [
     'text',
     {
+      skipEmpty: true,
       skipFull: true,
     },
   ],
