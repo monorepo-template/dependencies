@@ -1,12 +1,13 @@
 {
   "name": "@monorepo-template/coverage",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Charles Stover <monorepo-template-coverage@charlesstover.com>",
   "description": "generate coverage report",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage#readme",
   "license": "MIT",
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
+  "repository": "github:monorepo-template/dependencies",
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "bin": {
@@ -31,17 +32,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand",
     "jest:watch": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand --watch",
-    "prepack": "rollup --config",
-    "prepublish": "eslint '**/*' && yarn run jest",
+    "prepack": "yarn run rollup",
+    "prepublish": "yarn run eslint && yarn run jest",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
@@ -76,7 +73,7 @@
     "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "istanbul-lib-coverage": "^3.0.0",
-    "nyc": "^15.0.0"
+    "istanbul-lib-coverage": ">=3.0.0",
+    "nyc": ">=15.0.0"
   }
 }

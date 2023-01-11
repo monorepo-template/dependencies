@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
+  "repository": "github:monorepo-template/dependencies",
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "bugs": {
@@ -31,17 +32,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest --runInBand",
     "jest:watch": "jest --runInBand --watch",
-    "prepack": "rollup --config",
-    "prepublish": "eslint '**/*'",
+    "prepack": "yarn run rollup",
+    "prepublish": "yarn run eslint",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },

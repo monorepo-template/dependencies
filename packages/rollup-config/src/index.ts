@@ -1,1 +1,1 @@
-export { default } from './rollup-config';
+export { RollupConfig, default } from './rollup-config';

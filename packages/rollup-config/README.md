@@ -24,11 +24,11 @@ want to [customize your configuration](#custom).
 
 ## Custom
 
-To create a customized Rollup configuration, import from `/new`:
+To create a customized Rollup configuration, import the `RollupConfig` class:
 
 ```js
 // rollup.config.js
-import RollupConfig from '@monorepo-template/rollup-config/new';
+import { RollupConfig } from '@monorepo-template/rollup-config';
 
 export default new RollupConfig()
   .addInput('button', 'src/components/button/index.ts')

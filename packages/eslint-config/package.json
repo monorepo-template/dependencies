@@ -1,11 +1,12 @@
 {
   "name": "@monorepo-template/eslint-config",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Charles Stover <monorepo-template-eslint-config@charlesstover.com>",
   "description": "popular ESLint configurations for monorepos",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config#readme",
   "license": "MIT",
   "main": "./rules/index.json",
+  "repository": "github:monorepo-template/dependencies",
   "type": "commonjs",
   "bugs": {
     "email": "monorepo-template-eslint-config@charlesstover.com",
@@ -72,15 +73,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "prepack": "exit 0",
-    "prepublish": "eslint '**/*'"
+    "prepublish": "yarn run eslint"
   },
   "devDependencies": {
     "@monorepo-template/tsconfig": "workspace:^",
@@ -100,6 +97,6 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "peerDependencies": {
-    "eslint": "^8.0.0"
+    "eslint": ">=8.0.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/cypress-coverage-plugin",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Charles Stover <monorepo-template-cypress-coverage-plugin@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/cypress-coverage-plugin#readme",
@@ -37,7 +37,7 @@
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "prepack": "exit 0",
-    "prepublish": "eslint '**/*'"
+    "prepublish": "yarn run eslint"
   },
   "dependencies": {
     "@monorepo-template/cypress-nyc-config": "workspace:^"
@@ -54,11 +54,11 @@
     "webpack": "^5.75.0"
   },
   "peerDependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "@cypress/code-coverage": "^3.0.0",
-    "babel-loader": "^8.0.2",
-    "cypress": "^9.0.0 || ^10.0.0",
-    "webpack": "^4 || ^5"
+    "@babel/core": ">=7.0.0",
+    "@babel/preset-env": ">=7.0.0",
+    "@cypress/code-coverage": ">=3.0.0",
+    "babel-loader": ">=8.0.0",
+    "cypress": ">=9.0.0",
+    "webpack": ">=4"
   }
 }

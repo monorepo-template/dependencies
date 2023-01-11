@@ -3,6 +3,6 @@
   "extends": "@monorepo-template/tsconfig",
   "include": ["**/*"],
   "compilerOptions": {
-    "types": ["cypress"]
+    "types": ["cypress", "node", "../../types/nyc"]
   }
 }

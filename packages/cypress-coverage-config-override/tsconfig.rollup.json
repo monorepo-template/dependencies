@@ -1,17 +1,10 @@
 {
+  "exclude": ["src/**/test/", "src/**/*.test.ts"],
   "extends": "@monorepo-template/tsconfig",
   "include": ["src/**/*.ts"],
 
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist/types/"
-  },
-
-  "exclude": [
-    "dist/",
-    "jest/",
-    "node_modules/",
-    "src/**/*.test.ts",
-    "src/test/"
-  ]
+  }
 }

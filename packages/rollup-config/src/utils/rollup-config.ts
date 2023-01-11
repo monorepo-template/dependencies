@@ -40,7 +40,7 @@ export default class RollupConfig {
     plugins: readonly Readonly<Plugin>[],
   ) => Plugin[])[] = [];
 
-  private _tsconfigPath = './tsconfig.json';
+  private _tsconfigPath = './tsconfig.rollup.json';
 
   public get developmentTSConfigPath(): string {
     return this._developmentTSConfigPath;

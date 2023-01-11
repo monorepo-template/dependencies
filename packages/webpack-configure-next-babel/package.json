@@ -1,12 +1,13 @@
 {
   "name": "@monorepo-template/webpack-configure-next-babel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Charles Stover <monorepo-template-webpack-configure-next-babel@charlesstover.com>",
   "description": "Webpack configuration to support custom Babel configurations for Next applications",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/webpack-configure-next-babel#readme",
   "license": "MIT",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
+  "repository": "github:monorepo-template/dependencies",
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "bugs": {
@@ -30,17 +31,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest --runInBand",
     "jest:watch": "jest --runInBand --watch",
-    "prepack": "rollup --config",
-    "prepublish": "eslint '**/*' && jest --runInBand",
+    "prepack": "yarn run rollup",
+    "prepublish": "yarn run eslint && yarn run jest",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
@@ -72,7 +69,7 @@
     "webpack": "^5.75.0"
   },
   "peerDependencies": {
-    "next": "^12.0.0",
-    "webpack": "^5.0.0"
+    "next": ">=12.0.0",
+    "webpack": ">=5.0.0"
   }
 }

@@ -1,6 +1,7 @@
 {
   "extends": "@monorepo-template/tsconfig",
   "include": ["**/*.ts", "**/*.tsx"],
+
   "exclude": [
     ".git/",
     ".idea/",

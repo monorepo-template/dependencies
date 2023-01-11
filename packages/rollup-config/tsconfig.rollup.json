@@ -1,4 +1,5 @@
 {
+  "exclude": ["src/**/test/", "src/**/*.test.ts"],
   "extends": "@monorepo-template/tsconfig",
   "include": ["src/**/*.ts"],
 
@@ -6,13 +7,5 @@
     "declaration": true,
     "declarationDir": "./dist/types/",
     "types": ["node"]
-  },
-
-  "exclude": [
-    "dist/",
-    "jest/",
-    "node_modules/",
-    "src/**/*.test.ts",
-    "src/test/"
-  ]
+  }
 }

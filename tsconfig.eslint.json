@@ -1,5 +1,6 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "@monorepo-template/tsconfig",
+  "include": ["**/*", "**/*.json", "**/.*", "**/.*.json"],
 
   "exclude": [
     ".git/",
@@ -9,21 +10,5 @@
     ".yarn/unplugged/",
     "node_modules/",
     "packages/*/node_modules/"
-  ],
-
-  "include": [
-    "**/.eslintrc.cjs",
-    "**/.eslintrc.json",
-    "**/.prettierrc.json",
-    "**/.yarnrc.yml",
-    "**/*.cjs",
-    "**/*.d.ts",
-    "**/*.js",
-    "**/*.json",
-    "**/*.jsx",
-    "**/*.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.yml"
   ]
 }

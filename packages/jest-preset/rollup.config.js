@@ -1,4 +1,4 @@
-import RollupConfig from '@monorepo-template/rollup-config/new';
+import { RollupConfig } from '@monorepo-template/rollup-config';
 
 export default new RollupConfig()
   .setCjsDirectory(null)
