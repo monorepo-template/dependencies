@@ -112,10 +112,22 @@ export default class RollupConfig {
 
     return {
       chunkFileNames: `${this.fileName}-[hash].${this.cjsExtension}`,
+      compact: !IS_DEV,
       dir: this.cjsDirectory,
       entryFileNames: `${this.fileName}.${this.cjsExtension}`,
       exports: 'named',
       format: 'cjs',
+
+      /*
+      `interop: 'auto'` matches TypeScript's `esModuleInterop` functionality.
+      This is the behavior we want for projects written in TypeScript, so that
+        the transpiled CommonJS code supports `default` imports.
+      ```
+      const useForceUpdate = require('use-force-update'); // CommonJS
+      import useForceUpdate from 'use-force-update';      // ECMAScript
+      ```
+      */
+      interop: 'auto',
       sourcemap: this.developmentMode,
     };
   }
@@ -127,6 +139,7 @@ export default class RollupConfig {
 
     return {
       chunkFileNames: `${this.fileName}-[hash].${this.esmExtension}`,
+      compact: !IS_DEV,
       dir: this.esmDirectory,
       entryFileNames: `${this.fileName}.${this.esmExtension}`,
       format: 'es',
