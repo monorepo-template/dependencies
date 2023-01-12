@@ -9,4 +9,8 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
+
+  rules: {
+    '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+  },
 };
