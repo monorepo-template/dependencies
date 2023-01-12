@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 declare module 'nyc' {
   interface Config {
     readonly excludeAfterRemap: boolean;
@@ -9,8 +11,10 @@ declare module 'nyc' {
 
   interface Options {
     readonly _processInfo?: unknown;
+    readonly all?: boolean | undefined;
     readonly cache?: boolean | undefined;
     readonly cacheDir?: string | undefined;
+    readonly checkCoverage?: boolean | undefined;
     readonly compact?: boolean | undefined;
     readonly completeCopy?: boolean | undefined;
     readonly cwd?: string | undefined;
@@ -25,7 +29,7 @@ declare module 'nyc' {
     readonly hookRunInContext?: unknown;
     readonly hookRunInThisContext?: unknown;
     readonly ignoreClassMethod?: unknown;
-    readonly include?: readonly string[] | undefined;
+    readonly include?: string | readonly string[] | undefined;
     readonly instrumenter?: string | undefined;
     readonly isChildProcess?: boolean | undefined;
     readonly parserPlugins?: unknown;

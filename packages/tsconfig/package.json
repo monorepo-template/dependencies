@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "./tsconfig.json",
   "module": "./tsconfig.json",
+  "repository": "github:monorepo-template/dependencies",
   "type": "module",
   "bugs": {
     "email": "monorepo-template-tsconfig@charlesstover.com",
@@ -19,21 +20,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "prepack": "exit 0",
-    "prepublish": "eslint '**/*'"
+    "prepublish": "yarn run eslint"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
     "eslint": "^8.29.0"
-  },
-  "peerDependencies": {
-    "@types/node": "*"
   }
 }

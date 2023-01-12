@@ -1,12 +1,13 @@
 {
   "name": "@monorepo-template/cypress-coverage-config-override",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "Charles Stover <monorepo-template-coverage-config-override@charlesstover.com>",
   "description": "react-app-rewired override for Cypress test coverage",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/coverage-config-override#readme",
   "license": "MIT",
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
+  "repository": "github:monorepo-template/dependencies",
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "bugs": {
@@ -31,17 +32,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/monorepo-template/dependencies.git"
-  },
   "scripts": {
     "eslint": "eslint '**/*'",
     "eslint:fix": "eslint '**/*' --fix",
     "jest": "jest --runInBand",
     "jest:watch": "jest --runInBand --watch",
-    "prepack": "rollup --config",
-    "prepublish": "eslint '**/*' && jest --runInBand",
+    "prepack": "yarn run rollup",
+    "prepublish": "yarn run eslint && yarn run jest",
     "rollup": "rollup --config",
     "rollup:watch": "rollup --config --watch"
   },
@@ -71,7 +68,7 @@
     "webpack": "^5.75.0"
   },
   "peerDependencies": {
-    "babel-plugin-istanbul": "^6.0.0",
-    "webpack": "^5.0.0"
+    "babel-plugin-istanbul": ">=6.0.0",
+    "webpack": ">=5.0.0"
   }
 }

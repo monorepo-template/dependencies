@@ -1,5 +1,5 @@
 {
-  "exclude": ["src/bin/**/*.test.ts", "src/bin/test/"],
+  "exclude": ["src/bin/**/test/", "src/bin/**/*.test.ts"],
   "extends": "@monorepo-template/tsconfig",
   "include": ["src/bin/**/*.ts"],
 

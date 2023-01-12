@@ -1,4 +1,5 @@
 /jest/
+/src/types/
 /.eslintignore
 /.eslintrc.cjs
 /.gitignore
