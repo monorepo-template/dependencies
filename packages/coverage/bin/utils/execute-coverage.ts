@@ -20,7 +20,7 @@ export default async function executeCoverage(cwd: string): Promise<void> {
 
   const COVERAGE_PATHS: readonly string[] = [
     jestCoverageDirectory,
-    ...mapCypressCoverageDirectoryToPaths(jestCoverageDirectory),
+    ...mapCypressCoverageDirectoryToPaths(cypressCoverageDirectory),
   ];
 
   await coverage({
