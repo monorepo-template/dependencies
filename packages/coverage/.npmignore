@@ -5,10 +5,12 @@
 /scripts/
 /src/
 /.eslintignore
-/.eslintrc.json
+/.eslintrc.cjs
 /.gitignore
 /.npmignore
+/jest.config.js
 /rollup.config.js
 /tsconfig.bin.json
 /tsconfig.eslint.json
 /tsconfig.json
+/tsconfig.src.json
