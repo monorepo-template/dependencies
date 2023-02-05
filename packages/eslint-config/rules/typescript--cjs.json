@@ -3,7 +3,8 @@
     "__dirname": "readonly",
     "console": "readonly",
     "module": "readonly",
-    "process": "readonly"
+    "process": "readonly",
+    "require": "readonly"
   },
 
   "rules": {
