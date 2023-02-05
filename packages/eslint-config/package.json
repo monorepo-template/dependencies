@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-template/eslint-config",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Charles Stover <monorepo-template-eslint-config@charlesstover.com>",
   "description": "popular ESLint configurations for monorepos",
   "homepage": "https://github.com/monorepo-template/dependencies/tree/main/packages/eslint-config#readme",
