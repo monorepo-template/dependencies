@@ -14,45 +14,14 @@ yarn add --dev "@monorepo-template/eslint-config"
 Pick the rules you want to use below, install their dependencies, and merge
 their provided configurations with any existing configurations you have.
 
-- [All-in-one configurations](#all-in-one-configurations)
-  - [React module](#react-module)
-- [Individual configurations](#individual-configurations)
-  - [React fixable](#react-fixable)
-  - [React strict](#react-strict)
-  - [React TypeScript](#react-typescript)
-  - [TypeScript](#typescript)
-  - [TypeScript fixable](#typescript-fixable)
-  - [TypeScript strict](#typescript-strict)
+- [React fixable](#react-fixable)
+- [React strict](#react-strict)
+- [React TypeScript](#react-typescript)
+- [TypeScript](#typescript)
+- [TypeScript fixable](#typescript-fixable)
+- [TypeScript strict](#typescript-strict)
 
-## All-in-one configurations
-
-If you want a single configuration for your package, these handy modules compile
-several of the individual configurations together for convenience.
-
-### React module
-
-**For:** packages that vend React components
-
-**Dependencies:**
-
-```sh
-yarn add --dev eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
-```
-
-**Configuration:**
-
-```json
-{
-  "extends": ["@monorepo-template/eslint-config/react-module"]
-}
-```
-
-## Individual configurations
-
-If you want to build your own configuration, you can use these individual
-collections of rules.
-
-### React fixable
+## React fixable
 
 **For:** adhering to _fixable_ rules that require no manual effort
 
@@ -76,7 +45,7 @@ yarn add --dev eslint-plugin-react
   conflict with `plugin:prettier/recommended`. We recommend you additionally
   extend it.
 
-### React strict
+## React strict
 
 **For:** strongly opinionated rules
 
@@ -105,7 +74,7 @@ yarn add --dev eslint-plugin-react eslint-plugin-react-hooks
 - We recommend you additionally extend `plugin:jsx-a11y/strict`,
   `plugin:react/recommended`, and `plugin:react-hooks/recommended`.
 
-### React TypeScript
+## React TypeScript
 
 **For:** React packages written in TypeScript
 
@@ -132,7 +101,7 @@ yarn add --dev eslint-plugin-react eslint-plugin-react-hooks
   that are already covered by [TypeScript](#typescript). We recommended that you
   additionally extend it by copying its configuration.
 
-### TypeScript
+## TypeScript
 
 **For:** TypeScript packages
 
@@ -184,7 +153,7 @@ yarn add --dev "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
   using the [TypeScript fixable](#typescript-fixable) and
   [TypeScript strict](#typescript-strict) rule sets.
 
-### TypeScript fixable
+## TypeScript fixable
 
 **For:** adhering to _fixable_ rules that require no manual effort
 
@@ -214,7 +183,7 @@ yarn add --dev "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
 }
 ```
 
-### TypeScript strict
+## TypeScript strict
 
 **For:** strongly opinionated rules
 
@@ -238,5 +207,5 @@ yarn add --dev "@typescript-eslint/eslint-plugin" "@typescript-eslint/parser"
   already covered by [TypeScript fixable](#typescript-fixable). We recommend
   that you additionally extend it by copying its configuration.
 - `@monorepo-template/eslint-config-typescript-strict` does not include rules
-  already covered by `@typescript-eslint/recommended`. We recommended that you
-  additionally extend it.
+  already covered by `plugin:@typescript-eslint/recommended`. We recommended
+  that you additionally extend it.
