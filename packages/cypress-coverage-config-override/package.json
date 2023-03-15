@@ -65,7 +65,7 @@
     "rollup-plugin-typescript2": "^0.34.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.3",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.0"
   },
   "peerDependencies": {
     "babel-plugin-istanbul": ">=6.0.0",
