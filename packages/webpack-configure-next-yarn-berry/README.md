@@ -1,7 +1,7 @@
 # Configure Yarn Berry for Next
 
 This package offers a Webpack configuration to support Yarn Berry (Yarn v2 and
-v3) for Next applicatioons.
+v3) for Next applications.
 
 ## Install
 
